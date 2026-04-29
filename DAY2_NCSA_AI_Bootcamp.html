@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลักสูตรการพัฒนาองค์ความรู้และการประยุกต์ใช้ปัญญาประดิษฐ์อย่างสร้างสรรค์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #020617; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .slide-container {
+            display: none; /* ซ่อนสไลด์ทั้งหมดไว้ก่อน */
+            align-items: center;
+            background-color: #0f172a; 
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            flex-direction: column;
+            font-family: 'Prompt', sans-serif;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+            flex-shrink: 0;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .slide-container.active {
+            display: flex; /* แสดงเฉพาะสไลด์ที่กำลัง Active */
+            transform: scale(var(--scale, 1));
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(var(--scale, 1)) translateY(20px); }
+            to { opacity: 1; transform: scale(var(--scale, 1)) translateY(0); }
+        }
+        
+        /* Navigation UI */
+        .nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.05);
+            color: #94a3b8;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 60px; height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.15); color: #fff; transform: translateY(-50%) scale(1.1); }
+        .nav-prev { left: 40px; }
+        .nav-next { right: 40px; }
+        
+        /* Fullscreen Button */
+        .fullscreen-btn {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            transform: none; /* ยกเลิก translateY(-50%) ของ nav-btn */
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            z-index: 101;
+        }
+        .fullscreen-btn:hover { transform: scale(1.1); }
+
+        .controls-hint {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #475569;
+            font-size: 14px;
+            z-index: 100;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        .slide-container::before {
+            content: ''; position: absolute; top: -50%; left: -10%; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(15, 23, 42, 0) 70%); border-radius: 50%; z-index: 0;
+        }
+        .slide-container::after {
+            content: ''; position: absolute; bottom: -40%; right: -10%; width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(15, 23, 42, 0) 70%); border-radius: 50%; z-index: 0;
+        }
+        .slide-container > * { position: relative; z-index: 1; width: 100%; }
+        
+        h1, h2, h3, .number { font-family: 'Outfit', 'Prompt', sans-serif; color: #f8fafc; }
+        p, li, th, td, cite { font-family: 'Prompt', sans-serif; color: #cbd5e1; line-height: 1.6; }
+        
+        .slide-container h1 { font-size: 56px; font-weight: 600; line-height: 1.2; margin-bottom: 20px; text-align: center; }
+        .slide-container h1 .highlight { background: linear-gradient(to right, #22d3ee, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+        .slide-container .slide-title { font-size: 42px; font-weight: 600; margin-bottom: 40px; text-align: left; color: #f8fafc; border-left: 6px solid #06b6d4; padding-left: 20px; }
+        .slide-container h3 { font-size: 28px; font-weight: 600; margin-bottom: 15px; color: #e2e8f0; }
+        .slide-container p, .slide-container li { font-size: 20px; }
+        .subtitle { font-size: 24px !important; color: #94a3b8 !important; text-align: center; max-width: 900px; margin: 0 auto; }
+        
+        .content-area { display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; }
+        .title-layout { text-align: center; }
+        .section-title-layout { display: flex; flex-direction: column; height: 100%; justify-content: center; text-align: center; align-items: center; }
+        .section-title-layout h2 { font-size: 64px; margin-bottom: 20px; background: linear-gradient(to right, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-title-layout p { font-size: 26px; color: #94a3b8; }
+        .section-title-layout hr { background-color: #334155; border: none; height: 2px; margin: 40px auto; width: 150px; }
+        
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; width: 100%; align-items: start; }
+        .two-column.tiled { align-items: stretch; }
+        .two-column.tiled > div { background-color: #1e293b; border-radius: 16px; border: 1px solid #334155; padding: 40px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+        .two-column.tiled h3 { color: #38bdf8; }
+        .two-column ul { list-style: none; padding: 0; margin: 0; }
+        .two-column li { position: relative; padding-left: 30px; margin-bottom: 20px; }
+        .two-column li::before { content: '•'; color: #06b6d4; font-size: 30px; position: absolute; left: 0; top: -10px; }
+        
+        .image-wrapper { border-radius: 16px; overflow: hidden; width: 100%; height: 380px; border: 1px solid #334155; box-shadow: 0 15px 25px rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; background-color: #020617;}
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .image-wrapper i { font-size: 150px; color: #334155; }
+        
+        .tiled-content { display: flex; gap: 30px; justify-content: space-between; width: 100%; align-items: stretch; }
+        .tile { background-color: #1e293b; border-radius: 16px; border: 1px solid #334155; display: flex; flex-direction: column; flex: 1; padding: 35px 25px; text-align: center; align-items: center; }
+        .tile .icon { color: #c084fc; font-size: 50px; margin-bottom: 25px; background: rgba(192, 132, 252, 0.1); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .tile h3 { font-size: 22px; margin-bottom: 15px; }
+        .tile p { font-size: 16px; color: #94a3b8; }
+        
+        .bullet-list { width: 100%; }
+        .bullet-list ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .bullet-list.single-col ul { grid-template-columns: 1fr; gap: 20px; }
+        .bullet-list li { background: rgba(30, 41, 59, 0.6); border: 1px solid #334155; border-radius: 12px; padding: 30px 30px 30px 80px; position: relative; margin-bottom: 0; }
+        .bullet-list i { color: #06b6d4; font-size: 32px; position: absolute; left: 25px; top: 30px; }
+        .bullet-list li strong { color: #f8fafc; display: block; margin-bottom: 8px; font-size: 22px; }
+        
+        .timeline-layout { align-items: stretch; display: flex; height: stretch; justify-content: space-between; position: relative; width: 100%; margin-top: 60px; }
+        .timeline-layout .timeline-line { background: linear-gradient(90deg, #06b6d4, #8b5cf6); height: 6px; left: 0; position: absolute; top: 50%; transform: translateY(-3px); width: 100%; z-index: 0; border-radius: 3px; }
+        .timeline-item { position: relative; text-align: center; width: 23%; z-index: 1; }
+        .timeline-item::after { background-color: #0f172a; border-radius: 50%; border: 6px solid #8b5cf6; content: ''; height: 28px; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); width: 28px; z-index: 1; }
+        .timeline-item:nth-child(odd)::after { border-color: #06b6d4; }
+        .timeline-item .content-wrapper { left: 0; position: absolute; width: 100%; }
+        .timeline-item:nth-child(even) .content-wrapper { bottom: 50%; margin-bottom: 35px; }
+        .timeline-item:nth-child(odd) .content-wrapper { margin-top: 35px; top: 50%; }
+        
+        .highlight-numbers-layout { align-items: center; }
+        .highlight-numbers-layout > div:first-child { flex: 0 0 45%; text-align: center; padding-right: 40px; border-right: 2px solid #334155; }
+        .highlight-numbers-layout .number { background: linear-gradient(135deg, #22d3ee, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 160px; font-weight: 800; line-height: 1; margin-bottom: 10px; }
+        
+        .qa-layout { text-align: center; width: 100%; }
+        .qa-layout h2 { font-size: 96px; margin-bottom: 20px; color: #06b6d4; }
+        
+        .prompt-box { background-color: #1e293b; border-left: 4px solid #a78bfa; padding: 25px; border-radius: 0 12px 12px 0; margin-top: 15px; font-family: monospace; color: #e2e8f0; font-size: 18px; line-height: 1.5; }
+        .slide-counter { position: absolute; bottom: 20px; right: 30px; font-size: 14px; color: #64748b; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation & Fullscreen UI -->
+    <button id="fullscreenBtn" class="nav-btn fullscreen-btn" title="เต็มจอ (กด F)"><i class="fa-solid fa-expand"></i></button>
+    <button id="prevBtn" class="nav-btn nav-prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <button id="nextBtn" class="nav-btn nav-next"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="controls-hint"><i class="fa-solid fa-keyboard" style="margin-right: 8px;"></i>เลื่อนหน้า: ลูกศร ◀ ▶ หรือ Spacebar | เต็มจอ: กดปุ่ม F</div>
+
+    <!-- ==================== INTRODUCTION & OVERVIEW (Slides 1-4) ==================== -->
+    <div class="slide-container" id="slide1">
+        <div class="title-layout">
+            <h1>การพัฒนาองค์ความรู้ และการประยุกต์ใช้ <br><span class="highlight">ปัญญาประดิษฐ์อย่างสร้างสรรค์</span></h1>
+            <p class="subtitle">สำหรับเพิ่มประสิทธิภาพการทำงานของบุคลากรในสำนักงาน</p>
+        </div>
+        <div class="slide-counter">1 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide2">
+        <h2 class="slide-title">เป้าหมายหลักของการอบรม</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div>
+                    <h3>1. ทำความเข้าใจ (Understand)</h3>
+                    <p>ลบภาพจำเดิมๆ ของเทคโนโลยี และเข้าใจหลักการทำงานที่แท้จริงของ Generative AI ว่ามันคิดและประมวลผลอย่างไร</p>
+                </div>
+                <div>
+                    <h3>2. สั่งการเป็น (Prompt)</h3>
+                    <p>เปลี่ยนจาก "ผู้ใช้ทั่วไป" เป็น "ผู้ควบคุม" ด้วยทักษะ Prompt Engineering เพื่อสั่งให้ AI ทำงานได้ดั่งใจ</p>
+                </div>
+                <div>
+                    <h3>3. ประยุกต์ใช้ได้ (Apply)</h3>
+                    <p>ลดเวลาทำงานซ้ำซ้อน เพิ่มเวลาสร้างสรรค์ นำ AI มาใช้กับงานเอกสาร ข้อมูล และการระดมสมองในออฟฟิศ</p>
+                </div>
+                <div>
+                    <h3>4. ใช้อย่างปลอดภัย (Ethics)</h3>
+                    <p>รู้ขีดจำกัด เข้าใจเรื่องลิขสิทธิ์ และความปลอดภัยของข้อมูลส่วนบุคคล (PDPA) เมื่อต้องใช้งานระดับองค์กร</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">2 / 51</div>
+    </div>
+
+    <!-- New Slide: Learning Journey -->
+    <div class="slide-container" id="slide_journey">
+        <h2 class="slide-title">ภาพรวมเส้นทางการเรียนรู้ (Learning Journey)</h2>
+        <div class="content-area">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: center;">
+                <div class="tile" style="flex: 1; padding: 20px;">
+                    <i class="fa-solid fa-lightbulb" style="font-size: 40px; color: #38bdf8; margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 20px;">1. Understand</h3><p style="font-size: 14px;">เข้าใจหลักการ AI</p>
+                </div>
+                <i class="fa-solid fa-arrow-right" style="font-size: 30px; color: #64748b; margin: 0 10px;"></i>
+                <div class="tile" style="flex: 1; padding: 20px;">
+                    <i class="fa-solid fa-keyboard" style="font-size: 40px; color: #c084fc; margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 20px;">2. Prompt</h3><p style="font-size: 14px;">เขียนคำสั่งให้เป็น</p>
+                </div>
+                <i class="fa-solid fa-arrow-right" style="font-size: 30px; color: #64748b; margin: 0 10px;"></i>
+                <div class="tile" style="flex: 1; padding: 20px; background-color: rgba(74, 222, 128, 0.1); border-color: #4ade80;">
+                    <i class="fa-solid fa-desktop" style="font-size: 40px; color: #4ade80; margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 20px; color: #4ade80;">3. Try & Demo</h3><p style="font-size: 14px;">ทดลองใช้งานจริง</p>
+                </div>
+                <i class="fa-solid fa-arrow-right" style="font-size: 30px; color: #64748b; margin: 0 10px;"></i>
+                <div class="tile" style="flex: 1; padding: 20px;">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 40px; color: #f87171; margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 20px;">4. Verify</h3><p style="font-size: 14px;">ตรวจสอบความเสี่ยง</p>
+                </div>
+                <i class="fa-solid fa-arrow-right" style="font-size: 30px; color: #64748b; margin: 0 10px;"></i>
+                <div class="tile" style="flex: 1; padding: 20px;">
+                    <i class="fa-solid fa-rocket" style="font-size: 40px; color: #fbd38d; margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 20px;">5. Apply</h3><p style="font-size: 14px;">นำไปประยุกต์ใช้</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <!-- New Slide: Unified Agenda -->
+    <div class="slide-container" id="slide_agenda">
+        <h2 class="slide-title">Agenda: กำหนดการอบรม (2 ชั่วโมง)</h2>
+        <div class="content-area">
+            <div class="bullet-list single-col">
+                <ul style="gap: 10px;">
+                    <li style="padding: 12px 20px 12px 70px;">
+                        <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px;"></i>
+                        <strong style="color: #38bdf8; font-size: 20px; margin-bottom: 2px;">00:00 - 00:30 | Part 1: Understand AI</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">ปูพื้นฐาน Generative AI คืออะไร และทำงานอย่างไร</span>
+                    </li>
+                    <li style="padding: 12px 20px 12px 70px;">
+                        <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px;"></i>
+                        <strong style="color: #c084fc; font-size: 20px; margin-bottom: 2px;">00:30 - 01:00 | Part 2: Prompt Engineering</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">ศาสตร์แห่งการเขียนคำสั่ง (RTCF) และตัวอย่าง Before-After</span>
+                    </li>
+                    <li style="padding: 12px 20px 12px 70px; background: rgba(74, 222, 128, 0.1); border-color: #4ade80;">
+                        <i class="fa-solid fa-laptop-code" style="top: 18px; font-size: 26px; color: #4ade80;"></i>
+                        <strong style="color: #4ade80; font-size: 20px; margin-bottom: 2px;">01:00 - 01:30 | Part 3: Live Demo & Workshop</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">สาธิตการใช้งานจริง (อีเมล, สรุปงาน, ตาราง) และฝึกปฏิบัติ</span>
+                    </li>
+                    <li style="padding: 12px 20px 12px 70px;">
+                        <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px;"></i>
+                        <strong style="color: #f87171; font-size: 20px; margin-bottom: 2px;">01:30 - 01:50 | Part 4: Ethics & Limitations</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">ข้อห้าม ข้อควรระวัง (PDPA, Hallucination)</span>
+                    </li>
+                    <li style="padding: 12px 20px 12px 70px;">
+                        <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px;"></i>
+                        <strong style="color: #fbd38d; font-size: 20px; margin-bottom: 2px;">01:50 - 02:00 | Action Plan & Q&A</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">สรุปแผนการนำไปใช้ และตอบข้อซักถาม</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <!-- ==================== PART 1: INTRO TO GEN AI (Slides 5-16) ==================== -->
+    <div class="slide-container" id="slide5">
+        <div class="section-title-layout">
+            <h2>Part 1</h2>
+            <p>รู้จักเพื่อนร่วมงานคนใหม่: พื้นฐาน Generative AI</p>
+            <hr>
+        </div>
+        <div class="slide-counter">5 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide6">
+        <h2 class="slide-title">AI คืออะไร? (Artificial Intelligence)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 24px; margin-bottom: 20px;"><strong>AI (ปัญญาประดิษฐ์)</strong> คือ วิทยาการคอมพิวเตอร์แขนงหนึ่ง ที่มุ่งสร้างเครื่องจักรให้มีความสามารถในการคิด เรียนรู้ และตัดสินใจได้คล้ายมนุษย์</p>
+                    <ul>
+                        <li>ไม่ได้มีแค่หุ่นยนต์เสมอไป ส่วนใหญ่อยู่ในรูปแบบ "ซอฟต์แวร์"</li>
+                        <li>อยู่รอบตัวเรามานานแล้ว เช่น ระบบแนะนำหนังใน Netflix, ระบบช่วยแปลภาษา, ระบบสแกนใบหน้า</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper"><i class="fa-solid fa-microchip"></i></div>
+            </div>
+        </div>
+        <div class="slide-counter">6 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide7">
+        <h2 class="slide-title">วิวัฒนาการสู่จุดเปลี่ยน</h2>
+        <div class="content-area">
+            <div class="bullet-list single-col">
+                <ul>
+                    <li><i class="fa-solid fa-code"></i><strong>1. Rule-Based AI (ยุคดั้งเดิม)</strong> ทำตามคำสั่งที่โปรแกรมเมอร์เขียนไว้ (If-Then-Else) ไม่สามารถคิดนอกกรอบได้</li>
+                    <li><i class="fa-solid fa-diagram-project"></i><strong>2. Machine Learning (การเรียนรู้ของเครื่อง)</strong> เรียนรู้จากรูปแบบข้อมูล (Pattern) แทนการถูกป้อนคำสั่งตรงๆ เช่น ระบบแยกอีเมลขยะ</li>
+                    <li><i class="fa-solid fa-brain"></i><strong>3. Deep Learning & Neural Networks (ยุคปัจจุบัน)</strong> เลียนแบบเครือข่ายประสาทสมองมนุษย์ ประมวลผลข้อมูลซับซ้อนได้มหาศาล นำมาสู่ Generative AI</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter">7 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide8">
+        <h2 class="slide-title">แล้ว "Generative AI" คืออะไร?</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div style="background-color: rgba(6, 182, 212, 0.1); border-color: #06b6d4;">
+                    <h3 style="color: #06b6d4;">Generative = สร้างสรรค์/ผลิตใหม่</h3>
+                    <p>คือ AI ประเภทหนึ่งที่ <strong>สามารถสร้างคอนเทนต์ใหม่ๆ ขึ้นมาได้เอง</strong> ไม่ว่าจะเป็น ข้อความ รูปภาพ โค้ดคอมพิวเตอร์ ดนตรี หรือวิดีโอ โดยอ้างอิงจากข้อมูลจำนวนมหาศาลที่มันได้เรียนรู้มา</p>
+                </div>
+                <div>
+                    <h3>ไม่ใช่แค่การ "ค้นหา" แบบ Google</h3>
+                    <p>เวลาคุณใช้ Search Engine คุณกำลังหาข้อมูล "ที่มีอยู่แล้ว" ในอินเทอร์เน็ต<br><br>แต่เวลาคุณใช้ Gen AI คุณกำลังสั่งให้มัน "สร้างสิ่งใหม่" ที่ไม่เคยมีมาก่อนบนโลก</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">8 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide9">
+        <h2 class="slide-title">เปรียบเทียบ Traditional AI vs. Generative AI</h2>
+        <div class="content-area">
+            <table style="width: 100%; border-collapse: collapse; background: rgba(30,41,59,0.5); border-radius: 12px; overflow: hidden;">
+                <tr style="background: #1e293b; color: #fff;">
+                    <th style="padding: 20px; text-align: left; font-size: 22px;">คุณสมบัติ</th>
+                    <th style="padding: 20px; text-align: left; font-size: 22px;">Traditional AI (แบบเดิม)</th>
+                    <th style="padding: 20px; text-align: left; font-size: 22px; color: #c084fc;">Generative AI (แบบใหม่)</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #334155;">
+                    <td style="padding: 20px; font-weight: bold;">จุดประสงค์หลัก</td>
+                    <td style="padding: 20px;">วิเคราะห์, จำแนกประเภท, ทายผลลัพธ์</td>
+                    <td style="padding: 20px; color: #e2e8f0;">สร้างสิ่งใหม่, แต่งเรื่อง, ร่างเอกสาร</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #334155;">
+                    <td style="padding: 20px; font-weight: bold;">วิธีการทำงาน</td>
+                    <td style="padding: 20px;">บอกว่ารูปนี้คือ "แมว" หรือ "หมา"</td>
+                    <td style="padding: 20px; color: #e2e8f0;">สร้าง "รูปแมวใส่แว่นตาดำบนดาวอังคาร"</td>
+                </tr>
+                <tr>
+                    <td style="padding: 20px; font-weight: bold;">ตัวอย่าง</td>
+                    <td style="padding: 20px;">ระบบแนะนำสินค้า Shopee, Siri, FaceID</td>
+                    <td style="padding: 20px; color: #e2e8f0;">ChatGPT, Gemini, Midjourney</td>
+                </tr>
+            </table>
+        </div>
+        <div class="slide-counter">9 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide10">
+        <h2 class="slide-title">หัวใจของระบบข้อความ: LLMs (Large Language Models)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="margin-bottom: 20px;">AI อย่าง ChatGPT หรือ Gemini ทำงานบนเทคโนโลยีที่เรียกว่า <strong>LLM (โมเดลภาษาขนาดใหญ่)</strong></p>
+                    <ul>
+                        <li>มันไม่ได้มีความรู้สึกนึกคิดแบบมนุษย์</li>
+                        <li>มันไม่ได้มี "ฐานข้อมูลความรู้" แบบ Wikipedia เก็บไว้ในตัว</li>
+                        <li><strong>หลักการทำงานที่แท้จริงคือ:</strong> การพยากรณ์คำถัดไป (Predicting the next word) จากบริบทและความน่าจะเป็นทางสถิติ</li>
+                    </ul>
+                </div>
+                <div style="background: #1e293b; padding: 30px; border-radius: 12px;">
+                    <p style="color: #94a3b8; margin-bottom: 10px;">ตัวอย่างการพยากรณ์คำ:</p>
+                    <p style="font-size: 24px;">"ไก่ ปิ้ง ไม้ ละ <span style="color: #38bdf8; font-weight: bold;">[ห้า] [สิบ] [บาท]</span>"</p>
+                    <p style="margin-top: 20px; font-size: 16px;">AI คำนวณว่าคำที่มีโอกาสปรากฏต่อจากนี้มากที่สุดคืออะไร จากข้อมูลมหาศาลที่มันเคยอ่านมา</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">10 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide11">
+        <h2 class="slide-title">สมองของ AI มาจากไหน? (Training Data)</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-book"></i></div>
+                    <h3>เว็บไซต์และหนังสือ</h3>
+                    <p>อ่านข้อมูลจาก Wikipedia, ข่าว, บทความ, เว็บบอร์ด และหนังสือดิจิทัลทั่วโลก</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>โค้ดโปรแกรม</h3>
+                    <p>เรียนรู้ตรรกะและภาษาคอมพิวเตอร์จากคลังโค้ดมหาศาลอย่าง GitHub</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>บทสนทนามนุษย์</h3>
+                    <p>เรียนรู้วิธีการโต้ตอบ โทนเสียง และรูปประโยคที่เป็นธรรมชาติของมนุษย์</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 18px; color: #fbbf24;"><i class="fa-solid fa-circle-exclamation"></i> ข้อควรระวัง: เพราะมันเรียนรู้จากอินเทอร์เน็ต มันจึงอาจเรียนรู้ "อคติ" และ "ข้อมูลเท็จ" มาด้วย</p>
+        </div>
+        <div class="slide-counter">11 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide12">
+        <h2 class="slide-title">เครื่องมือ Gen AI ยอดนิยม (สายข้อความ/Text)</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div>
+                    <h3><i class="fa-solid fa-robot" style="margin-right: 10px;"></i>ChatGPT (โดย OpenAI)</h3>
+                    <p>ได้รับความนิยมสูงสุด เก่งรอบด้าน ทั้งเขียนบทความ สรุปข้อมูล และเขียนโค้ด (เวอร์ชัน Plus รองรับฟีเจอร์ Data Analysis ได้ดีเยี่ยม)</p>
+                </div>
+                <div>
+                    <h3><i class="fa-brands fa-google" style="margin-right: 10px;"></i>Gemini (โดย Google)</h3>
+                    <p>เชื่อมโยงกับ Google Workspace (Docs, Gmail) ได้ดี และสามารถค้นหาข้อมูลที่อัปเดตแบบ Real-time จาก Google Search ได้</p>
+                </div>
+                <div style="grid-column: 1 / -1;">
+                    <h3><i class="fa-solid fa-message" style="margin-right: 10px;"></i>Claude (โดย Anthropic)</h3>
+                    <p>โดดเด่นเรื่องการอัปโหลดไฟล์ PDF/เอกสารยาวๆ เพื่อวิเคราะห์ ภาษาเขียนมีความสละสลวยและเป็นธรรมชาติสูงมาก (ปัจจุบันใช้งานได้ดีในหลายบริบท)</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">12 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide13">
+        <h2 class="slide-title">เครื่องมือ Gen AI ยอดนิยม (สายภาพ/Visual)</h2>
+        <div class="content-area">
+            <div class="bullet-list">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-image"></i>
+                        <strong>Midjourney</strong>
+                        คุณภาพงานภาพระดับสูงมาก เหมือนภาพถ่ายหรือศิลปินวาด ใช้งานผ่านแอป Discord (มีค่าใช้จ่าย)
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-palette"></i>
+                        <strong>DALL-E 3 (OpenAI)</strong>
+                        สร้างภาพจากคำสั่งข้อความได้แม่นยำ ใช้งานง่ายเพราะฝังตัวอยู่ใน ChatGPT Plus
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <strong>Canva Magic Studio</strong>
+                        AI สายออกแบบสำหรับองค์กร ช่วยลบพื้นหลัง สร้างภาพประกอบ หรือจัดหน้าสไลด์ได้ในพริบตา ใช้งานง่ายที่สุดสำหรับสายออฟฟิศ
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <strong>Adobe Firefly</strong>
+                        จุดเด่นคือเรื่องลิขสิทธิ์ภาพที่ปลอดภัยสำหรับการนำไปใช้งานเชิงพาณิชย์ และรวมอยู่ใน Photoshop
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter">13 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide14">
+        <h2 class="slide-title">แล้วทำไมชาวออฟฟิศต้องสนใจ AI?</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #a78bfa; margin-bottom: 20px;">สถิติที่น่าสนใจ</h3>
+                    <ul>
+                        <li>ผู้ใช้ AI ในองค์กรประหยัดเวลาการทำงานซ้ำซ้อนได้เฉลี่ย <strong>2-3 ชั่วโมงต่อวัน</strong></li>
+                        <li>ช่วยแก้ปัญหา "ภาวะสมองตัน" (Writer's Block) ในการเริ่มงานชิ้นใหม่</li>
+                        <li>ช่วยยกระดับพนักงานระดับเริ่มต้น (Junior) ให้มีศักยภาพในการร่างงานเทียบเท่าระดับกลาง (Mid-level)</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="background: rgba(167, 139, 250, 0.1); border: 2px solid #a78bfa; padding: 40px; border-radius: 16px; text-align: center;">
+                        <h3 style="font-size: 32px; margin-bottom: 20px;">Quote of the Era</h3>
+                        <p style="font-size: 26px; color: #f8fafc; font-style: italic;">"AI จะไม่แย่งงานคุณ <br><br>แต่คนที่ใช้ AI เป็น<br>คือคนที่จะมาแย่งงานคุณ"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">14 / 51</div>
+    </div>
+
+    <!-- ==================== PART 2: PROMPT ENGINEERING (Slides 15-32) ==================== -->
+    <div class="slide-container" id="slide15">
+        <div class="section-title-layout">
+            <h2>Part 2</h2>
+            <p>ศิลปะแห่งการสั่งงาน (Prompt Engineering)</p>
+            <hr>
+        </div>
+        <div class="slide-counter">15 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide16">
+        <h2 class="slide-title">Prompt (พรอมป์) คืออะไร?</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 24px; margin-bottom: 20px;"><strong>Prompt</strong> คือ "คำสั่ง" หรือ "ข้อความ" ที่เราพิมพ์ส่งไปให้ AI เพื่อบอกให้มันทำสิ่งที่เราต้องการ</p>
+                    <ul>
+                        <li>เปรียบเสมือนพวงมาลัยรถยนต์ ที่เราใช้กำหนดทิศทางให้ AI</li>
+                        <li>Prompt Engineering คือ ทักษะ/ศิลปะ ในการออกแบบคำสั่งให้ได้ผลลัพธ์ที่ดีที่สุด แม่นยำที่สุด และตรงใจที่สุด</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper"><i class="fa-solid fa-keyboard"></i></div>
+            </div>
+        </div>
+        <div class="slide-counter">16 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide17">
+        <h2 class="slide-title">กฎทองคำ: Garbage In, Garbage Out</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile" style="border-color: #f87171;">
+                    <i class="fa-solid fa-trash" style="font-size: 40px; color: #f87171; margin-bottom: 20px;"></i>
+                    <h3 style="color: #f87171;">คำสั่งกว้างๆ (Garbage In)</h3>
+                    <p>"เขียนแผนการตลาดให้หน่อย"</p>
+                    <hr style="width: 100%; border: 1px solid #334155; margin: 15px 0;">
+                    <p style="font-size: 14px;">AI จะเดาทางไม่ถูก และให้ผลลัพธ์ที่เป็นทฤษฎีกว้างๆ ใช้งานจริงไม่ได้</p>
+                </div>
+                <div style="display: flex; align-items: center;"><i class="fa-solid fa-arrow-right" style="font-size: 40px; color: #64748b;"></i></div>
+                <div class="tile" style="border-color: #4ade80;">
+                    <i class="fa-solid fa-gem" style="font-size: 40px; color: #4ade80; margin-bottom: 20px;"></i>
+                    <h3 style="color: #4ade80;">คำสั่งชัดเจน (Quality Out)</h3>
+                    <p>"เขียนแผนโซเชียลมีเดีย 1 เดือน สำหรับสินค้ารองเท้าผ้าใบวัยรุ่น เน้นช่องทาง TikTok"</p>
+                    <hr style="width: 100%; border: 1px solid #334155; margin: 15px 0;">
+                    <p style="font-size: 14px;">AI จะเข้าใจบริบท และให้ผลลัพธ์ที่นำไปประยุกต์ใช้ต่อได้ทันที</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">17 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide18">
+        <h2 class="slide-title">ทำความรู้จักโครงสร้าง RTCF</h2>
+        <div class="content-area">
+            <p style="text-align: center; margin-bottom: 40px;">สูตรลับสำหรับการเขียน Prompt ให้มีประสิทธิภาพระดับโปร</p>
+            <div class="bullet-list">
+                <ul>
+                    <li><strong style="color: #c084fc;">R - Role (บทบาท)</strong>กำหนดตัวตนให้ AI ว่าคุณคือใคร เชี่ยวชาญด้านไหน</li>
+                    <li><strong style="color: #38bdf8;">T - Task (งานหลัก)</strong>สั่งให้ชัดเจนว่าต้องการให้สร้างอะไร (อีเมล, บทความ, ตาราง)</li>
+                    <li><strong style="color: #4ade80;">C - Context (บริบท)</strong>ให้ข้อมูลพื้นฐาน แบ็คกราวนด์ หรือข้อจำกัดของงาน</li>
+                    <li><strong style="color: #fbd38d;">F - Format (รูปแบบ)</strong>บอกหน้าตาของผลลัพธ์ที่ต้องการ (กี่คำ, ภาษาอะไร, ตารางไหม)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter">18 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide19">
+        <h2 class="slide-title">เจาะลึก R - Role (บทบาท)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ทำไมต้องกำหนด Role?</h3>
+                    <p>การบอกให้ AI สวมบทบาท จะช่วยให้มันปรับ "คำศัพท์", "ระดับภาษา", และ "มุมมอง" ในการตอบให้เป็นมืออาชีพมากขึ้น</p>
+                    <p style="margin-top: 20px;"><strong>รูปแบบ:</strong><br>"สวมบทบาทเป็น [อาชีพ/ผู้เชี่ยวชาญ] ที่มีประสบการณ์..."<br>"Act as a [Role]..."</p>
+                </div>
+                <div style="background: #1e293b; padding: 30px; border-radius: 12px;">
+                    <h3 style="color: #c084fc;"><i class="fa-solid fa-user-tie" style="margin-right: 10px;"></i>ตัวอย่าง Role</h3>
+                    <ul style="margin-top: 15px;">
+                        <li>"คุณคือผู้จัดการฝ่าย HR ที่มีประสบการณ์ 10 ปี..."</li>
+                        <li>"คุณคือนักการตลาดดิจิทัลที่เชี่ยวชาญตลาด Gen Z..."</li>
+                        <li>"สวมบทบาทเป็นวิทยากรที่เก่งในการอธิบายเรื่องยากให้เด็กประถมเข้าใจ..."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">19 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide20">
+        <h2 class="slide-title">เจาะลึก T - Task (งานที่ต้องทำ)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ทำไมต้องกำหนด Task?</h3>
+                    <p>คำกริยา (Action Verbs) ที่ชัดเจน จะทำให้ AI รู้เป้าหมายปลายทาง ไม่หลงทางไปตอบเรื่องอื่น</p>
+                    <p style="margin-top: 20px;"><strong>รูปแบบ:</strong><br>"ช่วย [คำกริยา] [สิ่งที่ต้องการ]..."</p>
+                </div>
+                <div style="background: #1e293b; padding: 30px; border-radius: 12px;">
+                    <h3 style="color: #38bdf8;"><i class="fa-solid fa-clipboard-list" style="margin-right: 10px;"></i>ตัวอย่าง Task</h3>
+                    <ul style="margin-top: 15px;">
+                        <li>"ช่วย <u>ร่างอีเมล</u> ปฏิเสธผู้สมัครงาน..."</li>
+                        <li>"ช่วย <u>สรุปประเด็นสำคัญ</u> จากรายงานฉบับนี้..."</li>
+                        <li>"ช่วย <u>แปลและขัดเกลา</u> บทความนี้เป็นภาษาอังกฤษ..."</li>
+                        <li>"ช่วย <u>ระดมไอเดีย</u> ชื่อโครงการ 10 ชื่อ..."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">20 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide21">
+        <h2 class="slide-title">เจาะลึก C - Context (บริบท/เงื่อนไข)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ทำไมต้องให้ Context?</h3>
+                    <p>คือส่วนที่สำคัญที่สุดที่แยกระหว่างคำตอบดาดๆ กับคำตอบระดับเทพ การให้ Background Info จะทำให้งานมี "ความเฉพาะเจาะจง" (Personalized) กับบริษัทคุณ</p>
+                </div>
+                <div style="background: #1e293b; padding: 30px; border-radius: 12px;">
+                    <h3 style="color: #4ade80;"><i class="fa-solid fa-magnifying-glass" style="margin-right: 10px;"></i>สิ่งที่ควรใส่ใน Context</h3>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>กลุ่มเป้าหมาย:</strong> เขียนให้ใครอ่าน (ผู้บริหาร, ลูกค้า, พนักงานระดับปฏิบัติการ)</li>
+                        <li><strong>วัตถุประสงค์แฝง:</strong> ต้องการโน้มน้าว, ต้องการแจ้งให้ทราบ, หรือต้องการขอโทษ</li>
+                        <li><strong>ข้อมูลอ้างอิง:</strong> (วางข้อมูล/ข้อความ ต้นฉบับลงไป)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">21 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide22">
+        <h2 class="slide-title">เจาะลึก F - Format (รูปแบบผลลัพธ์)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ทำไมต้องกำหนด Format?</h3>
+                    <p>เพื่อลดเวลาในการเอาผลลัพธ์ไปจัดหน้าใหม่ สั่งให้ AI จัดรูปแบบให้พร้อมใช้งาน (Ready to use) ได้เลย</p>
+                </div>
+                <div style="background: #1e293b; padding: 30px; border-radius: 12px;">
+                    <h3 style="color: #fbd38d;"><i class="fa-solid fa-file-lines" style="margin-right: 10px;"></i>ตัวอย่าง Format</h3>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>ความยาว:</strong> "ขอความยาวไม่เกิน 150 คำ"</li>
+                        <li><strong>โครงสร้าง:</strong> "แบ่งเป็น Bullet Points 5 ข้อ"</li>
+                        <li><strong>ตาราง:</strong> "แสดงผลในรูปแบบตาราง 3 คอลัมน์ (หัวข้อ, รายละเอียด, ผู้รับผิดชอบ)"</li>
+                        <li><strong>โทนเสียง:</strong> "ใช้ภาษาทางการ สุภาพ และเห็นอกเห็นใจ"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">22 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide23">
+        <h2 class="slide-title">เปรียบเทียบ: การเขียนอีเมล (Bad vs Good)</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div style="border: 2px solid #f87171;">
+                    <h3 style="color: #f87171;">❌ Prompt ทั่วไป (มือใหม่)</h3>
+                    <div class="prompt-box" style="border-left-color: #f87171;">
+                        "ช่วยเขียนอีเมลเชิญลูกค้ามางานเปิดตัวสินค้าใหม่ให้หน่อย"
+                    </div>
+                    <p style="margin-top: 20px;"><strong>ผลลัพธ์ที่ได้:</strong> อีเมลรูปแบบกว้างๆ อาจใช้ภาษาไม่ถูกกาลเทศะ ไม่มีรายละเอียดที่เฉพาะเจาะจง ต้องเอามาพิมพ์แก้เองเกือบหมด</p>
+                </div>
+                <div style="border: 2px solid #4ade80;">
+                    <h3 style="color: #4ade80;">✅ Prompt แบบ RTCF (มือโปร)</h3>
+                    <div class="prompt-box" style="border-left-color: #4ade80; font-size: 16px;">
+                        <span style="color: #c084fc;">[R] คุณคือเซลส์ระดับ Senior</span> 
+                        <span style="color: #38bdf8;">[T] ช่วยร่างอีเมลเชิญลูกค้าระดับ VIP เข้าร่วมงานเปิดตัวแอปพลิเคชันเวอร์ชันใหม่</span> 
+                        <span style="color: #4ade80;">[C] งานจะจัดวันที่ 15 ส.ค. ที่โรงแรม ABC ลูกค้ากลุ่มนี้ใช้งานแอปเรามานานแล้ว ให้เน้นย้ำเรื่องฟีเจอร์ใหม่ที่แก้ปัญหาเดิมๆ ได้</span> 
+                        <span style="color: #fbd38d;">[F] เขียนความยาว 3 ย่อหน้า ใช้โทนเสียงสุภาพ เป็นทางการแต่อบอุ่น และมี Call to Action ให้ลงทะเบียน</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">23 / 51</div>
+    </div>
+
+    <!-- New Slide: Before-After Prompt Examples -->
+    <div class="slide-container" id="slide_before_after">
+        <h2 class="slide-title">ตัวอย่าง Before-After: เปลี่ยนคำสั่งให้ปัง</h2>
+        <div class="content-area">
+            <table style="width: 100%; border-collapse: collapse; background: rgba(30,41,59,0.5); border-radius: 12px; overflow: hidden;">
+                <tr style="background: #1e293b; color: #fff;">
+                    <th style="padding: 15px; text-align: left; width: 15%;">เป้าหมาย</th>
+                    <th style="padding: 15px; text-align: left; width: 35%; color: #f87171;">❌ Prompt กว้างๆ (Before)</th>
+                    <th style="padding: 15px; text-align: left; width: 50%; color: #4ade80;">✅ Prompt เฉพาะเจาะจง (After)</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #334155;">
+                    <td style="padding: 15px; font-weight: bold;">สรุปรายงาน</td>
+                    <td style="padding: 15px; font-family: monospace; font-size: 16px;">"สรุปรายงานนี้ให้หน่อย"</td>
+                    <td style="padding: 15px; font-family: monospace; font-size: 16px;">"สวมบทบาทนักวิเคราะห์ สรุปรายงานฉบับนี้ให้ผู้บริหารอ่าน ดึงเฉพาะไฮไลท์สำคัญ 3 ข้อ และเรียบเรียงแผนปฏิบัติการเป็นตาราง"</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #334155;">
+                    <td style="padding: 15px; font-weight: bold;">หาไอเดีย</td>
+                    <td style="padding: 15px; font-family: monospace; font-size: 16px;">"คิดชื่อแคมเปญลดราคา"</td>
+                    <td style="padding: 15px; font-family: monospace; font-size: 16px;">"คุณคือ Copywriter มืออาชีพ ช่วยคิดชื่อแคมเปญลดราคา 50% สำหรับสินค้าเสื้อผ้าวัยรุ่น ขอ 5 ชื่อที่คล้องจองและจำง่าย"</td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px; font-weight: bold;">ปรับภาษา</td>
+                    <td style="padding: 15px; font-family: monospace; font-size: 16px;">"แก้อีเมลนี้ให้สุภาพขึ้น"</td>
+                    <td style="padding: 15px; font-family: monospace; font-size: 16px;">"ปรับอีเมลทวงถามงานนี้ให้สุภาพ เป็นทางการ แต่ยังคงความหนักแน่นว่าต้องส่งงานภายในพรุ่งนี้เช้า"</td>
+                </tr>
+            </table>
+            <p style="text-align: center; margin-top: 30px; color: #a78bfa; font-size: 20px;">💡 ข้อสังเกต: Prompt ที่ดีจะมีบริบท (Context) และบอกรูปแบบผลลัพธ์ (Format) ชัดเจนเสมอ</p>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <div class="slide-container" id="slide24">
+        <h2 class="slide-title">เทคนิคขั้นสูง 1: Few-Shot Prompting (การให้ตัวอย่าง)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p>บางครั้งการอธิบาย "Format" ยากเกินไป วิธีที่ง่ายที่สุดคือ <strong>"การส่งตัวอย่างให้ AI ดู"</strong> (Few-Shot)</p>
+                    <ul style="margin-top: 20px;">
+                        <li><strong>Zero-Shot:</strong> สั่งเฉยๆ ไม่ให้ตัวอย่าง</li>
+                        <li><strong>One-Shot:</strong> ให้ตัวอย่าง 1 อัน</li>
+                        <li><strong>Few-Shot:</strong> ให้ตัวอย่าง 2-3 อัน</li>
+                    </ul>
+                    <p style="margin-top: 20px; color: #a78bfa;">*ยิ่งให้ตัวอย่าง AI ยิ่งเลียนแบบสไตล์ รูปแบบ และภาษาองค์กรของคุณได้เป๊ะขึ้น</p>
+                </div>
+                <div style="background: #1e293b; padding: 25px; border-radius: 12px;">
+                    <p style="color: #94a3b8; margin-bottom: 10px;">ตัวอย่าง Prompt:</p>
+                    <p style="font-size: 16px; font-family: monospace;">"ช่วยตอบกลับคอมเมนต์ลูกค้าตามสไตล์แบรนด์ของเรา<br><br>
+                    <strong>ตัวอย่างที่ 1:</strong><br>
+                    ลูกค้า: ส่งของช้ามาก<br>
+                    แบรนด์: แอดมินต้องขออภัยในความล่าช้านะคะ แอดมินกำลังรีบประสานงานเช็คสถานะให้ค่ะ 🙏<br><br>
+                    <strong>งานของคุณ:</strong><br>
+                    ลูกค้า: สินค้ามีตำหนิ เปลี่ยนได้ไหม"<br>
+                    แบรนด์: [ให้ AI ตอบให้]"</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">24 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide25">
+        <h2 class="slide-title">เทคนิคขั้นสูง 2: Chain of Thought (คิดเป็นสเต็ป)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p>สำหรับงานที่ซับซ้อน หรือต้องใช้ตรรกะ ให้เติมคำมหัศจรรย์ลงไปใน Prompt:</p>
+                    <div style="background: rgba(56, 189, 248, 0.2); border: 2px dashed #38bdf8; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; font-size: 24px; color: #38bdf8; font-weight: bold;">
+                        "จงคิดทีละขั้นตอน" <br>(Think step by step)
+                    </div>
+                    <p>ประโยคนี้จะบังคับให้ LLMs กระจายกระบวนการคิดออกมาก่อนให้คำตอบสุดท้าย ทำให้ลดอาการ "มั่ว" (Hallucination) ได้อย่างมีนัยสำคัญ</p>
+                </div>
+                <div>
+                    <div style="background: #1e293b; padding: 25px; border-radius: 12px;">
+                        <p style="color: #94a3b8; margin-bottom: 10px;">ตัวอย่าง Prompt วางแผน:</p>
+                        <p style="font-size: 16px; font-family: monospace;">"ช่วยวางแผนจัดงาน Staff Party ปลายปี สำหรับพนักงาน 50 คน งบ 50,000 บาท <strong>โดยให้คิดทีละขั้นตอน</strong> เริ่มจากการแจกแจงงบประมาณ การหาสถานที่ และกิจกรรม"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">25 / 51</div>
+    </div>
+    
+    <div class="slide-container" id="slide26">
+        <h2 class="slide-title">เทคนิคขั้นสูง 3: ให้ AI ถามกลับ (Reverse Prompting)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p>ถ้าคุณไม่รู้จะเขียน Context หรือรายละเอียดอะไรให้ AI ดี ให้ <strong>"สั่งให้ AI เป็นฝ่ายตั้งคำถามคุณ"</strong> เพื่อรวบรวมข้อมูล</p>
+                    <p style="margin-top: 20px; color: #4ade80;">เทคนิคนี้ยอดเยี่ยมมากสำหรับตอนที่คุณมีไอเดียคร่าวๆ แต่ยังไม่ตกผลึก</p>
+                </div>
+                <div style="background: #1e293b; padding: 25px; border-radius: 12px;">
+                    <p style="color: #94a3b8; margin-bottom: 10px;">ตัวอย่าง Prompt มหัศจรรย์:</p>
+                    <div class="prompt-box">
+                        "ฉันต้องการให้คุณช่วยร่างรายงานประจำปี <br><br>แต่ก่อนที่คุณจะเริ่มเขียน <strong>ขอให้คุณถามคำถามฉัน 5 ข้อ</strong> เพื่อเก็บข้อมูลสำคัญที่คุณจำเป็นต้องรู้ เพื่อให้เขียนรายงานฉบับนี้ออกมาได้สมบูรณ์ที่สุด"
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">26 / 51</div>
+    </div>
+
+    <!-- ==================== PART 3: OFFICE APPLICATIONS (Slides 27-40) ==================== -->
+    <div class="slide-container" id="slide27">
+        <div class="section-title-layout">
+            <h2>Part 3</h2>
+            <p>ลงมือปฏิบัติ: เปลี่ยน AI เป็นผู้ช่วยเบอร์หนึ่งในสำนักงาน</p>
+            <hr>
+        </div>
+        <div class="slide-counter">27 / 51</div>
+    </div>
+
+    <!-- New Slide: Live Demo -->
+    <div class="slide-container" id="slide_live_demo">
+        <h2 class="slide-title" style="border-left-color: #f59e0b;"><i class="fa-solid fa-desktop" style="color: #f59e0b; margin-right: 15px;"></i>Live Demo: สาธิตการใช้งานจริง</h2>
+        <div class="content-area">
+            <p style="text-align: center; margin-bottom: 40px; font-size: 24px;">เราจะมาทดลองใช้ AI (ChatGPT / Gemini) แก้ปัญหาเหล่านี้ไปด้วยกัน</p>
+            <div class="tiled-content">
+                <div class="tile" style="border-color: #38bdf8;">
+                    <i class="fa-solid fa-envelope-open-text" style="font-size: 50px; color: #38bdf8; margin-bottom: 20px;"></i>
+                    <h3>1. ร่างอีเมลยากๆ</h3>
+                    <p>ร่างอีเมลปฏิเสธข้อเสนอ หรือขอเลื่อนนัดสำคัญแบบไม่เสียมารยาท</p>
+                </div>
+                <div class="tile" style="border-color: #c084fc;">
+                    <i class="fa-solid fa-file-contract" style="font-size: 50px; color: #c084fc; margin-bottom: 20px;"></i>
+                    <h3>2. สรุปรายงานประชุม</h3>
+                    <p>โยนข้อความที่จดแบบสะเปะสะปะ ให้กลายเป็น Bullet Points และ Action Items</p>
+                </div>
+                <div class="tile" style="border-color: #4ade80;">
+                    <i class="fa-solid fa-table-list" style="font-size: 50px; color: #4ade80; margin-bottom: 20px;"></i>
+                    <h3>3. สร้างตารางแผนงาน</h3>
+                    <p>สั่งให้ระดมสมองและจัดรูปแบบตารางแผนงาน (Gantt Chart เบื้องต้น)</p>
+                </div>
+                <div class="tile" style="border-color: #fbd38d;">
+                    <i class="fa-solid fa-language" style="font-size: 50px; color: #fbd38d; margin-bottom: 20px;"></i>
+                    <h3>4. ปรับภาษาทางการ</h3>
+                    <p>แปลงภาษาพูดวัยรุ่น ให้กลายเป็นภาษาประกาศทางการของบริษัท</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <div class="slide-container" id="slide28">
+        <h2 class="slide-title">Use Case ในองค์กร: ใครใช้ทำอะไรได้บ้าง?</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile">
+                    <h3 style="color: #38bdf8;">ฝ่ายบุคคล (HR)</h3>
+                    <p style="text-align: left; font-size: 16px;">- ร่างประกาศรับสมัครงาน<br>- คิดคำถามสัมภาษณ์<br>- สรุปคู่มือพนักงาน<br>- เขียนอีเมลแจ้งนโยบายใหม่</p>
+                </div>
+                <div class="tile">
+                    <h3 style="color: #c084fc;">ฝ่ายขาย/การตลาด</h3>
+                    <p style="text-align: left; font-size: 16px;">- คิดแคปชั่น Social Media<br>- ร่างสคริปต์โทรหาลูกค้า (Telesale)<br>- วิเคราะห์ข้อมูลคู่แข่งเบื้องต้น<br>- แปลงคุณสมบัติสินค้าเป็นจุดขาย (Benefit)</p>
+                </div>
+                <div class="tile">
+                    <h3 style="color: #4ade80;">ธุรการ/ผู้บริหาร</h3>
+                    <p style="text-align: left; font-size: 16px;">- สรุปรายงานการประชุม<br>- ร่างจดหมายเชิญทางการ<br>- หาไอเดียของขวัญปีใหม่<br>- สรุปบทความ/ข่าวประจำวัน</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">28 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide29">
+        <h2 class="slide-title">Use Case 1: การร่างจดหมายและอีเมลทางการ</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>หมดปัญหา "ไม่รู้จะขึ้นต้นประโยคยังไง"</h3>
+                    <p>AI ช่วยก้าวข้ามความลังเลในหน้ากระดาษเปล่า (Blank Page Syndrome) แค่ให้บรีฟสั้นๆ AI จะจัดโครงสร้างภาษาทางการให้</p>
+                    <ul style="margin-top: 15px;">
+                        <li>อีเมลทวงถามความคืบหน้างาน (แบบสุภาพ)</li>
+                        <li>จดหมายแจ้งปรับเปลี่ยนนโยบายการเบิกจ่าย</li>
+                        <li>อีเมลขอเลื่อนนัดประชุม</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #a78bfa;">ตัวอย่าง Prompt</h3>
+                    <div class="prompt-box">
+                        ช่วยร่างอีเมลทางการส่งถึงแผนกไอที เพื่อขออนุมัติซื้อจอคอมพิวเตอร์ใหม่ให้ทีมออกแบบจำนวน 3 เครื่อง อธิบายเหตุผลว่าจอเดิมสีเพี้ยนทำให้งานลูกค้าล่าช้า ขอให้ใช้ภาษาที่สุภาพและขอความอนุเคราะห์พิจารณาโดยด่วน
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">29 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide30">
+        <h2 class="slide-title">Use Case 2: การสรุปความ (Summarization)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ผู้ช่วยอ่านเอกสารกองโต</h3>
+                    <p>นำบันทึกการประชุม (Meeting Minutes) ที่จดแบบสะเปะสะปะ หรือบทความขนาดยาว มาให้ AI ย่อยข้อมูลให้เหลือแก่นสำคัญ</p>
+                    <ul style="margin-top: 15px;">
+                        <li>ดึงเฉพาะ Action Items ว่าใครต้องทำอะไรต่อ</li>
+                        <li>สรุปข่าวหรือประกาศราชการยาวๆ</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #fbbf24; font-size: 16px;">*เตือน: ห้ามอัปโหลดเอกสารที่เป็นความลับของบริษัท</p>
+                </div>
+                <div>
+                    <h3 style="color: #38bdf8;">ตัวอย่าง Prompt</h3>
+                    <div class="prompt-box">
+                        จากข้อความบันทึกการประชุมด้านล่างนี้ ช่วยสรุปประเด็นสำคัญทั้งหมดออกมาเป็น Bullet Points และสร้างตาราง "Action Items" ด้านล่าง แบ่งเป็นคอลัมน์: งานที่ต้องทำ, ผู้รับผิดชอบ, และกำหนดส่ง
+                        <br><br>[วางข้อความบันทึกการประชุมตรงนี้]
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">30 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide31">
+        <h2 class="slide-title">Use Case 3: การขัดเกลาและแปลภาษา (Translation & Polishing)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>เหนือกว่า Google Translate</h3>
+                    <p>Gen AI ไม่ได้แปลแบบคำต่อคำ แต่แปลโดยดู "บริบท" และสามารถปรับ "โทนเสียง" (Tone of voice) ได้</p>
+                    <ul style="margin-top: 15px;">
+                        <li>ปรับอีเมลภาษาอังกฤษที่เขียนเองแบบงูๆ ปลาๆ ให้เป็นมืออาชีพ (Native Speaker)</li>
+                        <li>ปรับภาษาพูดให้เป็นภาษาเขียนทางการ</li>
+                        <li>ปรับข้อความที่ดูแข็งกร้าว ให้อ่านแล้วดูซอฟต์ลง (Polite tone)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #4ade80;">ตัวอย่าง Prompt</h3>
+                    <div class="prompt-box">
+                        ช่วยตรวจสอบไวยากรณ์ภาษาอังกฤษในอีเมลนี้ และขัดเกลาให้ดูเป็นมืออาชีพ สุภาพ และมีความเป็น Business English มากขึ้น พร้อมอธิบายสั้นๆ ว่าคุณแก้จุดไหนไปบ้างเพราะอะไร
+                        <br><br>[วางอีเมลของคุณตรงนี้]
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">31 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide32">
+        <h2 class="slide-title">Use Case 4: คู่คิดระดมสมอง (Brainstorming Partner)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>กระเทาะกำแพงความคิด</h3>
+                    <p>เมื่อคิดไม่ออก AI คือเพื่อนร่วมงานที่ไม่เคยบ่น และสามารถเสนอไอเดีย 50 อย่างให้คุณใน 10 วินาที</p>
+                    <ul style="margin-top: 15px;">
+                        <li>ตั้งชื่อโครงการ / สโลแกน</li>
+                        <li>หากิจกรรม Team Building</li>
+                        <li>วางโครงร่างงานนำเสนอ (Outline)</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #a78bfa; font-size: 16px;">*เทคนิค: สั่งให้คิดไอเดียที่ "แหวกแนวสุดๆ" และ "ทำได้จริง" ผสมกันมา</p>
+                </div>
+                <div>
+                    <h3 style="color: #fbd38d;">ตัวอย่าง Prompt</h3>
+                    <div class="prompt-box">
+                        บริษัทเรากำลังจะจัดงานปีใหม่ในธีม "ย้อนยุค 90s" ช่วยเสนอไอเดียกิจกรรมสันทนาการบนเวที 5 อย่าง ที่ใช้เวลาไม่เกิน 15 นาที อุปกรณ์น้อย และเน้นให้ผู้บริหารได้มีส่วนร่วมกับพนักงานอย่างสนุกสนาน
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">32 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide33">
+        <h2 class="slide-title">Use Case 5: เป็นที่ปรึกษาด้าน Excel / Google Sheets</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ลืมการจำสูตรซับซ้อนไปได้เลย</h3>
+                    <p>คุณไม่ต้องเก่ง Excel ขั้นเทพ แค่คุณอธิบายให้ AI ฟังว่าคุณต้องการอะไร AI จะเขียนสูตรให้คุณไปก๊อปปี้แปะได้ทันที</p>
+                    <ul style="margin-top: 15px;">
+                        <li>หาสูตร VLOOKUP, INDEX MATCH หรือ IF ซ้อน IF</li>
+                        <li>เขียนโค้ด VBA Macro เบื้องต้น</li>
+                        <li>ขอคำแนะนำวิธีจัดโครงสร้างตารางข้อมูล</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #38bdf8;">ตัวอย่าง Prompt</h3>
+                    <div class="prompt-box">
+                        ฉันใช้ Excel มีข้อมูลในคอลัมน์ A เป็น "ชื่อ-นามสกุล" ติดกัน ฉันต้องการสูตรเพื่อแยก "ชื่อ" ไว้คอลัมน์ B และ "นามสกุล" ไว้คอลัมน์ C ช่วยบอกสูตรที่ต้องใช้ และอธิบายวิธีทำทีละขั้นตอนสั้นๆ
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">33 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide34">
+        <h2 class="slide-title">Use Case 6: เปลี่ยนข้อความเป็นโครงสร้างสไลด์</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ลดเวลาทำ Presentation</h3>
+                    <p>ก่อนจะไปยุ่งกับการตกแต่งสไลด์ ให้ AI วางโครงสร้างเนื้อหา (Storyboard) แต่ละหน้าให้เสร็จก่อน</p>
+                    <ul style="margin-top: 15px;">
+                        <li>แปลงรายงาน 10 หน้า เป็นสไลด์ 5 หน้า</li>
+                        <li>ระบุให้ชัดเจนว่าแต่ละสไลด์ หัวข้อคืออะไร เนื้อหาคืออะไร</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #c084fc;">ตัวอย่าง Prompt</h3>
+                    <div class="prompt-box">
+                        ฉันมีข้อมูลรายงานผลประกอบการไตรมาส 3 ดังนี้ [ใส่ข้อมูล] ช่วยแปลงเป็นโครงร่างสไลด์นำเสนอจำนวน 5 หน้า บอกด้วยว่าแต่ละหน้าควรมี Headline ว่าอะไร ควรใส่ Bullet points อะไรบ้าง และแนะนำรูปภาพประกอบที่ควรใช้
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">34 / 51</div>
+    </div>
+
+    <!-- ==================== PART 4: ETHICS, LIMITS & SECURITY (Slides 35-51) ==================== -->
+    <div class="slide-container" id="slide35">
+        <div class="section-title-layout">
+            <h2>Part 4</h2>
+            <p>รู้เท่าทัน AI: ข้อควรระวัง จริยธรรม และความปลอดภัย</p>
+            <hr>
+        </div>
+        <div class="slide-counter">35 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide36">
+        <h2 class="slide-title">ข้อจำกัดข้อที่ 1: อาการหลอน (Hallucination)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 24px; margin-bottom: 20px;"><strong>Hallucination (อาการหลอน/มั่ว)</strong> คือปรากฏการณ์ที่ AI ให้ข้อมูลที่ผิดพลาด แต่งเรื่องขึ้นมาเอง แต่อธิบายด้วยความมั่นใจและภาษาสละสลวยจนดูเหมือนจริง</p>
+                    <ul style="margin-top: 15px;">
+                        <li>AI ถูกสร้างมาให้ "พยากรณ์คำ" ไม่ใช่ "ดึงความจริงจากฐานข้อมูล"</li>
+                        <li>บางครั้งมันอาจแต่งชื่อหนังสือ อ้างอิงงานวิจัยที่ไม่มีอยู่จริง หรืออ้างข้อกฎหมายผิดๆ</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper"><i class="fa-solid fa-ghost"></i></div>
+            </div>
+        </div>
+        <div class="slide-counter">36 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide37">
+        <h2 class="slide-title">วิธีรับมือกับอาการหลอน (Hallucination)</h2>
+        <div class="content-area">
+            <div class="bullet-list">
+                <ul>
+                    <li><strong style="color: #f87171;">Fact-Check เสมอ</strong> อย่าเชื่อข้อมูลสถิติ ชื่อบุคคล สถานที่ หรือข้อกฎหมายที่ AI สร้างขึ้นมา ต้องนำไปตรวจสอบใน Google หรือแหล่งข้อมูลอ้างอิงจริงเสมอ</li>
+                    <li><strong style="color: #4ade80;">ตีกรอบความรู้</strong> ใน Prompt ให้เพิ่มเงื่อนไขว่า: <em>"อ้างอิงจากข้อมูลที่ให้ไว้เท่านั้น หากไม่ทราบคำตอบ ให้ตอบว่าไม่ทราบ ห้ามแต่งข้อมูลขึ้นมาเอง"</em></li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter">37 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide38">
+        <h2 class="slide-title">ข้อจำกัดข้อที่ 2: อคติของ AI (AI Bias)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>AI ไม่ได้เป็นกลาง 100%</h3>
+                    <p>เนื่องจาก AI เรียนรู้จากข้อมูลของมนุษย์บนอินเทอร์เน็ต มันจึงรับเอา "อคติ" ของมนุษย์มาด้วย (เช่น อคติทางเพศ, เชื้อชาติ, หรือความเชื่อทางการเมือง)</p>
+                    <ul style="margin-top: 15px;">
+                        <li>เช่น หากสั่งให้สร้างภาพ "CEO" AI อาจสร้างภาพผู้ชายใส่สูทเป็นส่วนใหญ่</li>
+                        <li>หรืออาจให้คำแนะนำที่เอนเอียงไปตามวัฒนธรรมตะวันตก</li>
+                    </ul>
+                    <p style="margin-top: 20px; color: #a78bfa;"><strong>วิธีแก้:</strong> ผู้ใช้งานต้องมีวิจารณญาณ และอาจต้องระบุใน Prompt ให้แสดงมุมมองที่หลากหลาย (Diversity)</p>
+                </div>
+                <div class="image-wrapper"><i class="fa-solid fa-scale-unbalanced"></i></div>
+            </div>
+        </div>
+        <div class="slide-counter">38 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide39">
+        <h2 class="slide-title">กฎเหล็กความปลอดภัย: ข้อมูลส่วนบุคคล (PDPA)</h2>
+        <div class="content-area">
+            <div style="background: rgba(248, 113, 113, 0.1); border: 2px solid #f87171; padding: 40px; border-radius: 16px; width: 100%;">
+                <h3 style="color: #f87171; text-align: center; font-size: 36px; margin-bottom: 20px;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 15px;"></i>ห้ามป้อนข้อมูลส่วนบุคคล (PII) ลงใน AI โดยเด็ดขาด</h3>
+                <div class="two-column" style="margin-top: 30px;">
+                    <div>
+                        <p><strong>สิ่งห้ามใส่:</strong></p>
+                        <ul style="margin-top: 10px; color: #fca5a5;">
+                            <li>ชื่อ-นามสกุลจริงของลูกค้าหรือพนักงาน</li>
+                            <li>เลขบัตรประชาชน / เบอร์โทรศัพท์</li>
+                            <li>ที่อยู่ / อีเมลส่วนตัว</li>
+                            <li>ข้อมูลสุขภาพ / ประวัติอาชญากรรม</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p><strong>วิธีแก้ปัญหา (Anonymization):</strong></p>
+                        <ul style="margin-top: 10px; color: #86efac;">
+                            <li>ใช้ตัวย่อ เช่น "ลูกค้า A", "พนักงาน B"</li>
+                            <li>เซ็นเซอร์ข้อมูลก่อนวางลงใน AI (เช่น XXX-XXX-XXXX)</li>
+                            <li>ให้ AI สร้าง Format ว่างๆ แล้วเรานำมาเติมข้อมูลเองใน Excel ภายหลัง</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">39 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide40">
+        <h2 class="slide-title">กฎเหล็กความปลอดภัย: ความลับขององค์กร</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #f87171;">ข้อมูลอาจถูกนำไปใช้เทรน AI ต่อ</h3>
+                    <p>เครื่องมือ AI สาธารณะส่วนใหญ่ (แบบใช้ฟรี) มักนำข้อความที่คุณพิมพ์ไปใช้ฝึกฝนโมเดลของพวกเขาต่อ</p>
+                    <p style="margin-top: 15px;"><strong>ห้ามป้อนข้อมูลองค์กรต่อไปนี้:</strong></p>
+                    <ul style="margin-top: 10px;">
+                        <li>งบการเงินที่ยังไม่เปิดเผยต่อสาธารณะ</li>
+                        <li>แผนกลยุทธ์ธุรกิจ / แผนการตลาดลับ</li>
+                        <li>โค้ดโปรแกรมหลัก (Source Code) ของระบบบริษัท</li>
+                        <li>รหัสผ่าน (Passwords) หรือ API Keys</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper" style="border-color: #f87171;"><i class="fa-solid fa-lock" style="color: #f87171;"></i></div>
+            </div>
+        </div>
+        <div class="slide-counter">40 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide41">
+        <h2 class="slide-title">ประเด็นลิขสิทธิ์ (Copyrights)</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile">
+                    <i class="fa-solid fa-copyright" style="font-size: 40px; color: #38bdf8; margin-bottom: 20px;"></i>
+                    <h3>ใครเป็นเจ้าของผลงาน AI?</h3>
+                    <p>ปัจจุบัน กฎหมายในหลายประเทศ (รวมถึงไทย) มองว่า "ผลงานที่สร้างโดย AI 100% ไม่มีลิขสิทธิ์" เพราะมนุษย์ไม่ได้เป็นผู้สร้างสรรค์</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-layer-group" style="font-size: 40px; color: #a78bfa; margin-bottom: 20px;"></i>
+                    <h3>การนำไปใช้ให้ปลอดภัย</h3>
+                    <p>หากจะนำภาพหรือข้อความไปใช้เชิงพาณิชย์ ควรนำมา "ดัดแปลง" หรือ "แก้ไขต่อเติม" โดยมนุษย์ เพื่อให้เกิดความเป็นเจ้าของลิขสิทธิ์ใหม่ (Human Authorship)</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">41 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide42">
+        <h2 class="slide-title">นโยบายการใช้ AI ในองค์กร (AI Policy)</h2>
+        <div class="content-area">
+            <p style="margin-bottom: 20px; font-size: 22px;">แนวทางปฏิบัติที่องค์กรควรมี เพื่อให้พนักงานใช้งานได้อย่างสบายใจและปลอดภัย:</p>
+            <div class="bullet-list">
+                <ul>
+                    <li><strong>Transparency (ความโปร่งใส):</strong> หากงานนั้นใช้ AI สร้างขึ้นมาส่วนใหญ่ ควรแจ้งให้หัวหน้างานหรือทีมทราบ</li>
+                    <li><strong>Approved Tools:</strong> องค์กรควรกำหนดลิสต์ "แอปพลิเคชัน AI ที่อนุญาตให้ใช้" (Whitelist) เช่น Enterprise Version ที่รับประกันเรื่อง Data Privacy</li>
+                    <li><strong>Accountability:</strong> พนักงานคือผู้รับผิดชอบผลงานชิ้นสุดท้ายเสมอ ไม่ใช่ AI</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter">42 / 51</div>
+    </div>
+
+    <!-- New Slide: 4 Simple Rules -->
+    <div class="slide-container" id="slide_4_rules">
+        <h2 class="slide-title" style="border-left-color: #f87171;">ข้อห้าม / ข้อควรระวังแบบจำง่าย (Do's & Don'ts)</h2>
+        <div class="content-area">
+            <div class="bullet-list single-col">
+                <ul style="gap: 20px;">
+                    <li style="border: 2px solid #f87171; background: rgba(248, 113, 113, 0.05);">
+                        <i class="fa-solid fa-user-secret" style="color: #f87171;"></i>
+                        <strong style="color: #f87171;">1. ไม่ใส่ข้อมูลลับ (No Secrets)</strong>
+                        ห้ามป้อนข้อมูลส่วนบุคคล (PDPA), งบการเงิน, ความลับบริษัท หรือรหัสผ่านลงไปเด็ดขาด
+                    </li>
+                    <li style="border: 2px solid #fbbf24; background: rgba(251, 191, 36, 0.05);">
+                        <i class="fa-solid fa-face-flushed" style="color: #fbbf24;"></i>
+                        <strong style="color: #fbbf24;">2. ไม่เชื่อทันที (Don't Trust Blindly)</strong>
+                        AI สามารถ "มั่ว" (Hallucinate) ข้อมูลได้อย่างแนบเนียน ต้อง Fact-check ตัวเลขและข้อเท็จจริงเสมอ
+                    </li>
+                    <li style="border: 2px solid #38bdf8; background: rgba(56, 189, 248, 0.05);">
+                        <i class="fa-solid fa-copy" style="color: #38bdf8;"></i>
+                        <strong style="color: #38bdf8;">3. ไม่คัดลอกโดยไม่ตรวจ (Don't Copy-Paste blindly)</strong>
+                        อ่านทบทวนและปรับสำนวนให้เป็นมนุษย์ (Humanize) และรับผิดชอบงานก่อนส่งทุกครั้ง
+                    </li>
+                    <li style="border: 2px solid #c084fc; background: rgba(192, 132, 252, 0.05);">
+                        <i class="fa-solid fa-gavel" style="color: #c084fc;"></i>
+                        <strong style="color: #c084fc;">4. ไม่ใช้แทนการตัดสินใจ (Not a Decision Maker)</strong>
+                        AI คือผู้ช่วยรวบรวมและวิเคราะห์ข้อมูล แต่คนฟันธงและรับผิดชอบผลลัพธ์สุดท้ายคือ "คุณ"
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <div class="slide-container" id="slide43">
+        <h2 class="slide-title">สรุปแนวคิด: Human in the Loop</h2>
+        <div class="content-area">
+            <div class="two-column highlight-numbers-layout">
+                <div>
+                    <div class="number">100%</div>
+                    <div class="number-label" style="color: #38bdf8;">Human<br>Responsibility</div>
+                </div>
+                <div>
+                    <h3>AI คือ "ผู้ช่วย" ไม่ใช่ "ผู้รับผิดชอบ"</h3>
+                    <p>สมการการทำงานยุคใหม่: <strong style="color: #4ade80;">AI ทำงาน 80% (ความเร็ว) + มนุษย์ทำ 20% (วิจารณญาณ) = ผลลัพธ์ 100%</strong></p>
+                    <br>
+                    <p>งานทุกชิ้นที่ออกจาก AI ต้องผ่านตา ผ่านการตรวจสอบความถูกต้อง ตรวจสอบความเหมาะสมของภาษา และบริบททางสังคมโดย "มนุษย์" เสมอก่อนกดส่ง</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <div class="slide-container" id="slide44">
+        <h2 class="slide-title">Key Takeaways (สรุปเนื้อหาสำคัญ)</h2>
+        <div class="content-area">
+            <div class="bullet-list single-col">
+                <ul style="gap: 12px;">
+                    <li style="padding: 15px 20px 15px 70px;">
+                        <i class="fa-solid fa-lightbulb" style="top: 20px; font-size: 28px; color: #38bdf8;"></i>
+                        <strong style="color: #38bdf8; font-size: 20px; margin-bottom: 4px;">1. Gen AI คือนักสร้างสรรค์ ไม่ใช่ฐานข้อมูลความจริง:</strong> 
+                        <span style="font-size: 18px; color: #cbd5e1;">ใช้งานให้ถูกจุดประสงค์</span>
+                    </li>
+                    <li style="padding: 15px 20px 15px 70px;">
+                        <i class="fa-solid fa-keyboard" style="top: 20px; font-size: 28px; color: #c084fc;"></i>
+                        <strong style="color: #c084fc; font-size: 20px; margin-bottom: 4px;">2. โครงสร้างคำสั่ง RTCF:</strong> 
+                        <span style="font-size: 18px; color: #cbd5e1;">Role (บทบาท), Task (งาน), Context (บริบท), Format (รูปแบบ) คือกุญแจสำคัญ</span>
+                    </li>
+                    <li style="padding: 15px 20px 15px 70px;">
+                        <i class="fa-solid fa-bolt" style="top: 20px; font-size: 28px; color: #4ade80;"></i>
+                        <strong style="color: #4ade80; font-size: 20px; margin-bottom: 4px;">3. ประยุกต์ใช้กับงานที่ทำซ้ำๆ:</strong> 
+                        <span style="font-size: 18px; color: #cbd5e1;">ร่างอีเมล, สรุปประชุม, หาไอเดีย, เขียนสูตร Excel</span>
+                    </li>
+                    <li style="padding: 15px 20px 15px 70px;">
+                        <i class="fa-solid fa-shield-halved" style="top: 20px; font-size: 28px; color: #f87171;"></i>
+                        <strong style="color: #f87171; font-size: 20px; margin-bottom: 4px;">4. ระวัง PDPA & ความลับบริษัท:</strong> 
+                        <span style="font-size: 18px; color: #cbd5e1;">ห้ามป้อนข้อมูลสำคัญลงใน AI สาธารณะเด็ดขาด</span>
+                    </li>
+                    <li style="padding: 15px 20px 15px 70px;">
+                        <i class="fa-solid fa-user-check" style="top: 20px; font-size: 28px; color: #fbbf24;"></i>
+                        <strong style="color: #fbbf24; font-size: 20px; margin-bottom: 4px;">5. มนุษย์คือบรรณาธิการเสมอ:</strong> 
+                        <span style="font-size: 18px; color: #cbd5e1;">Fact-check และปรับแก้บริบทด้วยมนุษย์ก่อนใช้งานจริง</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <!-- ==================== Q&A / WORKSHOP EXTRA ==================== -->
+    <div class="slide-container" id="slide45">
+        <div class="section-title-layout">
+            <h2>Workshop เล็กๆ ท้ายชั่วโมง</h2>
+            <p>มาลองฝึกเขียน Prompt ของตัวเองกันครับ</p>
+            <hr>
+        </div>
+        <div class="slide-counter"></div>
+    </div>
+
+    <div class="slide-container" id="slide50">
+        <div class="content-area">
+            <div class="qa-layout">
+                <h2 style="font-size: 120px;"><i class="fa-solid fa-comments"></i> Q&A</h2>
+                <p style="margin-top: 20px;">มีคำถาม หรืออยากแชร์ประสบการณ์การใช้ AI ของคุณไหมครับ?</p>
+            </div>
+        </div>
+        <div class="slide-counter">50 / 51</div>
+    </div>
+
+    <div class="slide-container" id="slide51">
+        <div class="content-area">
+            <div class="qa-layout">
+                <h2 style="color: #f8fafc; font-size: 72px;">ขอขอบคุณทุกท่านครับ</h2>
+                <p style="margin-top: 20px; color: #a78bfa;">"ก้าวแรกของการเก่ง AI คือการเริ่มพิมพ์คุยกับมันตั้งแต่วันนี้"</p>
+            </div>
+        </div>
+        <div class="slide-counter">51 / 51</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slides = document.querySelectorAll('.slide-container');
+            const total = slides.length;
+            let currentSlide = 0;
+
+            // Generate slide counters (อัปเดตเลขหน้า)
+            slides.forEach((slide, index) => {
+                let counter = slide.querySelector('.slide-counter');
+                if(!counter) {
+                    counter = document.createElement('div');
+                    counter.className = 'slide-counter';
+                    slide.appendChild(counter);
+                }
+                counter.innerText = `หน้า ${index + 1} / ${total}`;
+            });
+
+            // Function สำหรับสลับสไลด์
+            function showSlide(index) {
+                if (index < 0) currentSlide = 0;
+                else if (index >= total) currentSlide = total - 1;
+                else currentSlide = index;
+
+                slides.forEach((slide, i) => {
+                    if (i === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // จัดการปุ่มซ้ายขวาให้จางลงเมื่อถึงหน้าแรกหรือหน้าสุดท้าย
+                document.getElementById('prevBtn').style.opacity = currentSlide === 0 ? '0.3' : '1';
+                document.getElementById('prevBtn').style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
+                document.getElementById('nextBtn').style.opacity = currentSlide === total - 1 ? '0.3' : '1';
+                document.getElementById('nextBtn').style.pointerEvents = currentSlide === total - 1 ? 'none' : 'auto';
+            }
+
+            // Event Listeners สำหรับคลิกปุ่ม
+            document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
+            document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
+
+            // Event Listeners สำหรับ Fullscreen
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            const fullscreenIcon = fullscreenBtn.querySelector('i');
+
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            fullscreenBtn.addEventListener('click', toggleFullScreen);
+
+            document.addEventListener('fullscreenchange', () => {
+                if (document.fullscreenElement) {
+                    fullscreenIcon.classList.replace('fa-expand', 'fa-compress');
+                    fullscreenBtn.title = "ออกจากการแสดงเต็มจอ (กด F หรือ Esc)";
+                } else {
+                    fullscreenIcon.classList.replace('fa-compress', 'fa-expand');
+                    fullscreenBtn.title = "เต็มจอ (กด F)";
+                }
+            });
+
+            // Event Listeners สำหรับกดคีย์บอร์ด
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    e.preventDefault(); // ป้องกันไม่ให้หน้าเว็บเลื่อนลงเมื่อกด Spacebar
+                    showSlide(currentSlide + 1);
+                } else if (e.key === 'ArrowLeft') {
+                    showSlide(currentSlide - 1);
+                } else if (e.key.toLowerCase() === 'f') {
+                    toggleFullScreen();
+                }
+            });
+
+            // ปรับขนาดเนื้อหาให้พอดีกับหน้าจอ (Auto Scale)
+            function resizeScale() {
+                const targetWidth = 1280;
+                const targetHeight = 720;
+                // คำนวณสัดส่วนเพื่อให้เต็มจอพอดี (คงอัตราส่วน 16:9)
+                const scale = Math.min(window.innerWidth / targetWidth, window.innerHeight / targetHeight);
+                document.documentElement.style.setProperty('--scale', scale);
+            }
+            
+            window.addEventListener('resize', resizeScale);
+            resizeScale(); // เรียกใช้ครั้งแรกเพื่อจัดขนาดทันที
+
+            // เริ่มต้นการแสดงผลสไลด์แรก
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>
