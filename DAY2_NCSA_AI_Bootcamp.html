@@ -186,7 +186,7 @@
             <div class="two-column tiled">
                 <div>
                     <h3>1. ทำความเข้าใจ (Understand)</h3>
-                    <p>ลบภาพจำเดิมๆ ของเทคโนโลยี และเข้าใจหลักการทำงานที่แท้จริงของ Generative AI ว่ามันคิดและประมวลผลอย่างไร</p>
+                    <p>ลบภาพจำเดิมๆ ของเทคโนโลยี และเข้าใจหลักการทำงานที่แท้จริงของ Generative AI ว่ามันคิดและประมวลผล<span style="white-space: nowrap;">อย่างไร</span></p>
                 </div>
                 <div>
                     <h3>2. สั่งการเป็น (Prompt)</h3>
@@ -422,9 +422,13 @@
                     <h3><i class="fa-brands fa-google" style="margin-right: 10px;"></i>Gemini (โดย Google)</h3>
                     <p>เชื่อมโยงกับ Google Workspace (Docs, Gmail) ได้ดี และสามารถค้นหาข้อมูลที่อัปเดตแบบ Real-time จาก Google Search ได้</p>
                 </div>
-                <div style="grid-column: 1 / -1;">
+                <div>
                     <h3><i class="fa-solid fa-message" style="margin-right: 10px;"></i>Claude (โดย Anthropic)</h3>
-                    <p>โดดเด่นเรื่องการอัปโหลดไฟล์ PDF/เอกสารยาวๆ เพื่อวิเคราะห์ ภาษาเขียนมีความสละสลวยและเป็นธรรมชาติสูงมาก (ปัจจุบันใช้งานได้ดีในหลายบริบท)</p>
+                    <p>โดดเด่นเรื่องการอัปโหลดไฟล์ PDF/เอกสารยาวๆ เพื่อวิเคราะห์ ภาษาเขียนมีความสละสลวยและเป็นธรรมชาติสูงมาก (เหมือนคนเขียนจริงๆ)</p>
+                </div>
+                <div>
+                    <h3><i class="fa-brands fa-microsoft" style="margin-right: 10px;"></i>Copilot (โดย Microsoft)</h3>
+                    <p>ผสานการทำงานเข้ากับ Microsoft 365 ช่วยสรุปการประชุม ร่างอีเมล และวิเคราะห์ข้อมูลใน Word/Excel ได้อย่างแนบเนียน</p>
                 </div>
             </div>
         </div>
@@ -1121,26 +1125,26 @@
         <h2 class="slide-title" style="border-left-color: #f87171;">ข้อห้าม / ข้อควรระวังแบบจำง่าย (Do's & Don'ts)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
-                <ul style="gap: 20px;">
-                    <li style="border: 2px solid #f87171; background: rgba(248, 113, 113, 0.05);">
-                        <i class="fa-solid fa-user-secret" style="color: #f87171;"></i>
-                        <strong style="color: #f87171;">1. ไม่ใส่ข้อมูลลับ (No Secrets)</strong>
-                        ห้ามป้อนข้อมูลส่วนบุคคล (PDPA), งบการเงิน, ความลับบริษัท หรือรหัสผ่านลงไปเด็ดขาด
+                <ul style="gap: 12px;">
+                    <li style="border: 2px solid #f87171; background: rgba(248, 113, 113, 0.05); padding: 16px 25px 16px 75px;">
+                        <i class="fa-solid fa-user-secret" style="color: #f87171; top: 22px; font-size: 28px;"></i>
+                        <strong style="color: #f87171; font-size: 20px; margin-bottom: 4px;">1. ไม่ใส่ข้อมูลลับ (No Secrets)</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">ห้ามป้อนข้อมูลส่วนบุคคล (PDPA), งบการเงิน, ความลับบริษัท หรือรหัสผ่านลงไปเด็ดขาด</span>
                     </li>
-                    <li style="border: 2px solid #fbbf24; background: rgba(251, 191, 36, 0.05);">
-                        <i class="fa-solid fa-face-flushed" style="color: #fbbf24;"></i>
-                        <strong style="color: #fbbf24;">2. ไม่เชื่อทันที (Don't Trust Blindly)</strong>
-                        AI สามารถ "มั่ว" (Hallucinate) ข้อมูลได้อย่างแนบเนียน ต้อง Fact-check ตัวเลขและข้อเท็จจริงเสมอ
+                    <li style="border: 2px solid #fbbf24; background: rgba(251, 191, 36, 0.05); padding: 16px 25px 16px 75px;">
+                        <i class="fa-solid fa-face-flushed" style="color: #fbbf24; top: 22px; font-size: 28px;"></i>
+                        <strong style="color: #fbbf24; font-size: 20px; margin-bottom: 4px;">2. ไม่เชื่อทันที (Don't Trust Blindly)</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">AI สามารถ "มั่ว" (Hallucinate) ข้อมูลได้อย่างแนบเนียน ต้อง Fact-check ตัวเลขและข้อเท็จจริงเสมอ</span>
                     </li>
-                    <li style="border: 2px solid #38bdf8; background: rgba(56, 189, 248, 0.05);">
-                        <i class="fa-solid fa-copy" style="color: #38bdf8;"></i>
-                        <strong style="color: #38bdf8;">3. ไม่คัดลอกโดยไม่ตรวจ (Don't Copy-Paste blindly)</strong>
-                        อ่านทบทวนและปรับสำนวนให้เป็นมนุษย์ (Humanize) และรับผิดชอบงานก่อนส่งทุกครั้ง
+                    <li style="border: 2px solid #38bdf8; background: rgba(56, 189, 248, 0.05); padding: 16px 25px 16px 75px;">
+                        <i class="fa-solid fa-copy" style="color: #38bdf8; top: 22px; font-size: 28px;"></i>
+                        <strong style="color: #38bdf8; font-size: 20px; margin-bottom: 4px;">3. ไม่คัดลอกโดยไม่ตรวจ (Don't Copy-Paste blindly)</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">อ่านทบทวนและปรับสำนวนให้เป็นมนุษย์ (Humanize) และรับผิดชอบงานก่อนส่งทุกครั้ง</span>
                     </li>
-                    <li style="border: 2px solid #c084fc; background: rgba(192, 132, 252, 0.05);">
-                        <i class="fa-solid fa-gavel" style="color: #c084fc;"></i>
-                        <strong style="color: #c084fc;">4. ไม่ใช้แทนการตัดสินใจ (Not a Decision Maker)</strong>
-                        AI คือผู้ช่วยรวบรวมและวิเคราะห์ข้อมูล แต่คนฟันธงและรับผิดชอบผลลัพธ์สุดท้ายคือ "คุณ"
+                    <li style="border: 2px solid #c084fc; background: rgba(192, 132, 252, 0.05); padding: 16px 25px 16px 75px;">
+                        <i class="fa-solid fa-gavel" style="color: #c084fc; top: 22px; font-size: 28px;"></i>
+                        <strong style="color: #c084fc; font-size: 20px; margin-bottom: 4px;">4. ไม่ใช้แทนการตัดสินใจ (Not a Decision Maker)</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">AI คือผู้ช่วยรวบรวมและวิเคราะห์ข้อมูล แต่คนฟันธงและรับผิดชอบผลลัพธ์สุดท้ายคือ "คุณ"</span>
                     </li>
                 </ul>
             </div>
