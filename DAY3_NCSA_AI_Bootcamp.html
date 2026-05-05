@@ -272,25 +272,25 @@
         <div class="content-area">
             <div class="bullet-list single-col">
                 <ul style="gap: 15px;">
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(139, 92, 246, 0.05); border-color: var(--secondary);">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_part1_intro')))" style="padding: 12px 20px 12px 70px; background: rgba(139, 92, 246, 0.05); border-color: var(--secondary); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-wand-magic-sparkles" style="top: 15px; font-size: 26px; color: var(--secondary);"></i>
-                        <strong style="color: var(--secondary); font-size: 20px;">00:00 - 00:45 | Part 1: Advanced Prompt Engineering</strong>
-                        <span style="font-size: 16px;">8 เทคนิคขั้นสูง, การแก้ปัญหา Context Window และการรับมือ Hallucination</span>
+                        <strong style="color: var(--secondary); font-size: 20px;">00:00 - 00:45 | Part 1: Advanced Prompting</strong>
+                        <span style="font-size: 16px;">8 เทคนิคขั้นสูงเพื่อรีดประสิทธิภาพ AI และการแก้ปัญหา Context Window</span>
                     </li>
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(16, 185, 129, 0.05); border-color: var(--success);">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide21')))" style="padding: 12px 20px 12px 70px; background: rgba(16, 185, 129, 0.05); border-color: var(--success); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-briefcase" style="top: 15px; font-size: 26px; color: var(--success);"></i>
                         <strong style="color: var(--success); font-size: 20px;">00:45 - 01:25 | Part 2: AI in Professional Fields</strong>
-                        <span style="font-size: 16px;">เจาะลึก 6 สายอาชีพ: Marketing, HR, Finance, IT, Education, PM</span>
+                        <span style="font-size: 16px;">เจาะลึก 6 สายอาชีพ และเทคนิคการส่งเสริมการใช้ AI ในทีมอย่างยั่งยืน</span>
                     </li>
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(245, 158, 11, 0.05); border-color: var(--warning);">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide40')))" style="padding: 12px 20px 12px 70px; background: rgba(245, 158, 11, 0.05); border-color: var(--warning); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-scale-balanced" style="top: 15px; font-size: 26px; color: var(--warning);"></i>
-                        <strong style="color: var(--warning); font-size: 20px;">01:25 - 01:40 | Part 3: Responsible AI & Quality</strong>
-                        <span style="font-size: 16px;">Data Security, PDPA, อคติของ AI และกระบวนการตรวจสอบข้อมูลจริง</span>
+                        <strong style="color: var(--warning); font-size: 20px;">01:25 - 01:40 | Part 3: Professional QA & Security</strong>
+                        <span style="font-size: 16px;">เช็คลิสต์ 4F และความปลอดภัยข้อมูลระดับองค์กร (Public vs. Copilot)</span>
                     </li>
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(14, 165, 233, 0.05); border-color: var(--primary);">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_smart_office_intro')))" style="padding: 12px 20px 12px 70px; background: rgba(14, 165, 233, 0.05); border-color: var(--primary); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-rocket" style="top: 15px; font-size: 26px; color: var(--primary);"></i>
-                        <strong style="color: var(--primary); font-size: 20px;">01:40 - 02:00 | Part 4: Smart Back Office & Copilot</strong>
-                        <span style="font-size: 16px;">การใช้ AI Automation และการประยุกต์ใช้ Copilot ใน M365 (Wrap-up & Q&A)</span>
+                        <strong style="color: var(--primary); font-size: 20px;">01:40 - 02:00 | Part 4: Smart Back Office</strong>
+                        <span style="font-size: 16px;">การใช้ Copilot ใน M365 และ Final Workshop (Wrap-up & Q&A)</span>
                     </li>
                 </ul>
             </div>
@@ -346,13 +346,14 @@
         </div>
     </div>
 
-    <!-- ==================== ADVANCED PROMPTING (Slides 6-20) ==================== -->
-    <div class="slide-container" id="slide6">
+    <!-- ==================== PART 1: ADVANCED PROMPTING (Slides 5-20) ==================== -->
+    <div class="slide-container" id="slide_part1_intro">
         <div class="section-title-layout">
             <h2>Part 1</h2>
             <p>Advanced Prompt Engineering: เทคนิคขั้นสูง</p>
             <hr>
         </div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide3')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide7">
@@ -735,6 +736,7 @@
             <p>AI in Professional Fields: เจาะลึกรายสายอาชีพ</p>
             <hr>
         </div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide3')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide23">
@@ -1031,77 +1033,63 @@
     <div class="slide-container" id="slide40">
         <div class="section-title-layout">
             <h2>Part 3</h2>
-            <p>Responsible AI & Quality Assurance</p>
-            <p style="font-size: 20px; margin-top: 10px;">การใช้งานอย่างรับผิดชอบ และการตรวจสอบคุณภาพ</p>
+            <p>Professional Quality Assurance & Enterprise Security</p>
+            <p style="font-size: 20px; margin-top: 10px;">ยกระดับมาตรฐานการตรวจงาน และความปลอดภัยระดับองค์กร</p>
             <hr>
         </div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide3')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <!-- ==================== RESPONSIBLE AI & QA (Slides 41-47) ==================== -->
     <div class="slide-container" id="slide41">
-        <h2 class="slide-title">AI Quality Assurance (QA Checklist)</h2>
+        <h2 class="slide-title">AI Quality Assurance: เช็คลิสต์ 4F</h2>
         <div class="content-area">
-            <p style="margin-bottom: 20px; font-size: 22px;">ก่อนนำผลลัพธ์จาก AI ไปใช้งานจริง ต้องผ่านการตรวจสอบ 4 ข้อนี้ (4 F's):</p>
-            <div class="tiled-content">
-                <div class="tile" style="border-color: var(--danger);">
-                    <h3 style="color: var(--danger);">1. Facts (ข้อเท็จจริง)</h3>
-                    <p>ตัวเลข ชื่อคน สถานที่ กฎหมาย ถูกต้อง 100% หรือไม่? มี Hallucination ไหม?</p>
+            <p style="margin-bottom: 25px; font-size: 22px; text-align: center;">มาตรฐานการตรวจสอบงานระดับมืออาชีพ ก่อนนำไปใช้งานจริง</p>
+            <div class="tiled-content" style="gap: 20px;">
+                <div class="tile" style="border-top: 5px solid var(--danger);">
+                    <h3 style="color: var(--danger);">1. Facts</h3>
+                    <p style="font-size: 14px;">ตัวเลข ชื่อเฉพาะ และกฎหมาย ถูกต้อง 100% หรือไม่? AI มักมั่วจุดนี้ได้เนียนที่สุด</p>
                 </div>
-                <div class="tile" style="border-color: var(--warning);">
-                    <h3 style="color: var(--warning);">2. Format (รูปแบบ)</h3>
-                    <p>ตรงตามโครงสร้างที่องค์กรกำหนดหรือเปล่า? (เช่น ฟอนต์, การจัดย่อหน้า)</p>
+                <div class="tile" style="border-top: 5px solid var(--warning);">
+                    <h3 style="color: var(--warning);">2. Format</h3>
+                    <p style="font-size: 14px;">รูปแบบการจัดวาง ตาราง หรือลำดับหัวข้อ ตรงตามมาตรฐานขององค์กรหรือไม่</p>
                 </div>
-                <div class="tile" style="border-color: var(--primary);">
-                    <h3 style="color: var(--primary);">3. Flow (ความลื่นไหล)</h3>
-                    <p>อ่านแล้วเหมือนหุ่นยนต์แปลมาหรือไม่? ต้องนำมาเกลาให้เป็นมนุษย์ (Humanize)</p>
+                <div class="tile" style="border-top: 5px solid var(--primary);">
+                    <h3 style="color: var(--primary);">3. Flow</h3>
+                    <p style="font-size: 14px;">ภาษาอ่านแล้วลื่นไหลเป็นธรรมชาติไหม? ต้องเกลาให้เป็นสำนวนมนุษย์ (Humanize)</p>
                 </div>
-                <div class="tile" style="border-color: var(--secondary);">
-                    <h3 style="color: var(--secondary);">4. Fit (ความเหมาะสม)</h3>
-                    <p>บริบท โทนเสียง และระดับภาษา เหมาะสมกับผู้รับสารหรือไม่?</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container" id="slide42">
-        <h2 class="slide-title">เจาะลึก: อคติและบริบท (Bias & Context)</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <p>AI เรียนรู้จากข้อมูลทั่วโลก ซึ่งส่วนใหญ่มาจากโลกตะวันตก บางครั้งผลลัพธ์จึงอาจขัดกับ <b>"บริบทวัฒนธรรมไทย"</b></p>
-                    <ul style="margin-top: 15px;">
-                        <li>ระดับความสุภาพ (เช่น การใช้ ค่ะ/ครับ, ท่าน/คุณ)</li>
-                        <li>การลำดับความสำคัญตามวัยวุฒิหรือตำแหน่ง</li>
-                        <li>มุกตลก หรือสำนวนที่แปลตรงตัวไม่ได้</li>
-                    </ul>
-                </div>
-                <div style="background: rgba(239, 68, 68, 0.1); padding: 30px; border-radius: 12px; border: 2px solid var(--danger);">
-                    <h3 style="color: var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i> ข้อควรระวัง</h3>
-                    <p>ผู้ใช้งาน (Human) ต้องเป็นผู้ปรับ <b>"Cultural Context"</b> เสมอ อย่าพึ่งพา AI ให้ออกแบบการสื่อสารที่ละเอียดอ่อนทางอารมณ์และวัฒนธรรม</p>
+                <div class="tile" style="border-top: 5px solid var(--success);">
+                    <h3 style="color: var(--success);">4. Fit</h3>
+                    <p style="font-size: 14px;">เนื้อหา "เหมาะสม" กับบริบททางสังคม วัฒนธรรมองค์กร และนโยบายความลับหรือไม่</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="slide-container" id="slide43">
-        <h2 class="slide-title">Data Privacy & Security (ทบทวนขั้นสูง)</h2>
+        <h2 class="slide-title">ความปลอดภัยระดับองค์กร: Enterprise vs. Public AI</h2>
         <div class="content-area">
-            <div class="bullet-list single-col">
-                <ul style="gap: 15px;">
-                    <li style="border-left: 5px solid var(--success);">
-                        <strong style="color: var(--success);">Safe to share (ข้อมูลที่ใช้ได้)</strong>
-                        <span>ข้อมูล Public, นโยบายทั่วไป, ทฤษฎี, ข้อมูลที่ทำ Anonymize (ปิดชื่อปิดตัวเลข) เรียบร้อยแล้ว</span>
-                    </li>
-                    <li style="border-left: 5px solid var(--warning);">
-                        <strong style="color: var(--warning);">Caution (ต้องระวัง)</strong>
-                        <span>แนวคิด/ไอเดียแคมเปญใหม่ (ที่ยังไม่เปิดตัว), โค้ดโปรแกรมที่ไม่ใช่โครงสร้างหลัก</span>
-                    </li>
-                    <li style="border-left: 5px solid var(--danger);">
-                        <strong style="color: var(--danger);">NEVER share (ห้ามเด็ดขาด)</strong>
-                        <span>ข้อมูลลูกค้า (PII), งบการเงินภายใน, Source Code หลัก, รหัสผ่าน, แผนควบรวมกิจการ</span>
-                    </li>
-                </ul>
+            <div class="two-column" style="gap: 30px;">
+                <div style="background: rgba(239, 68, 68, 0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(239, 68, 68, 0.2);">
+                    <h3 style="color: var(--danger);"><i class="fa-solid fa-earth-americas"></i> Public AI (ใช้ฟรี/ทั่วไป)</h3>
+                    <ul style="margin-top: 15px; font-size: 16px; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px; color: #fca5a5;">❌ ข้อมูลถูกนำไปฝึกฝนโมเดลต่อ</li>
+                        <li style="margin-bottom: 10px; color: #fca5a5;">❌ เสี่ยงข้อมูลรั่วไหลสู่สาธารณะ</li>
+                        <li style="margin-bottom: 10px; color: #fca5a5;">❌ ไม่มีสัญญารักษาความลับระดับองค์กร</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.05); padding: 30px; border-radius: 16px; border: 2px solid var(--success);">
+                    <h3 style="color: var(--success);"><i class="fa-solid fa-shield-check"></i> Enterprise AI (Copilot)</h3>
+                    <ul style="margin-top: 15px; font-size: 16px; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px; color: #86efac;">✅ <strong>Data Boundary:</strong> ข้อมูลอยู่เฉพาะในองค์กร</li>
+                        <li style="margin-bottom: 10px; color: #86efac;">✅ <strong>No Training:</strong> ไม่นำข้อมูลไปเทรนโมเดลนอก</li>
+                        <li style="margin-bottom: 10px; color: #86efac;">✅ <strong>Compliance:</strong> มาตรฐานความปลอดภัยสูงสุด</li>
+                    </ul>
+                </div>
             </div>
+            <p style="margin-top: 25px; text-align: center; color: var(--primary); font-weight: bold; font-size: 18px;">
+                "เลือกระดับความลับของข้อมูลให้เหมาะกับเครื่องมือที่คุณใช้"
+            </p>
         </div>
     </div>
 
@@ -1162,6 +1150,7 @@
             <p style="font-size: 20px; margin-top: 10px;">จาก "ไอเดีย" สู่ "การลงมือทำจริง": ระบบอัตโนมัติ และภาพจำลอง (Mockup) นำเสนอ</p>
             <hr>
         </div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide3')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide_ai_automation">
@@ -1352,21 +1341,11 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const slides = document.querySelectorAll('.slide-container');
+            const slidesArray = Array.from(slides); 
             const total = slides.length;
             let currentSlide = 0;
 
-            // Generate slide counters
-            slides.forEach((slide, index) => {
-                let counter = slide.querySelector('.slide-counter');
-                if(!counter) {
-                    counter = document.createElement('div');
-                    counter.className = 'slide-counter';
-                    slide.appendChild(counter);
-                }
-                counter.innerText = `หน้า ${index + 1} / ${total}`;
-            });
-
-            function showSlide(index) {
+            window.showSlide = function(index) {
                 if (index < 0) currentSlide = 0;
                 else if (index >= total) currentSlide = total - 1;
                 else currentSlide = index;
@@ -1383,7 +1362,20 @@
                 document.getElementById('prevBtn').style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
                 document.getElementById('nextBtn').style.opacity = currentSlide === total - 1 ? '0.3' : '1';
                 document.getElementById('nextBtn').style.pointerEvents = currentSlide === total - 1 ? 'none' : 'auto';
-            }
+            };
+
+            window.slidesArray = slidesArray;
+
+            // Generate slide counters
+            slides.forEach((slide, index) => {
+                let counter = slide.querySelector('.slide-counter');
+                if(!counter) {
+                    counter = document.createElement('div');
+                    counter.className = 'slide-counter';
+                    slide.appendChild(counter);
+                }
+                counter.innerText = `หน้า ${index + 1} / ${total}`;
+            });
 
             document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
             document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));

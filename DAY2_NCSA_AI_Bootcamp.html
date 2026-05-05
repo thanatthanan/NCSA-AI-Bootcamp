@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หลักสูตรการพัฒนาองค์ความรู้และการประยุกต์ใช้ปัญญาประดิษฐ์อย่างสร้างสรรค์</title>
+    <title>DAY 2: หลักสูตรการพัฒนาองค์ความรู้และการประยุกต์ใช้ปัญญาประดิษฐ์อย่างสร้างสรรค์</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
@@ -293,25 +293,25 @@
         <div class="content-area">
             <div class="bullet-list single-col">
                 <ul style="gap: 10px;">
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(56, 189, 248, 0.1); border-color: #38bdf8;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide5')))" style="padding: 12px 20px 12px 70px; background: rgba(56, 189, 248, 0.1); border-color: #38bdf8; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px; color: #38bdf8;"></i>
                         <strong style="color: #38bdf8; font-size: 20px; margin-bottom: 2px;">00:00 - 00:30 | Part 1: Understand AI</strong>
                         <span style="font-size: 18px; color: #cbd5e1;">ปูพื้นฐาน Generative AI คืออะไร และทำงานอย่างไร</span>
                     </li>
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(192, 132, 252, 0.1); border-color: #c084fc;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide15')))" style="padding: 12px 20px 12px 70px; background: rgba(192, 132, 252, 0.1); border-color: #c084fc; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px; color: #c084fc;"></i>
                         <strong style="color: #c084fc; font-size: 20px; margin-bottom: 2px;">00:30 - 01:00 | Part 2: Prompt Engineering</strong>
                         <span style="font-size: 18px; color: #cbd5e1;">ศาสตร์แห่งการเขียนคำสั่ง (RTCF) และตัวอย่าง Before-After</span>
                     </li>
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(74, 222, 128, 0.1); border-color: #4ade80;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_framework_intro')))" style="padding: 12px 20px 12px 70px; background: rgba(74, 222, 128, 0.1); border-color: #4ade80; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-laptop-code" style="top: 18px; font-size: 26px; color: #4ade80;"></i>
                         <strong style="color: #4ade80; font-size: 20px; margin-bottom: 2px;">01:00 - 01:30 | Part 3: Live Demo & Workshop</strong>
-                        <span style="font-size: 18px; color: #cbd5e1;">สาธิตการใช้งานจริง (อีเมล, สรุปงาน, ตาราง) และฝึกปฏิบัติ</span>
+                        <span style="font-size: 18px; color: #cbd5e1;">สาธิตการใช้งานจริง และฝึกค้นหา Pain Point ในงานคุณ</span>
                     </li>
-                    <li style="padding: 12px 20px 12px 70px; background: rgba(248, 113, 113, 0.1); border-color: #f87171;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide35')))" style="padding: 12px 20px 12px 70px; background: rgba(248, 113, 113, 0.1); border-color: #f87171; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px; color: #f87171;"></i>
-                        <strong style="color: #f87171; font-size: 20px; margin-bottom: 2px;">01:30 - 02:00 | Part 4: Ethics & Limitations</strong>
-                        <span style="font-size: 18px; color: #cbd5e1;">ข้อควรระวัง (PDPA, Hallucination) และสรุปบทเรียน (Q&A)</span>
+                        <strong style="color: #f87171; font-size: 20px; margin-bottom: 2px;">01:30 - 02:00 | Part 4: Safety First</strong>
+                        <span style="font-size: 18px; color: #cbd5e1;">ความปลอดภัย (PDPA), ข้อควรระวัง (Don'ts) และสรุปบทเรียน (Q&A)</span>
                     </li>
                 </ul>
             </div>
@@ -326,7 +326,7 @@
             <p>รู้จักเพื่อนร่วมงานคนใหม่: พื้นฐาน Generative AI</p>
             <hr>
         </div>
-        <div class="slide-counter">5 / 51</div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide6">
@@ -577,7 +577,7 @@
             <p>ศิลปะแห่งการสั่งงาน (Prompt Engineering)</p>
             <hr>
         </div>
-        <div class="slide-counter">15 / 51</div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide16">
@@ -598,7 +598,7 @@
     </div>
 
     <div class="slide-container" id="slide17">
-        <h2 class="slide-title">กฎทองคำ: Garbage In, Garbage Out</h2>
+        <h2 class="slide-title">กฎทอคำ: Garbage In, Garbage Out</h2>
         <div class="content-area">
             <div class="tiled-content">
                 <div class="tile" style="border-color: #f87171;">
@@ -816,7 +816,7 @@
             <p>Live Demo & Workshop: สาธิตและการฝึกปฏิบัติจริง</p>
             <hr>
         </div>
-        <div class="slide-counter"></div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide_backoffice_audit">
@@ -1085,212 +1085,84 @@
     <div class="slide-container" id="slide35">
         <div class="section-title-layout">
             <h2>Part 4</h2>
-            <p>รู้เท่าทัน AI: ข้อควรระวัง จริยธรรม และความปลอดภัย</p>
+            <p>Safety First: พื้นฐานความปลอดภัยและการใช้งานเบื้องต้น</p>
             <hr>
         </div>
-        <div class="slide-counter">35 / 51</div>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
     <div class="slide-container" id="slide36">
-        <h2 class="slide-title">ข้อจำกัดข้อที่ 1: อาการหลอน (Hallucination)</h2>
+        <h2 class="slide-title">1. ทำไม AI ถึง "มั่ว"? (Hallucination 101)</h2>
         <div class="content-area">
             <div class="two-column">
                 <div>
-                    <p style="font-size: 24px; margin-bottom: 20px;"><strong>Hallucination (อาการหลอน/มั่ว)</strong> คือปรากฏการณ์ที่ AI ให้ข้อมูลที่ผิดพลาด แต่งเรื่องขึ้นมาเอง แต่อธิบายด้วยความมั่นใจและภาษาสละสลวยจนดูเหมือนจริง</p>
+                    <p style="font-size: 24px; margin-bottom: 20px;">AI ไม่ได้ "จำ" แต่เป็นการ "เดา" (Predicting words)</p>
                     <ul style="margin-top: 15px;">
-                        <li>AI ถูกสร้างมาให้ "พยากรณ์คำ" ไม่ใช่ "ดึงความจริงจากฐานข้อมูล"</li>
-                        <li>บางครั้งมันอาจแต่งชื่อหนังสือ อ้างอิงงานวิจัยที่ไม่มีอยู่จริง หรืออ้างข้อกฎหมายผิดๆ</li>
+                        <li><strong>ปรากฏการณ์อาการหลอน:</strong> AI พยายามตอบให้ดูดีที่สุด แต่อาจให้ข้อมูลที่ไม่มีอยู่จริง</li>
+                        <li><strong>ความเสี่ยง:</strong> หากเชื่อโดยไม่ตรวจสอบ อาจนำไปสู่การตัดสินใจที่ผิดพลาด</li>
                     </ul>
                 </div>
                 <div class="image-wrapper"><i class="fa-solid fa-ghost"></i></div>
             </div>
         </div>
-        <div class="slide-counter">36 / 51</div>
-    </div>
-
-    <div class="slide-container" id="slide37">
-        <h2 class="slide-title">วิธีรับมือกับอาการหลอน (Hallucination)</h2>
-        <div class="content-area">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; width: 100%;">
-                <div class="tile" style="flex-direction: row; text-align: left; padding: 25px; align-items: flex-start;">
-                    <i class="fa-solid fa-magnifying-glass" style="font-size: 30px; color: #f87171; margin-right: 20px; margin-top: 5px;"></i>
-                    <div>
-                        <h3 style="color: #f87171; font-size: 20px; margin-bottom: 8px;">Fact-Check เสมอ</h3>
-                        <p style="font-size: 16px;">ตรวจสอบข้อมูลสถิติ ชื่อบุคคล หรือข้อกฎหมายใน Google หรือแหล่งอ้างอิงจริงทุกครั้ง อย่าเชื่อ AI 100%</p>
-                    </div>
-                </div>
-                <div class="tile" style="flex-direction: row; text-align: left; padding: 25px; align-items: flex-start;">
-                    <i class="fa-solid fa-bullseye" style="font-size: 30px; color: #4ade80; margin-right: 20px; margin-top: 5px;"></i>
-                    <div>
-                        <h3 style="color: #4ade80; font-size: 20px; margin-bottom: 8px;">ตีกรอบความรู้</h3>
-                        <p style="font-size: 16px;">เพิ่มเงื่อนไขใน Prompt ว่า "ให้ตอบเฉพาะข้อมูลที่ให้ไว้เท่านั้น หากไม่ทราบให้บอกว่าไม่ทราบ ห้ามแต่งข้อมูลเอง"</p>
-                    </div>
-                </div>
-                <div class="tile" style="flex-direction: row; text-align: left; padding: 25px; align-items: flex-start;">
-                    <i class="fa-solid fa-code-compare" style="font-size: 30px; color: #38bdf8; margin-right: 20px; margin-top: 5px;"></i>
-                    <div>
-                        <h3 style="color: #38bdf8; font-size: 20px; margin-bottom: 8px;">ตรวจสอบข้ามโมเดล</h3>
-                        <p style="font-size: 16px;">ลองนำคำถามเดียวกันไปถาม AI หลายตัว (เช่น ChatGPT และ Gemini) เพื่อเปรียบเทียบความสอดคล้องของคำตอบ</p>
-                    </div>
-                </div>
-                <div class="tile" style="flex-direction: row; text-align: left; padding: 25px; align-items: flex-start;">
-                    <i class="fa-solid fa-link-slash" style="font-size: 30px; color: #fbbf24; margin-right: 20px; margin-top: 5px;"></i>
-                    <div>
-                        <h3 style="color: #fbbf24; font-size: 20px; margin-bottom: 8px;">ขอแหล่งอ้างอิง</h3>
-                        <p style="font-size: 16px;">สั่งให้ AI ระบุที่มา แม้ AI อาจจะมั่วลิงก์ แต่จะช่วยให้เรามีคีย์เวิร์ดสำคัญในการนำไปค้นหาต่อเพื่อยืนยันความถูกต้อง</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-counter">37 / 51</div>
-    </div>
-
-    <div class="slide-container" id="slide38">
-        <h2 class="slide-title">ข้อจำกัดข้อที่ 2: อคติของ AI (AI Bias)</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <h3>AI ไม่ได้เป็นกลาง 100%</h3>
-                    <p>เนื่องจาก AI เรียนรู้จากข้อมูลของมนุษย์บนอินเทอร์เน็ต มันจึงรับเอา "อคติ" ของมนุษย์มาด้วย (เช่น อคติทางเพศ, เชื้อชาติ, หรือความเชื่อทางการเมือง)</p>
-                    <ul style="margin-top: 15px;">
-                        <li>เช่น หากสั่งให้สร้างภาพ "CEO" AI อาจสร้างภาพผู้ชายใส่สูทเป็นส่วนใหญ่</li>
-                        <li>หรืออาจให้คำแนะนำที่เอนเอียงไปตามวัฒนธรรมตะวันตก</li>
-                    </ul>
-                    <p style="margin-top: 20px; color: #a78bfa;"><strong>วิธีแก้:</strong> ผู้ใช้งานต้องมีวิจารณญาณ และอาจต้องระบุใน Prompt ให้แสดงมุมมองที่หลากหลาย (Diversity)</p>
-                </div>
-                <div class="image-wrapper"><i class="fa-solid fa-scale-unbalanced"></i></div>
-            </div>
-        </div>
-        <div class="slide-counter">38 / 51</div>
     </div>
 
     <div class="slide-container" id="slide39">
-        <h2 class="slide-title">กฎเหล็กความปลอดภัย: ข้อมูลส่วนบุคคล (PDPA)</h2>
+        <h2 class="slide-title">2. กฎเหล็ก PDPA: ห้ามป้อนข้อมูลลับ</h2>
         <div class="content-area">
             <div style="background: rgba(248, 113, 113, 0.1); border: 2px solid #f87171; padding: 40px; border-radius: 16px; width: 100%;">
-                <h3 style="color: #f87171; text-align: center; font-size: 36px; margin-bottom: 20px;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 15px;"></i>ห้ามป้อนข้อมูลส่วนบุคคล (PII) ลงใน AI โดยเด็ดขาด</h3>
+                <h3 style="color: #f87171; text-align: center; font-size: 32px; margin-bottom: 20px;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 15px;"></i>ห้ามป้อนข้อมูลส่วนบุคคลลงใน AI สาธารณะ</h3>
+                <p style="text-align: center; margin-bottom: 20px;">ข้อมูลที่คุณพิมพ์ อาจถูกนำไปใช้ฝึกฝน AI ต่อ และกลายเป็นสาธารณะได้</p>
                 <div class="two-column" style="margin-top: 30px;">
-                    <div>
-                        <p><strong>สิ่งห้ามใส่:</strong></p>
-                        <ul style="margin-top: 10px; color: #fca5a5;">
-                            <li>ชื่อ-นามสกุลจริงของลูกค้าหรือพนักงาน</li>
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px;">
+                        <p><strong>❌ สิ่งที่ห้ามใส่:</strong></p>
+                        <ul style="margin-top: 10px; color: #fca5a5; font-size: 16px;">
+                            <li>ชื่อ-นามสกุลจริงลูกค้า/พนักงาน</li>
                             <li>เลขบัตรประชาชน / เบอร์โทรศัพท์</li>
-                            <li>ที่อยู่ / อีเมลส่วนตัว</li>
-                            <li>ข้อมูลสุขภาพ / ประวัติอาชญากรรม</li>
+                            <li>งบการเงินที่ยังไม่ประกาศ</li>
                         </ul>
                     </div>
-                    <div>
-                        <p><strong>วิธีแก้ปัญหา (Anonymization):</strong></p>
-                        <ul style="margin-top: 10px; color: #86efac;">
-                            <li>ใช้ตัวย่อ เช่น "ลูกค้า A", "พนักงาน B"</li>
-                            <li>เซ็นเซอร์ข้อมูลก่อนวางลงใน AI (เช่น XXX-XXX-XXXX)</li>
-                            <li>ให้ AI สร้าง Format ว่างๆ แล้วเรานำมาเติมข้อมูลเองใน Excel ภายหลัง</li>
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px;">
+                        <p><strong>✅ วิธีแก้ไขเบื้องต้น:</strong></p>
+                        <ul style="margin-top: 10px; color: #86efac; font-size: 16px;">
+                            <li>ใช้ตัวย่อ "นาย A", "บริษัท B"</li>
+                            <li>เซ็นเซอร์ข้อมูลก่อน (XXX-XXX)</li>
+                            <li>ใช้เฉพาะข้อมูลที่เป็นสาธารณะ</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="slide-counter">39 / 51</div>
     </div>
 
-    <div class="slide-container" id="slide40">
-        <h2 class="slide-title">กฎเหล็กความปลอดภัย: ความลับขององค์กร</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <h3 style="color: #f87171;">ข้อมูลอาจถูกนำไปใช้เทรน AI ต่อ</h3>
-                    <p>เครื่องมือ AI สาธารณะส่วนใหญ่ (แบบใช้ฟรี) มักนำข้อความที่คุณพิมพ์ไปใช้ฝึกฝนโมเดลของพวกเขาต่อ</p>
-                    <p style="margin-top: 15px;"><strong>ห้ามป้อนข้อมูลองค์กรต่อไปนี้:</strong></p>
-                    <ul style="margin-top: 10px;">
-                        <li>งบการเงินที่ยังไม่เปิดเผยต่อสาธารณะ</li>
-                        <li>แผนกลยุทธ์ธุรกิจ / แผนการตลาดลับ</li>
-                        <li>โค้ดโปรแกรมหลัก (Source Code) ของระบบบริษัท</li>
-                        <li>รหัสผ่าน (Passwords) หรือ API Keys</li>
-                    </ul>
-                </div>
-                <div class="image-wrapper" style="border-color: #f87171;"><i class="fa-solid fa-lock" style="color: #f87171;"></i></div>
-            </div>
-        </div>
-        <div class="slide-counter">40 / 51</div>
-    </div>
-
-    <div class="slide-container" id="slide41">
-        <h2 class="slide-title">ประเด็นลิขสิทธิ์ (Copyrights)</h2>
-        <div class="content-area">
-            <div class="tiled-content">
-                <div class="tile">
-                    <i class="fa-solid fa-copyright" style="font-size: 40px; color: #38bdf8; margin-bottom: 20px;"></i>
-                    <h3>ใครเป็นเจ้าของผลงาน AI?</h3>
-                    <p>ปัจจุบัน กฎหมายในหลายประเทศ (รวมถึงไทย) มองว่า "ผลงานที่สร้างโดย AI 100% ไม่มีลิขสิทธิ์" เพราะมนุษย์ไม่ได้เป็นผู้สร้างสรรค์</p>
-                </div>
-                <div class="tile">
-                    <i class="fa-solid fa-layer-group" style="font-size: 40px; color: #a78bfa; margin-bottom: 20px;"></i>
-                    <h3>การนำไปใช้ให้ปลอดภัย</h3>
-                    <p>หากจะนำภาพหรือข้อความไปใช้เชิงพาณิชย์ ควรนำมา "ดัดแปลง" หรือ "แก้ไขต่อเติม" โดยมนุษย์ เพื่อให้เกิดความเป็นเจ้าของลิขสิทธิ์ใหม่ (Human Authorship)</p>
-                </div>
-            </div>
-        </div>
-        <div class="slide-counter">41 / 51</div>
-    </div>
-
-    <div class="slide-container" id="slide42">
-        <h2 class="slide-title">นโยบายการใช้ AI ในองค์กร (AI Policy)</h2>
-        <div class="content-area">
-            <p style="margin-bottom: 30px; font-size: 24px; text-align: center;">แนวทางปฏิบัติที่องค์กรควรมี เพื่อให้พนักงานใช้งานได้อย่างสบายใจและปลอดภัย</p>
-            <div class="tiled-content">
-                <div class="tile" style="padding: 40px 25px; border-color: #38bdf8;">
-                    <div class="icon" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8;"><i class="fa-solid fa-eye"></i></div>
-                    <h3 style="color: #38bdf8;">Transparency</h3>
-                    <p style="font-size: 18px; color: #f8fafc; font-weight: bold; margin-bottom: 10px;">ความโปร่งใส</p>
-                    <p style="font-size: 16px;">หากงานนั้นใช้ AI สร้างขึ้นมาส่วนใหญ่ ควรแจ้งให้หัวหน้างานหรือทีมทราบเพื่อให้ตรวจสอบได้</p>
-                </div>
-                <div class="tile" style="padding: 40px 25px; border-color: #a78bfa;">
-                    <div class="icon" style="background: rgba(167, 139, 250, 0.1); color: #a78bfa;"><i class="fa-solid fa-check-double"></i></div>
-                    <h3 style="color: #a78bfa;">Approved Tools</h3>
-                    <p style="font-size: 18px; color: #f8fafc; font-weight: bold; margin-bottom: 10px;">เครื่องมือที่อนุญาต</p>
-                    <p style="font-size: 16px;">ใช้เฉพาะแอปพลิเคชันที่องค์กรกำหนด (Whitelist) โดยเฉพาะเวอร์ชัน Enterprise ที่ปลอดภัยสูง</p>
-                </div>
-                <div class="tile" style="padding: 40px 25px; border-color: #4ade80;">
-                    <div class="icon" style="background: rgba(74, 222, 128, 0.1); color: #4ade80;"><i class="fa-solid fa-user-check"></i></div>
-                    <h3 style="color: #4ade80;">Accountability</h3>
-                    <p style="font-size: 18px; color: #f8fafc; font-weight: bold; margin-bottom: 10px;">ความรับผิดชอบ</p>
-                    <p style="font-size: 16px;">พนักงานคือผู้รับผิดชอบผลงานชิ้นสุดท้ายเสมอ ไม่ใช่ AI ต้องตรวจสอบความถูกต้องก่อนส่งงาน</p>
-                </div>
-            </div>
-        </div>
-        <div class="slide-counter">42 / 51</div>
-    </div>
-
-    <!-- New Slide: 4 Simple Rules -->
     <div class="slide-container" id="slide_4_rules">
-        <h2 class="slide-title" style="border-left-color: #f87171;">ข้อห้าม / ข้อควรระวังแบบจำง่าย (Do's & Don'ts)</h2>
+        <h2 class="slide-title">3. กฎ 4 ข้อสั้นๆ จำขึ้นใจ (Do's & Don'ts)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
                 <ul style="gap: 12px;">
-                    <li style="border: 2px solid #f87171; background: rgba(248, 113, 113, 0.05); padding: 16px 25px 16px 75px;">
-                        <i class="fa-solid fa-user-secret" style="color: #f87171; top: 22px; font-size: 28px;"></i>
-                        <strong style="color: #f87171; font-size: 20px; margin-bottom: 4px;">1. ไม่ใส่ข้อมูลลับ (No Secrets)</strong>
-                        <span style="font-size: 18px; color: #cbd5e1;">ห้ามป้อนข้อมูลส่วนบุคคล (PDPA), งบการเงิน, ความลับบริษัท หรือรหัสผ่านลงไปเด็ดขาด</span>
+                    <li style="border: 2px solid #f87171; background: rgba(248, 113, 113, 0.05); padding: 15px 25px 15px 75px;">
+                        <i class="fa-solid fa-user-secret" style="color: #f87171; top: 18px; font-size: 24px;"></i>
+                        <strong style="color: #f87171; font-size: 18px; margin-bottom: 2px;">ไม่ใส่ข้อมูลลับ (No Secrets)</strong>
+                        <span style="font-size: 16px;">ห้ามป้อนข้อมูล PDPA และความลับบริษัทลงใน AI สาธารณะ</span>
                     </li>
-                    <li style="border: 2px solid #fbbf24; background: rgba(251, 191, 36, 0.05); padding: 16px 25px 16px 75px;">
-                        <i class="fa-solid fa-face-flushed" style="color: #fbbf24; top: 22px; font-size: 28px;"></i>
-                        <strong style="color: #fbbf24; font-size: 20px; margin-bottom: 4px;">2. ไม่เชื่อทันที (Don't Trust Blindly)</strong>
-                        <span style="font-size: 18px; color: #cbd5e1;">AI สามารถ "มั่ว" (Hallucinate) ข้อมูลได้อย่างแนบเนียน ต้อง Fact-check ตัวเลขและข้อเท็จจริงเสมอ</span>
+                    <li style="border: 2px solid #fbbf24; background: rgba(251, 191, 36, 0.05); padding: 15px 25px 15px 75px;">
+                        <i class="fa-solid fa-face-flushed" style="color: #fbbf24; top: 18px; font-size: 24px;"></i>
+                        <strong style="color: #fbbf24; font-size: 18px; margin-bottom: 2px;">ไม่เชื่อทันที (Don't Trust Blindly)</strong>
+                        <span style="font-size: 16px;">AI สามารถ "มั่ว" ได้อย่างแนบเนียน ต้องตรวจเช็คเสมอ</span>
                     </li>
-                    <li style="border: 2px solid #38bdf8; background: rgba(56, 189, 248, 0.05); padding: 16px 25px 16px 75px;">
-                        <i class="fa-solid fa-copy" style="color: #38bdf8; top: 22px; font-size: 28px;"></i>
-                        <strong style="color: #38bdf8; font-size: 20px; margin-bottom: 4px;">3. ไม่คัดลอกโดยไม่ตรวจ (Don't Copy-Paste blindly)</strong>
-                        <span style="font-size: 18px; color: #cbd5e1;">อ่านทบทวนและปรับสำนวนให้เป็นมนุษย์ (Humanize) และรับผิดชอบงานก่อนส่งทุกครั้ง</span>
+                    <li style="border: 2px solid #38bdf8; background: rgba(56, 189, 248, 0.05); padding: 15px 25px 15px 75px;">
+                        <i class="fa-solid fa-copy" style="color: #38bdf8; top: 18px; font-size: 24px;"></i>
+                        <strong style="color: #38bdf8; font-size: 18px; margin-bottom: 2px;">ไม่คัดลอกโดยไม่ตรวจ (Human First)</strong>
+                        <span style="font-size: 16px;">อ่านทบทวนและปรับสำนวนให้เป็นมนุษย์ก่อนส่งงาน</span>
                     </li>
-                    <li style="border: 2px solid #c084fc; background: rgba(192, 132, 252, 0.05); padding: 16px 25px 16px 75px;">
-                        <i class="fa-solid fa-gavel" style="color: #c084fc; top: 22px; font-size: 28px;"></i>
-                        <strong style="color: #c084fc; font-size: 20px; margin-bottom: 4px;">4. ไม่ใช้แทนการตัดสินใจ (Not a Decision Maker)</strong>
-                        <span style="font-size: 18px; color: #cbd5e1;">AI คือผู้ช่วยรวบรวมและวิเคราะห์ข้อมูล แต่คนฟันธงและรับผิดชอบผลลัพธ์สุดท้ายคือ "คุณ"</span>
+                    <li style="border: 2px solid #c084fc; background: rgba(192, 132, 252, 0.05); padding: 15px 25px 15px 75px;">
+                        <i class="fa-solid fa-gavel" style="color: #c084fc; top: 18px; font-size: 24px;"></i>
+                        <strong style="color: #c084fc; font-size: 18px; margin-bottom: 2px;">คุณคือผู้รับผิดชอบ (Human in the Loop)</strong>
+                        <span style="font-size: 16px;">AI คือผู้ช่วย แต่คนตัดสินใจและรับผิดชอบผลลัพธ์คือ "คุณ"</span>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
     <div class="slide-container" id="slide43">
@@ -1371,22 +1243,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const slides = document.querySelectorAll('.slide-container');
+            const slidesArray = Array.from(slides); // แปลง NodeList เป็น Array เพื่อใช้ indexOf
             const total = slides.length;
             let currentSlide = 0;
 
-            // Generate slide counters (อัปเดตเลขหน้า)
-            slides.forEach((slide, index) => {
-                let counter = slide.querySelector('.slide-counter');
-                if(!counter) {
-                    counter = document.createElement('div');
-                    counter.className = 'slide-counter';
-                    slide.appendChild(counter);
-                }
-                counter.innerText = `หน้า ${index + 1} / ${total}`;
-            });
-
-            // Function สำหรับสลับสไลด์
-            function showSlide(index) {
+            // ทำให้ฟังก์ชัน showSlide เข้าถึงได้จากภายนอก (สำหรับ Agenda คลิก)
+            window.showSlide = function(index) {
                 if (index < 0) currentSlide = 0;
                 else if (index >= total) currentSlide = total - 1;
                 else currentSlide = index;
@@ -1404,7 +1266,20 @@
                 document.getElementById('prevBtn').style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
                 document.getElementById('nextBtn').style.opacity = currentSlide === total - 1 ? '0.3' : '1';
                 document.getElementById('nextBtn').style.pointerEvents = currentSlide === total - 1 ? 'none' : 'auto';
-            }
+            };
+
+            window.slidesArray = slidesArray; // ส่งออก slidesArray ให้เรียกใช้ใน onclick ได้
+
+            // Generate slide counters (อัปเดตเลขหน้า)
+            slides.forEach((slide, index) => {
+                let counter = slide.querySelector('.slide-counter');
+                if(!counter) {
+                    counter = document.createElement('div');
+                    counter.className = 'slide-counter';
+                    slide.appendChild(counter);
+                }
+                counter.innerText = `หน้า ${index + 1} / ${total}`;
+            });
 
             // Event Listeners สำหรับคลิกปุ่ม
             document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
