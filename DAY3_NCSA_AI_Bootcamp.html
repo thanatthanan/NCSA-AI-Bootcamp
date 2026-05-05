@@ -491,44 +491,84 @@
             </div>
         </div>
     </div>
-    
-    <div class="slide-container" id="slide15">
-        <h2 class="slide-title">สรุป 6 เทคนิค Advanced Prompting</h2>
+
+    <div class="slide-container" id="slide_cot">
+        <h2 class="slide-title">Technique 7: Chain of Thought (คิดเป็นสเต็ป)</h2>
         <div class="content-area">
-            <div class="tiled-content" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                <div class="tile" style="padding: 20px; border-top: 5px solid var(--primary);">
-                    <div class="icon" style="width: 60px; height: 60px; font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">Context Conditioning</h3>
-                    <p style="font-size: 14px;">วางกฎเหล็กและข้อห้ามอย่างเคร่งครัด</p>
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 24px;">สำหรับงานที่ต้องใช้ <strong>ตรรกะหรือการคำนวณ</strong> ให้ใช้คำสั่งบังคับให้ AI กระจายความคิดออกมา</p>
+                    <div style="background: rgba(14, 165, 233, 0.1); border: 2px dashed var(--primary); padding: 25px; border-radius: 12px; margin-top: 20px; text-align: center;">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">"จงคิดทีละขั้นตอน"</h3>
+                        <p>(Think step by step)</p>
+                    </div>
                 </div>
-                <div class="tile" style="padding: 20px; border-top: 5px solid var(--secondary);">
-                    <div class="icon" style="width: 60px; height: 60px; font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-rotate"></i></div>
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">Iterative</h3>
-                    <p style="font-size: 14px;">สั่งร่าง > วิจารณ์ > ปรับปรุง วนลูปจนสมบูรณ์</p>
-                </div>
-                <div class="tile" style="padding: 20px; border-top: 5px solid var(--success);">
-                    <div class="icon" style="width: 60px; height: 60px; font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-brain"></i></div>
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">Socratic</h3>
-                    <p style="font-size: 14px;">ให้ AI ท้าทายความคิดและหาช่องโหว่</p>
-                </div>
-                <div class="tile" style="padding: 20px; border-top: 5px solid var(--warning);">
-                    <div class="icon" style="width: 60px; height: 60px; font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-link"></i></div>
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">Chaining</h3>
-                    <p style="font-size: 14px;">แบ่งงานใหญ่เป็นข้อย่อย ทำทีละสเต็ป</p>
-                </div>
-                <div class="tile" style="padding: 20px; border-top: 5px solid var(--danger);">
-                    <div class="icon" style="width: 60px; height: 60px; font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-table-list"></i></div>
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">Formatting</h3>
-                    <p style="font-size: 14px;">บังคับโครงสร้าง Output ให้แม่นยำ</p>
-                </div>
-                <div class="tile" style="padding: 20px; border-top: 5px solid var(--text-main);">
-                    <div class="icon" style="width: 60px; height: 60px; font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">Meta-Prompting</h3>
-                    <p style="font-size: 14px;">ให้ AI ช่วยออกแบบ Prompt ที่ดีที่สุดให้เรา</p>
+                <div style="background: var(--box-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+                    <h3 style="color: var(--secondary);">ตัวอย่าง Prompt</h3>
+                    <p class="prompt-box" style="font-size: 16px;">"ช่วยวางแผนย้ายออฟฟิศใหม่ที่มีพนักงาน 30 คน <strong>โดยให้คิดทีละขั้นตอน</strong> ตั้งแต่การจัดของ การแจ้งพนักงาน ไปจนถึงการติดตั้งระบบไอที"</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="slide-container" id="slide_reverse">
+        <h2 class="slide-title">Technique 8: Reverse Prompting (ให้ AI ถามเรากลับ)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 22px;">หากคุณมีโจทย์ที่ซับซ้อน แต่ยังให้ Context ไม่ครบ ให้สั่งให้ AI <strong>"เป็นฝ่ายตั้งคำถามเพื่อเก็บข้อมูล"</strong> ก่อนเริ่มงาน</p>
+                </div>
+                <div style="background: var(--box-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+                    <h3 style="color: var(--success);">ตัวอย่าง Prompt มหัศจรรย์</h3>
+                    <div class="prompt-box" style="font-size: 16px;">
+                        "ฉันต้องการให้คุณช่วยออกแบบแผนกลยุทธ์ Smart Back Office <br><br><strong>แต่ก่อนเริ่มงาน ขอให้คุณถามคำถามฉัน 5 ข้อ</strong> ที่คุณจำเป็นต้องรู้เพื่อวิเคราะห์ระบบงานปัจจุบันของฉันได้แม่นยำที่สุด"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="slide-container" id="slide15">
+        <h2 class="slide-title">สรุป 8 เทคนิค Advanced Prompting</h2>
+        <div class="content-area">
+            <div class="tiled-content" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                <div class="tile" style="padding: 15px; border-top: 5px solid var(--primary);">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Context Condition</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid var(--secondary);">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-rotate"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Iterative</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid var(--success);">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-brain"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Socratic</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid var(--warning);">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-link"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Chaining</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid var(--danger);">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-table-list"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Formatting</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid var(--text-main);">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Meta-Prompt</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid #3b82f6;">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-stairs"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Chain of Thought</h3>
+                </div>
+                <div class="tile" style="padding: 15px; border-top: 5px solid #10b981;">
+                    <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-comments-question"></i></div>
+                    <h3 style="font-size: 16px; margin-bottom: 5px;">Reverse Prompt</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Padding slides to reach 50+ as requested, maintaining flow -->
     <div class="slide-container" id="slide16">

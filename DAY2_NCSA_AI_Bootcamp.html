@@ -728,75 +728,34 @@
         <div class="slide-counter">24 / 51</div>
     </div>
 
-    <div class="slide-container" id="slide25">
-        <h2 class="slide-title">เทคนิคขั้นสูง 2: Chain of Thought (คิดเป็นสเต็ป)</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <p>สำหรับงานที่ซับซ้อน หรือต้องใช้ตรรกะ ให้เติมคำมหัศจรรย์ลงไปใน Prompt:</p>
-                    <div style="background: rgba(56, 189, 248, 0.2); border: 2px dashed #38bdf8; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; font-size: 24px; color: #38bdf8; font-weight: bold;">
-                        "จงคิดทีละขั้นตอน" <br>(Think step by step)
-                    </div>
-                    <p>ประโยคนี้จะบังคับให้ LLMs กระจายกระบวนการคิดออกมาก่อนให้คำตอบสุดท้าย ทำให้ลดอาการ "มั่ว" (Hallucination) ได้อย่างมีนัยสำคัญ</p>
-                </div>
-                <div>
-                    <div style="background: #1e293b; padding: 25px; border-radius: 12px;">
-                        <p style="color: #94a3b8; margin-bottom: 10px;">ตัวอย่าง Prompt วางแผน:</p>
-                        <p style="font-size: 16px; font-family: monospace;">"ช่วยวางแผนจัดงาน Staff Party ปลายปี สำหรับพนักงาน 50 คน งบ 50,000 บาท <strong>โดยให้คิดทีละขั้นตอน</strong> เริ่มจากการแจกแจงงบประมาณ การหาสถานที่ และกิจกรรม"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-counter">25 / 51</div>
-    </div>
-    
-    <div class="slide-container" id="slide26">
-        <h2 class="slide-title">เทคนิคขั้นสูง 3: ให้ AI ถามกลับ (Reverse Prompting)</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <p>ถ้าคุณไม่รู้จะเขียน Context หรือรายละเอียดอะไรให้ AI ดี ให้ <strong>"สั่งให้ AI เป็นฝ่ายตั้งคำถามคุณ"</strong> เพื่อรวบรวมข้อมูล</p>
-                    <p style="margin-top: 20px; color: #4ade80;">เทคนิคนี้ยอดเยี่ยมมากสำหรับตอนที่คุณมีไอเดียคร่าวๆ แต่ยังไม่ตกผลึก</p>
-                </div>
-                <div style="background: #1e293b; padding: 25px; border-radius: 12px;">
-                    <p style="color: #94a3b8; margin-bottom: 10px;">ตัวอย่าง Prompt มหัศจรรย์:</p>
-                    <div class="prompt-box">
-                        "ฉันต้องการให้คุณช่วยร่างรายงานประจำปี <br><br>แต่ก่อนที่คุณจะเริ่มเขียน <strong>ขอให้คุณถามคำถามฉัน 5 ข้อ</strong> เพื่อเก็บข้อมูลสำคัญที่คุณจำเป็นต้องรู้ เพื่อให้เขียนรายงานฉบับนี้ออกมาได้สมบูรณ์ที่สุด"
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-counter">26 / 51</div>
-    </div>
-
-    <!-- ==================== NEW SECTION: SMART BACK OFFICE FRAMEWORK ==================== -->
+    <!-- ==================== NEW SECTION: SMART BACK OFFICE FRAMEWORK (FOUNDATION) ==================== -->
     <div class="slide-container" id="slide_framework_intro">
         <div class="section-title-layout">
-            <h2>Smart Back Office</h2>
-            <p>วิเคราะห์งานด้วย P.A.I. Framework</p>
+            <h2>Smart Back Office: จุดเริ่มต้น</h2>
+            <p>ก้าวแรกด้วยการสำรวจปัญหา (Problem Audit)</p>
             <hr>
         </div>
         <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide_pai_framework">
-        <h2 class="slide-title">P.A.I. Framework: เปลี่ยนงานยากให้เป็นงานง่าย</h2>
+    <div class="slide-container" id="slide_pai_foundation">
+        <h2 class="slide-title">P.A.I. Framework: รากฐานการใช้ AI ในองค์กร</h2>
         <div class="content-area">
             <div class="tiled-content">
-                <div class="tile" style="border-color: #f87171;">
+                <div class="tile" style="border-color: #f87171; flex: 2; transform: scale(1.05); box-shadow: 0 0 20px rgba(248, 113, 113, 0.2);">
                     <div class="icon" style="background: rgba(248, 113, 113, 0.1); color: #f87171;"><i class="fa-solid fa-magnifying-glass"></i></div>
                     <h3>P - Problem Audit</h3>
-                    <p style="font-size: 14px; text-align: left;">สำรวจงานที่ <strong>"ทำซ้ำ/เสียเวลานาน/ข้อมูลเยอะ"</strong> เช่น การสรุปรายงานรายวัน หรือการตอบคำถามซ้ำๆ</p>
+                    <p style="font-size: 18px;"><strong>เน้นย้ำในวันนี้:</strong> การระบุงานที่ "เจ็บปวด" ที่สุดในออฟฟิศ เพื่อเตรียมนำไปแก้ด้วย AI ในวันพรุ่งนี้</p>
                 </div>
-                <div class="tile" style="border-color: #38bdf8;">
-                    <div class="icon" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3>A - AI Solution Design</h3>
-                    <p style="font-size: 14px; text-align: left;">ออกแบบ <strong>Prompt (RTCF)</strong> และเลือกเครื่องมือ AI ที่เหมาะสมมาแทนที่ขั้นตอนที่น่าเบื่อนั้น</p>
+                <div class="tile" style="opacity: 0.5;">
+                    <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>A - AI Design</h3>
+                    <p>เรียนรู้ในระดับขั้นสูง (Day 3)</p>
                 </div>
-                <div class="tile" style="border-color: #4ade80;">
-                    <div class="icon" style="background: rgba(74, 222, 128, 0.1); color: #4ade80;"><i class="fa-solid fa-arrows-spin"></i></div>
-                    <h3>I - Implement & Verify</h3>
-                    <p style="font-size: 14px; text-align: left;">นำไป <strong>ใช้งานจริง</strong> โดยมีมนุษย์ตรวจสอบความถูกต้อง (Human in the Loop) ก่อนส่งงาน</p>
+                <div class="tile" style="opacity: 0.5;">
+                    <div class="icon"><i class="fa-solid fa-arrows-spin"></i></div>
+                    <h3>I - Implement</h3>
+                    <p>เรียนรู้ในระดับขั้นสูง (Day 3)</p>
                 </div>
             </div>
         </div>
@@ -804,33 +763,31 @@
     </div>
 
     <div class="slide-container" id="slide_backoffice_audit">
-        <h2 class="slide-title">ตัวอย่างการทำ AI Audit สำหรับ Back Office</h2>
+        <h2 class="slide-title">Workshop: ค้นหา "Pain Point" ในงานของคุณ</h2>
         <div class="content-area">
+            <p style="margin-bottom: 20px;">ลองเขียนลิสต์งานที่คุณต้องทำซ้ำๆ และอยากให้ AI มาช่วยจัดการ:</p>
             <table style="width: 100%; border-collapse: collapse; background: rgba(30,41,59,0.5); border-radius: 12px; overflow: hidden;">
                 <tr style="background: #1e293b; color: #fff;">
-                    <th style="padding: 15px; text-align: left;">งานปัจจุบัน (Manual)</th>
-                    <th style="padding: 15px; text-align: left; color: #f87171;">จุดที่ "เจ็บ" (Pain Point)</th>
-                    <th style="padding: 15px; text-align: left; color: #4ade80;">Smart Back Office (AI)</th>
+                    <th style="padding: 15px; text-align: left;">ชื่องาน</th>
+                    <th style="padding: 15px; text-align: left; color: #f87171;">ทำไมถึงเสียเวลา? (Pain Point)</th>
                 </tr>
                 <tr style="border-bottom: 1px solid #334155;">
-                    <td style="padding: 15px;">คัดกรองใบสมัครงาน</td>
-                    <td style="padding: 15px;">อ่าน Resume วันละ 100 ใบ</td>
-                    <td style="padding: 15px; color: #e2e8f0;">AI ช่วยสรุปคุณสมบัติเด่นและคัดแยกคะแนนตามโจทย์</td>
+                    <td style="padding: 15px;">ตัวอย่าง: สรุปรายงานประจำสัปดาห์</td>
+                    <td style="padding: 15px;">ต้องเปิดอ่านไฟล์จาก 5 แผนกแล้วมาพิมพ์สรุปใหม่ทุกวันศุกร์</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #334155;">
-                    <td style="padding: 15px;">สรุปรายงานการประชุม</td>
-                    <td style="padding: 15px;">ต้องฟังเทปยาว 2 ชม. เพื่อจดเมล</td>
-                    <td style="padding: 15px; color: #e2e8f0;">AI แปลงเสียงเป็นข้อความและสรุป Action Items ทันที</td>
+                    <td style="padding: 15px;">ตัวอย่าง: ตอบเมลจองห้องประชุม</td>
+                    <td style="padding: 15px;">ต้องเช็คตารางและพิมพ์ตอบรูปแบบเดิมๆ ซ้ำวันละหลายรอบ</td>
                 </tr>
                 <tr>
-                    <td style="padding: 15px;">ทำตารางงบประมาณ</td>
-                    <td style="padding: 15px;">คีย์ข้อมูลและเขียนสูตร Excel ยาวๆ</td>
-                    <td style="padding: 15px; color: #e2e8f0;">AI เขียนสูตรและตรวจความผิดปกติของตัวเลขให้</td>
+                    <td style="padding: 15px;">งานของคุณ: .........................</td>
+                    <td style="padding: 15px;">....................................................................</td>
                 </tr>
             </table>
         </div>
         <div class="slide-counter"></div>
     </div>
+
 
 
     <!-- New Slide: Live Demo -->
