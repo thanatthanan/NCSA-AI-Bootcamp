@@ -215,37 +215,35 @@
     <button id="nextBtn" class="nav-btn nav-next"><i class="fa-solid fa-chevron-right"></i></button>
     <div class="controls-hint"><i class="fa-solid fa-keyboard" style="margin-right: 8px;"></i>เลื่อนหน้า: ลูกศร ◀ ▶ หรือ Spacebar | เต็มจอ: กดปุ่ม F</div>
 
-    <!-- ==================== INTRODUCTION & OVERVIEW (Slides 1-4) ==================== -->
+    <!-- ==================== INTRODUCTION & OVERVIEW ==================== -->
     <div class="slide-container" id="slide1">
         <div class="title-layout">
             <h1>การพัฒนาองค์ความรู้ และการประยุกต์ใช้ <br><span class="highlight">ปัญญาประดิษฐ์อย่างสร้างสรรค์</span></h1>
             <p class="subtitle">สำหรับเพิ่มประสิทธิภาพการทำงานของบุคลากรในสำนักงาน</p>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <!-- New Slide: Unified Agenda -->
-    <div class="slide-container" id="slide_agenda">
+    <div class="slide-container" id="slide2">
         <h2 class="slide-title">Agenda: กำหนดการอบรม (2 ชั่วโมง)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
                 <ul style="gap: 10px;">
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide5')))" style="padding: 12px 20px 12px 70px; background: rgba(56, 189, 248, 0.1); border-color: #38bdf8; cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide3')))" style="padding: 12px 20px 12px 70px; background: rgba(56, 189, 248, 0.1); border-color: #38bdf8; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px; color: #38bdf8;"></i>
                         <strong style="color: #38bdf8; font-size: 20px; margin-bottom: 2px;">00:00 - 00:30 | Part 1: Understand AI</strong>
                         <span style="font-size: 18px; color: #cbd5e1;">ปูพื้นฐาน Generative AI คืออะไร และทำงานอย่างไร</span>
                     </li>
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide15')))" style="padding: 12px 20px 12px 70px; background: rgba(192, 132, 252, 0.1); border-color: #c084fc; cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide17')))" style="padding: 12px 20px 12px 70px; background: rgba(192, 132, 252, 0.1); border-color: #c084fc; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px; color: #c084fc;"></i>
                         <strong style="color: #c084fc; font-size: 20px; margin-bottom: 2px;">00:30 - 01:00 | Part 2: Prompt Engineering</strong>
                         <span style="font-size: 18px; color: #cbd5e1;">ศาสตร์แห่งการเขียนคำสั่ง (RTCF) และตัวอย่าง Before-After</span>
                     </li>
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_framework_intro')))" style="padding: 12px 20px 12px 70px; background: rgba(74, 222, 128, 0.1); border-color: #4ade80; cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide30')))" style="padding: 12px 20px 12px 70px; background: rgba(74, 222, 128, 0.1); border-color: #4ade80; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-laptop-code" style="top: 18px; font-size: 26px; color: #4ade80;"></i>
                         <strong style="color: #4ade80; font-size: 20px; margin-bottom: 2px;">01:00 - 01:30 | Part 3: Live Demo & Workshop</strong>
                         <span style="font-size: 18px; color: #cbd5e1;">สาธิตการใช้งานจริง และฝึกค้นหา Pain Point ในงานคุณ</span>
                     </li>
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide35')))" style="padding: 12px 20px 12px 70px; background: rgba(248, 113, 113, 0.1); border-color: #f87171; cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide41')))" style="padding: 12px 20px 12px 70px; background: rgba(248, 113, 113, 0.1); border-color: #f87171; cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-regular fa-clock" style="top: 18px; font-size: 26px; color: #f87171;"></i>
                         <strong style="color: #f87171; font-size: 20px; margin-bottom: 2px;">01:30 - 02:00 | Part 4: Safety First</strong>
                         <span style="font-size: 18px; color: #cbd5e1;">ความปลอดภัย (PDPA), ข้อควรระวัง (Don'ts) และสรุปบทเรียน (Q&A)</span>
@@ -253,20 +251,19 @@
                 </ul>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <!-- ==================== PART 1: INTRO TO GEN AI (Slides 5-16) ==================== -->
-    <div class="slide-container" id="slide5">
+    <!-- ==================== PART 1: INTRO TO GEN AI ==================== -->
+    <div class="slide-container" id="slide3">
         <div class="section-title-layout">
             <h2>Part 1</h2>
             <p>รู้จักเพื่อนร่วมงานคนใหม่: พื้นฐาน Generative AI</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(1)" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <div class="slide-container" id="slide6">
+    <div class="slide-container" id="slide4">
         <h2 class="slide-title">AI คืออะไร? (Artificial Intelligence)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -282,10 +279,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide7">
+    <div class="slide-container" id="slide5">
         <h2 class="slide-title">วิวัฒนาการสู่จุดเปลี่ยน</h2>
         <div class="content-area">
             <div class="tiled-content" style="align-items: flex-start; gap: 20px;">
@@ -311,10 +307,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide8">
+    <div class="slide-container" id="slide6">
         <h2 class="slide-title">แล้ว "Generative AI" คืออะไร?</h2>
         <div class="content-area">
             <div class="two-column tiled">
@@ -328,10 +323,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide9">
+    <div class="slide-container" id="slide7">
         <h2 class="slide-title">เปรียบเทียบ Traditional AI vs. Generative AI</h2>
         <div class="content-area">
             <table style="width: 100%; border-collapse: collapse; background: rgba(30,41,59,0.5); border-radius: 12px; overflow: hidden;">
@@ -357,10 +351,9 @@
                 </tr>
             </table>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide10">
+    <div class="slide-container" id="slide8">
         <h2 class="slide-title">หัวใจของระบบข้อความ: LLMs (Large Language Models)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -369,7 +362,7 @@
                     <ul>
                         <li>มันไม่ได้มีความรู้สึกนึกคิดแบบมนุษย์</li>
                         <li><strong>หลักการทำงาน:</strong> การพยากรณ์คำถัดไป (Next Word Prediction)</li>
-                        <li>เหมือนระบบ <strong>Auto-complete</strong> ในมือถือที่เราใช้ทุกวัน แต่ฉลาดกว่ามหาศาล</li>
+                        <li>เหมือนระบบ <strong>Auto-complete</strong> ในมือถือที่เราใช้ทุกวัน แตฉลาดกว่ามหาศาล</li>
                     </ul>
                 </div>
                 <div style="background: #1e293b; padding: 40px; border-radius: 16px; border: 2px solid #334155; position: relative;">
@@ -387,10 +380,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide11">
+    <div class="slide-container" id="slide9">
         <h2 class="slide-title">สมองของ AI มาจากไหน? (Training Data)</h2>
         <div class="content-area">
             <div class="tiled-content">
@@ -412,10 +404,9 @@
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 18px; color: #fbbf24;"><i class="fa-solid fa-circle-exclamation"></i> ข้อควรระวัง: เพราะมันเรียนรู้จากอินเทอร์เน็ต มันจึงอาจเรียนรู้ "อคติ" และ "ข้อมูลเท็จ" มาด้วย</p>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide12">
+    <div class="slide-container" id="slide10">
         <h2 class="slide-title">เครื่องมือ Gen AI ยอดนิยมที่ควรรู้จัก</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%;">
@@ -430,7 +421,7 @@
                     <div style="font-size: 35px; color: #ea4335; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(234, 67, 53, 0.1); border-radius: 12px; flex-shrink: 0;"><i class="fa-brands fa-google"></i></div>
                     <div>
                         <h3 style="color: #ea4335; font-size: 24px; margin-bottom: 8px;">Gemini (โดย Google)</h3>
-                        <p style="font-size: 18px; line-height: 1.4;">เชื่อมต่อ Google Workspace ได้ดีเยี่ยม และค้นหาข้อมูล Real-time จาก Google Search ได้</p>
+                        <p style="font-size: 18px; line-height: 1.4;">เชื่อมต่อ Google Workspace ได้ดีเยี่ยม และค้นหา ข้อมูล Real-time จาก Google Search ได้</p>
                     </div>
                 </div>
                 <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; border: 1px solid #334155; padding: 25px; display: flex; align-items: start; gap: 20px;">
@@ -449,11 +440,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- New Slide: AI Ecosystem -->
-    <div class="slide-container" id="slide_ecosystem">
+    <div class="slide-container" id="slide11">
         <h2 class="slide-title">AI Ecosystem: Gen AI ไม่ได้มีแค่ข้อความ</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 100%;">
@@ -484,11 +473,49 @@
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 20px; color: #94a3b8;">เลือกใช้เครื่องมือให้ "ถูกกับงาน" เพื่อประสิทธิภาพสูงสุด</p>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- 7 Levels of AI Usage Section -->
-    <div class="slide-container" id="slide_ai7_1">
+    <!-- AI Philosophy Section -->
+    <div class="slide-container" id="slide12">
+        <h2 class="slide-title">“AI ไม่ได้มาแทนคุณ แต่มาแทนงานที่คุณไม่ควรทำ”</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #f87171;"><i class="fa-solid fa-hourglass-half" style="margin-right: 15px;"></i>งานที่พนักงานเสียเวลาจริง</h3>
+                    <ul style="margin-top: 25px; gap: 20px; display: flex; flex-direction: column;">
+                        <li><strong style="color: #fff; font-size: 22px;">อ่านอีเมล:</strong> คัดกรองและจัดลำดับความสำคัญ</li>
+                        <li><strong style="color: #fff; font-size: 22px;">สรุปเอกสาร:</strong> ย่อยเนื้อหาจากรายงานกองโต</li>
+                        <li><strong style="color: #fff; font-size: 22px;">ตอบคำถามซ้ำๆ:</strong> งานซัพพอร์ตที่มีคำตอบตายตัว</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(56, 189, 248, 0.05); padding: 35px; border-radius: 20px; border: 2px solid #38bdf8;">
+                    <h3 style="color: #38bdf8; text-align: center; margin-bottom: 25px;">AI Opportunity Mapping</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;">
+                            <div style="width: 110px; font-weight: bold; color: #c084fc; font-size: 20px;">งานคิด</div>
+                            <div style="color: #94a3b8;"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div style="flex: 1; color: #fff; font-size: 20px;">AI ผู้ช่วย (Assistant)</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;">
+                            <div style="width: 110px; font-weight: bold; color: #fbbf24; font-size: 20px;">งานซ้ำ</div>
+                            <div style="color: #94a3b8;"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div style="flex: 1; color: #fff; font-size: 20px;">AI Automation</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;">
+                            <div style="width: 110px; font-weight: bold; color: #4ade80; font-size: 20px;">งานตัดสินใจ</div>
+                            <div style="color: #94a3b8;"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div style="flex: 1; color: #fff; font-size: 20px;">Human + AI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 45px; text-align: center; background: rgba(167, 139, 250, 0.1); padding: 25px; border-radius: 12px; border: 1px dashed #a78bfa;">
+                <p style="font-size: 26px; color: #fff;">🎯 เป้าหมาย: ให้คุณเริ่มคิดว่า <strong>“งานในมือฉัน มีอะไรให้ AI ช่วยได้บ้าง?”</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide13">
         <h2 class="slide-title">7 ระดับการใช้งาน AI ในองค์กร (ระดับ 1-2)</h2>
         <div class="content-area">
             <div class="tiled-content">
@@ -507,10 +534,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide_ai7_2">
+    <div class="slide-container" id="slide14">
         <h2 class="slide-title">7 ระดับการใช้งาน AI ในองค์กร (ระดับ 3-5)</h2>
         <div class="content-area">
             <div class="tiled-content">
@@ -531,10 +557,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide_ai7_3">
+    <div class="slide-container" id="slide15">
         <h2 class="slide-title">7 ระดับการใช้งาน AI ในองค์กร (ระดับ 6-7)</h2>
         <div class="content-area">
             <div class="tiled-content">
@@ -553,10 +578,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide14">
+    <div class="slide-container" id="slide16">
         <h2 class="slide-title">แล้วทำไมชาวออฟฟิศต้องสนใจ AI?</h2>
         <div class="content-area">
             <div class="two-column">
@@ -589,20 +613,19 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- ==================== PART 2: PROMPT ENGINEERING (Slides 15-32) ==================== -->
-    <div class="slide-container" id="slide15">
+    <!-- ==================== PART 2: PROMPT ENGINEERING ==================== -->
+    <div class="slide-container" id="slide17">
         <div class="section-title-layout">
             <h2>Part 2</h2>
             <p>ศิลปะแห่งการสั่งงาน (Prompt Engineering)</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(1)" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <div class="slide-container" id="slide16">
+    <div class="slide-container" id="slide18">
         <h2 class="slide-title">Prompt (พรอมป์) คืออะไร?</h2>
         <div class="content-area">
             <div class="two-column" style="align-items: center;">
@@ -618,10 +641,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide17">
+    <div class="slide-container" id="slide19">
         <h2 class="slide-title">กฎทองคำ: Garbage In, Garbage Out</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: 1fr 60px 1fr; gap: 20px; align-items: stretch; width: 100%;">
@@ -672,10 +694,9 @@
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 24px; color: #fbbf24; font-weight: 600;">"คุณภาพของคำตอบ ขึ้นอยู่กับคุณภาพของคำถาม"</p>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide18">
+    <div class="slide-container" id="slide20">
         <h2 class="slide-title">สูตรลับ RTCF: เหมือนการต่อ LEGO</h2>
         <div class="content-area">
             <div style="display: flex; justify-content: center; align-items: center; gap: 10px; height: 400px; margin-bottom: 20px;">
@@ -725,10 +746,9 @@
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 24px; color: #94a3b8;">พอนำ 4 ส่วนมารวมกัน = <strong>Prompt ระดับมือโปร</strong></p>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide19">
+    <div class="slide-container" id="slide21">
         <h2 class="slide-title">เจาะลึก R - Role (บทบาท)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -747,10 +767,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide20">
+    <div class="slide-container" id="slide22">
         <h2 class="slide-title">เจาะลึก T - Task (งานที่ต้องทำ)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -770,10 +789,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide21">
+    <div class="slide-container" id="slide23">
         <h2 class="slide-title">เจาะลึก C - Context (บริบท/เงื่อนไข)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -791,10 +809,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide22">
+    <div class="slide-container" id="slide24">
         <h2 class="slide-title">เจาะลึก F - Format (รูปแบบผลลัพธ์)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -813,10 +830,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide23">
+    <div class="slide-container" id="slide25">
         <h2 class="slide-title">เปรียบเทียบ: การเขียนอีเมล (Bad vs Good)</h2>
         <div class="content-area">
             <div class="two-column tiled">
@@ -838,11 +854,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <!-- New Slide: Before-After Prompt Examples -->
-    <div class="slide-container" id="slide_before_after">
+    <div class="slide-container" id="slide26">
         <h2 class="slide-title">ตัวอย่าง Before-After: เปลี่ยนคำสั่งให้ปัง</h2>
         <div class="content-area">
             <table style="width: 100%; border-collapse: collapse; background: rgba(30,41,59,0.5); border-radius: 12px; overflow: hidden;">
@@ -869,10 +883,9 @@
             </table>
             <p style="text-align: center; margin-top: 30px; color: #a78bfa; font-size: 20px;">💡 ข้อสังเกต: Prompt ที่ดีจะมีบริบท (Context) และบอกรูปแบบผลลัพธ์ (Format) ชัดเจนเสมอ</p>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide24">
+    <div class="slide-container" id="slide27">
         <h2 class="slide-title">เทคนิคขั้นสูง 1: Few-Shot Prompting (การให้ตัวอย่าง)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -897,11 +910,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- New Slide: Iterative Prompting -->
-    <div class="slide-container" id="slide_iterative">
+    <div class="slide-container" id="slide28">
         <h2 class="slide-title">เทคนิคขั้นสูง 2: Iterative Prompting (การปรับแต่ง)</h2>
         <div class="content-area">
             <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
@@ -943,11 +954,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- New Slide: Take-home Template -->
-    <div class="slide-container" id="slide_template">
+    <div class="slide-container" id="slide29">
         <h2 class="slide-title">RTCF Master Template: สูตรสำเร็จพร้อมใช้งาน</h2>
         <div class="content-area">
             <p style="text-align: center; margin-bottom: 30px; font-size: 20px; color: #94a3b8;">(แนะนำ: ถ่ายรูปหน้าจอนี้เก็บไว้ใช้ได้เลยครับ)</p>
@@ -971,20 +980,19 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- ==================== NEW SECTION: SMART BACK OFFICE FRAMEWORK (FOUNDATION) ==================== -->
-    <div class="slide-container" id="slide_framework_intro">
+    <!-- ==================== PART 3: LIVE DEMO & WORKSHOP ==================== -->
+    <div class="slide-container" id="slide30">
         <div class="section-title-layout">
             <h2>Part 3</h2>
             <p>Live Demo & Workshop: สาธิตและการฝึกปฏิบัติจริง</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(1)" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <div class="slide-container" id="slide_backoffice_audit">
+    <div class="slide-container" id="slide31">
         <h2 class="slide-title">Workshop: ค้นหา "Pain Point" ในงานของคุณ</h2>
         <div class="content-area">
             <p style="margin-bottom: 15px; font-size: 20px; text-align: center;">ตัวอย่างปัญหาที่คุณมักเจอ (Common Pain Points)</p>
@@ -1031,13 +1039,9 @@
                 </tr>
             </table>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-
-
-    <!-- New Slide: Live Demo -->
-    <div class="slide-container" id="slide_live_demo">
+    <div class="slide-container" id="slide32">
         <h2 class="slide-title" style="border-left-color: #f59e0b;"><i class="fa-solid fa-desktop" style="color: #f59e0b; margin-right: 15px;"></i>Live Demo: สาธิตการใช้งานจริง</h2>
         <div class="content-area">
             <p style="text-align: center; margin-bottom: 40px; font-size: 24px;">เราจะมาทดลองใช้ AI (ChatGPT / Gemini) แก้ปัญหาเหล่านี้ไปด้วยกัน</p>
@@ -1064,10 +1068,9 @@
                 </div>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide28">
+    <div class="slide-container" id="slide33">
         <h2 class="slide-title">Use Case ในองค์กร: ใครใช้ทำอะไรได้บ้าง? (1/2)</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%;">
@@ -1100,10 +1103,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide28b">
+    <div class="slide-container" id="slide34">
         <h2 class="slide-title">Use Case ในองค์กร: ใครใช้ทำอะไรได้บ้าง? (2/2)</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%;">
@@ -1136,10 +1138,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide29">
+    <div class="slide-container" id="slide35">
         <h2 class="slide-title">Use Case 1: การร่างจดหมายและอีเมลทางการ</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1164,10 +1165,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide30">
+    <div class="slide-container" id="slide36">
         <h2 class="slide-title">Use Case 2: การสรุปความ (Summarization)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1193,10 +1193,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide31">
+    <div class="slide-container" id="slide37">
         <h2 class="slide-title">Use Case 3: การขัดเกลาและแปลภาษา</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1216,10 +1215,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide32">
+    <div class="slide-container" id="slide38">
         <h2 class="slide-title">Use Case 4: คู่คิดระดมสมอง (Brainstorming)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1240,10 +1238,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide33">
+    <div class="slide-container" id="slide39">
         <h2 class="slide-title">Use Case 5: เป็นที่ปรึกษาด้าน Excel / Sheets</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1264,10 +1261,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide34">
+    <div class="slide-container" id="slide40">
         <h2 class="slide-title">Use Case 6: วางโครงสร้าง Presentation</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1289,20 +1285,19 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- ==================== PART 4: ETHICS, LIMITS & SECURITY (Slides 35-51) ==================== -->
-    <div class="slide-container" id="slide35">
+    <!-- ==================== PART 4: ETHICS, LIMITS & SECURITY ==================== -->
+    <div class="slide-container" id="slide41">
         <div class="section-title-layout">
             <h2>Part 4</h2>
             <p>Safety First: พื้นฐานความปลอดภัยและการใช้งานเบื้องต้น</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(1)" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <div class="slide-container" id="slide36">
+    <div class="slide-container" id="slide42">
         <h2 class="slide-title">1. ทำไม AI ถึง "มั่ว"? (Hallucination 101)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1317,18 +1312,21 @@
                     <img src="image/ai-hallucination.png" alt="AI Hallucination" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
+            <div style="margin-top: 40px; background: #1a0a0a; border: 2px solid #ef4444; border-radius: 12px; padding: 25px; width: 100%;">
+                <h3 style="color: #ef4444; text-align: center; font-size: 32px; margin: 0;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 15px;"></i>ห้ามป้อนข้อมูลส่วนบุคคลลงใน AI สาธารณะ</h3>
+            </div>
         </div>
     </div>
 
-    <div class="slide-container" id="slide39">
+    <div class="slide-container" id="slide43">
         <h2 class="slide-title">2. กฎเหล็กความปลอดภัย (PDPA & Privacy)</h2>
         <div class="content-area">
             <div style="display: flex; gap: 40px; width: 100%;">
                 <!-- Red Card: Forbidden -->
-                <div style="flex: 1; background: rgba(248, 113, 113, 0.05); border: 2px solid #f87171; border-radius: 20px; padding: 30px; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 35px; right: -75px; background: #f87171; color: #fff; width: 300px; text-align: center; transform: rotate(45deg); font-weight: bold; font-size: 18px; padding: 10px 0; box-shadow: 0 0 20px rgba(248, 113, 113, 0.5); z-index: 10;">ห้ามใส่ (FORBIDDEN)</div>
-                    <div style="font-size: 60px; color: #f87171; margin-bottom: 20px;"><i class="fa-solid fa-ban"></i></div>
-                    <h3 style="color: #f87171; margin-bottom: 20px;">ข้อมูลที่ไม่ควรแตะ</h3>
+                <div style="flex: 1; background: #1a0a0a; border: 2px solid #ef4444; border-radius: 20px; padding: 30px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div style="position: absolute; top: 35px; right: -75px; background: #ef4444; color: #fff; width: 300px; text-align: center; transform: rotate(45deg); font-weight: bold; font-size: 18px; padding: 10px 0; box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); z-index: 10;">ห้ามใส่ (FORBIDDEN)</div>
+                    <div style="font-size: 60px; color: #ef4444; margin-bottom: 20px;"><i class="fa-solid fa-ban"></i></div>
+                    <h3 style="color: #ef4444; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">ข้อมูลที่ไม่ควรแตะ</h3>
                     <ul style="text-align: left; font-size: 18px; color: #ffffff;">
                         <li style="margin-bottom: 15px;">• ชื่อ-นามสกุล จริงของลูกค้า</li>
                         <li style="margin-bottom: 15px;">• เบอร์โทรศัพท์ / ที่อยู่จริง</li>
@@ -1338,10 +1336,10 @@
                 </div>
 
                 <!-- Green Card: Allowed -->
-                <div style="flex: 1; background: rgba(74, 222, 128, 0.05); border: 2px solid #4ade80; border-radius: 20px; padding: 30px; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 35px; right: -75px; background: #4ade80; color: #fff; width: 300px; text-align: center; transform: rotate(45deg); font-weight: bold; font-size: 18px; padding: 10px 0; box-shadow: 0 0 20px rgba(74, 222, 128, 0.5); z-index: 10;">ทำได้ (ALLOWED)</div>
-                    <div style="font-size: 60px; color: #4ade80; margin-bottom: 20px;"><i class="fa-solid fa-check-circle"></i></div>
-                    <h3 style="color: #4ade80; margin-bottom: 20px;">วิธีใช้งานอย่างปลอดภัย</h3>
+                <div style="flex: 1; background: #0a1a0f; border: 2px solid #22c55e; border-radius: 20px; padding: 30px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div style="position: absolute; top: 35px; right: -75px; background: #22c55e; color: #fff; width: 300px; text-align: center; transform: rotate(45deg); font-weight: bold; font-size: 18px; padding: 10px 0; box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); z-index: 10;">ทำได้ (ALLOWED)</div>
+                    <div style="font-size: 60px; color: #22c55e; margin-bottom: 20px;"><i class="fa-solid fa-check-circle"></i></div>
+                    <h3 style="color: #22c55e; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">วิธีใช้งานอย่างปลอดภัย</h3>
                     <ul style="text-align: left; font-size: 18px; color: #ffffff;">
                         <li style="margin-bottom: 15px;">• ใช้ชื่อสมมติ (นาย A, นาง B)</li>
                         <li style="margin-bottom: 15px;">• เซ็นเซอร์ข้อมูล (08x-xxx-xxxx)</li>
@@ -1354,7 +1352,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide_4_rules">
+    <div class="slide-container" id="slide44">
         <h2 class="slide-title">3. กฎ 4 ข้อสั้นๆ จำขึ้นใจ (Do's & Don'ts)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
@@ -1384,7 +1382,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide43">
+    <div class="slide-container" id="slide45">
         <h2 class="slide-title">สรุปแนวคิด: Human in the Loop</h2>
         <div class="content-area">
             <div class="two-column highlight-numbers-layout">
@@ -1400,11 +1398,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- New Slide: Human-AI Collaboration Model -->
-    <div class="slide-container" id="slide_collaboration">
+    <div class="slide-container" id="slide46">
         <h2 class="slide-title">Human-AI Collaboration Model: ทำงานร่วมกันอย่างไร?</h2>
         <div class="content-area">
             <div class="tiled-content" style="align-items: flex-start;">
@@ -1433,11 +1429,9 @@
                 <p style="font-size: 20px;">💡 <strong>เคล็ดลับ:</strong> อย่าปล่อยให้ AI ทำงานคนเดียวจนจบกระบวนการโดยไม่มีคนตรวจ</p>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- Career Use Case: Education & Creative -->
-    <div class="slide-container" id="slide_career_1">
+    <div class="slide-container" id="slide47">
         <h2 class="slide-title">AI สำหรับสายการศึกษาและงานสร้างสรรค์</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%;">
@@ -1461,11 +1455,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- Career Use Case: Business & Administration -->
-    <div class="slide-container" id="slide_career_2">
+    <div class="slide-container" id="slide48">
         <h2 class="slide-title">AI สำหรับสายบริหารและงานจัดการ</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%;">
@@ -1489,11 +1481,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <!-- Career Use Case: Analysis & Professional -->
-    <div class="slide-container" id="slide_career_3">
+    <div class="slide-container" id="slide49">
         <h2 class="slide-title">AI สำหรับสายวิเคราะห์และวิชาชีพ</h2>
         <div class="content-area">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%;">
@@ -1517,10 +1507,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide44">
+    <div class="slide-container" id="slide50">
         <h2 class="slide-title">Key Takeaways (สรุปเนื้อหาสำคัญ)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
@@ -1548,27 +1537,24 @@
                 </ul>
             </div>
         </div>
-        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide50">
+    <div class="slide-container" id="slide51">
         <div class="content-area">
             <div class="qa-layout">
                 <h2 style="font-size: 120px;"><i class="fa-solid fa-comments"></i> Q&A</h2>
                 <p style="margin-top: 20px;">มีคำถาม หรืออยากแชร์ประสบการณ์การใช้ AI ของคุณไหมครับ?</p>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
-    <div class="slide-container" id="slide51">
+    <div class="slide-container" id="slide52">
         <div class="content-area">
             <div class="qa-layout">
                 <h2 style="color: #f8fafc; font-size: 72px;">ขอขอบคุณทุกท่านครับ</h2>
                 <p style="margin-top: 20px; color: #a78bfa;">"ก้าวแรกของการเก่ง AI คือการเริ่มพิมพ์คุยกับมันตั้งแต่วันนี้"</p>
             </div>
         </div>
-        <div class=\"slide-counter\"></div>
     </div>
 
     <script>
@@ -1673,4 +1659,4 @@
         });
     </script>
 </body>
-</html>>
+</html>

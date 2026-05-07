@@ -20,9 +20,9 @@
             
             --primary: #0ea5e9; /* Light Blue */
             --secondary: #8b5cf6; /* Purple */
-            --success: #10b981; /* Green */
-            --warning: #f59e0b; /* Orange */
-            --danger: #ef4444; /* Red */
+            --success: #059669; /* Darker Green for better contrast */
+            --warning: #d97706; /* Darker Orange */
+            --danger: #dc2626; /* Darker Red for better contrast */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -235,7 +235,7 @@
     <button id="nextBtn" class="nav-btn nav-next"><i class="fa-solid fa-chevron-right"></i></button>
     <div class="controls-hint"><i class="fa-solid fa-keyboard" style="margin-right: 8px;"></i>เลื่อนหน้า: ลูกศร ◀ ▶ หรือ Spacebar | เต็มจอ: กดปุ่ม F</div>
 
-    <!-- ==================== INTRO (Slides 1-5) ==================== -->
+    <!-- ==================== INTRO (Slides 1-4) ==================== -->
     <div class="slide-container" id="slide1">
         <div class="title-layout">
             <h1>เทคนิคการเขียนคำสั่ง <br>และการประยุกต์ใช้ <span class="highlight">AI ในงานอาชีพ</span></h1>
@@ -243,12 +243,12 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide_agenda">
+    <div class="slide-container" id="slide2">
         <h2 class="slide-title" style="margin-bottom: 25px;">Agenda: กำหนดการอบรม (2 ชั่วโมง)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
                 <ul style="gap: 15px;">
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_part1_intro')))" style="padding: 12px 20px 12px 70px; background: rgba(139, 92, 246, 0.05); border-color: var(--secondary); cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide5')))" style="padding: 12px 20px 12px 70px; background: rgba(139, 92, 246, 0.05); border-color: var(--secondary); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-wand-magic-sparkles" style="top: 15px; font-size: 26px; color: var(--secondary);"></i>
                         <strong style="color: var(--secondary); font-size: 20px;">00:00 - 00:45 | Part 1: Advanced Prompting</strong>
                         <span style="font-size: 16px;">8 เทคนิคขั้นสูงเพื่อรีดประสิทธิภาพ AI และการแก้ปัญหา Context Window</span>
@@ -258,12 +258,12 @@
                         <strong style="color: var(--success); font-size: 20px;">00:45 - 01:25 | Part 2: AI in Professional Fields</strong>
                         <span style="font-size: 16px;">เจาะลึก 6 สายอาชีพ และเทคนิคการส่งเสริมการใช้ AI ในทีมอย่างยั่งยืน</span>
                     </li>
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide40')))" style="padding: 12px 20px 12px 70px; background: rgba(245, 158, 11, 0.05); border-color: var(--warning); cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide39')))" style="padding: 12px 20px 12px 70px; background: rgba(245, 158, 11, 0.05); border-color: var(--warning); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-scale-balanced" style="top: 15px; font-size: 26px; color: var(--warning);"></i>
                         <strong style="color: var(--warning); font-size: 20px;">01:25 - 01:40 | Part 3: Professional QA & Security</strong>
                         <span style="font-size: 16px;">เช็คลิสต์ 4F และความปลอดภัยข้อมูลระดับองค์กร (Public vs. Copilot)</span>
                     </li>
-                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_smart_office_intro')))" style="padding: 12px 20px 12px 70px; background: rgba(14, 165, 233, 0.05); border-color: var(--primary); cursor: pointer; transition: transform 0.2s;">
+                    <li onclick="showSlide(slidesArray.indexOf(document.getElementById('slide45')))" style="padding: 12px 20px 12px 70px; background: rgba(14, 165, 233, 0.05); border-color: var(--primary); cursor: pointer; transition: transform 0.2s;">
                         <i class="fa-solid fa-rocket" style="top: 15px; font-size: 26px; color: var(--primary);"></i>
                         <strong style="color: var(--primary); font-size: 20px;">01:40 - 02:00 | Part 4: Smart Back Office</strong>
                         <span style="font-size: 16px;">การใช้ Copilot ใน M365 และ Final Workshop (Wrap-up & Q&A)</span>
@@ -273,8 +273,8 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide4">
-        <h2 class="slide-title">Recap: พื้นฐาน RTCF จาก Day 2</h2>
+    <div class="slide-container" id="slide3">
+        <h2 class="slide-title">Recap: พื้นฐาน RTCF จากเนื้อหาเดิม</h2>
         <div class="content-area">
             <div class="tiled-content">
                 <div class="tile" style="border-top: 4px solid var(--secondary);">
@@ -298,7 +298,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide5">
+    <div class="slide-container" id="slide4">
         <h2 class="slide-title">The Evolution: สู่การเป็น Prompt Expert</h2>
         <div class="content-area">
             <div class="two-column">
@@ -323,16 +323,16 @@
     </div>
 
     <!-- ==================== PART 1: ADVANCED PROMPTING (Slides 5-20) ==================== -->
-    <div class="slide-container" id="slide_part1_intro">
+    <div class="slide-container" id="slide5">
         <div class="section-title-layout">
             <h2>Part 1</h2>
             <p>Advanced Prompt Engineering: เทคนิคขั้นสูง</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide2')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <div class="slide-container" id="slide7">
+    <div class="slide-container" id="slide6">
         <h2 class="slide-title">Technique 1: Contextual Conditioning</h2>
         <div class="content-area">
             <div class="two-column">
@@ -358,7 +358,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide8">
+    <div class="slide-container" id="slide7">
         <h2 class="slide-title">Technique 2: Iterative Prompting (การทำงานแบบวนซ้ำ)</h2>
         <div class="content-area">
             <p style="text-align: center; margin-bottom: 30px; font-size: 22px;">อย่ายอมรับคำตอบแรกของ AI! ให้ใช้กระบวนการ 3 ขั้นตอน:</p>
@@ -382,7 +382,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide9">
+    <div class="slide-container" id="slide8">
         <h2 class="slide-title">ตัวอย่าง Iterative Prompting (Draft -> Critique)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -400,7 +400,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide10">
+    <div class="slide-container" id="slide9">
         <h2 class="slide-title">Technique 3: Socratic Prompting (ให้ AI ซักค้าน)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -420,10 +420,10 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide11">
+    <div class="slide-container" id="slide10">
         <h2 class="slide-title">Technique 4: Prompt Chaining (การใช้ Prompt ต่อเนื่อง)</h2>
         <div class="content-area">
-            <div class="two-column">
+            <div class="two-column" style="align-items: center;">
                 <div>
                     <p style="font-size: 24px; margin-bottom: 20px;">การแบ่งงานใหญ่ (Complex Task) ออกเป็น <b>ขั้นย่อยๆ (Sub-tasks)</b> แล้วส่งผลลัพธ์จากข้อหนึ่ง ไปเป็นข้อมูลตั้งต้นให้อีกข้อหนึ่ง</p>
                     <ul>
@@ -432,12 +432,14 @@
                         <li>คุณภาพของงานโดยรวมจะสูงกว่าการสั่งทีเดียวจบ</li>
                     </ul>
                 </div>
-                <div class="image-wrapper"><i class="fa-solid fa-link"></i></div>
+                <div class="image-wrapper" style="height: 450px; background: transparent; border: none; box-shadow: none;">
+                    <img src="image/ai-prompt-chaining.png" alt="Prompt Chaining Illustration" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="slide-container" id="slide12">
+    <div class="slide-container" id="slide11">
         <h2 class="slide-title">ตัวอย่าง Prompt Chaining: การสร้างรายงานคุณภาพสูง</h2>
         <div class="content-area">
             <p style="margin-bottom: 30px; font-size: 22px; color: var(--text-muted);">เปลี่ยนข้อมูลดิบให้เป็นรายงานที่สมบูรณ์ผ่านกระบวนการ 3 ขั้นตอน:</p>
@@ -487,7 +489,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide13">
+    <div class="slide-container" id="slide12">
         <h2 class="slide-title">Technique 5: Output Formatting Constraints</h2>
         <div class="content-area">
             <div class="two-column">
@@ -512,7 +514,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide14">
+    <div class="slide-container" id="slide13">
         <h2 class="slide-title">Technique 6: Meta-Prompting (ให้ AI เขียน Prompt)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -532,7 +534,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide_cot">
+    <div class="slide-container" id="slide14">
         <h2 class="slide-title">Technique 7: Chain of Thought (คิดเป็นสเต็ป)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -551,7 +553,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide_reverse">
+    <div class="slide-container" id="slide15">
         <h2 class="slide-title">Technique 8: Reverse Prompting (ให้ AI ถามเรากลับ)</h2>
         <div class="content-area">
             <div class="two-column">
@@ -568,8 +570,7 @@
         </div>
     </div>
 
-    
-    <div class="slide-container" id="slide15">
+    <div class="slide-container" id="slide16">
         <h2 class="slide-title">สรุป 8 เทคนิค Advanced Prompting</h2>
         <div class="content-area">
             <div class="tiled-content" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
@@ -617,9 +618,7 @@
         </div>
     </div>
 
-
-    <!-- Padding slides to reach 50+ as requested, maintaining flow -->
-    <div class="slide-container" id="slide16">
+    <div class="slide-container" id="slide17">
         <div class="section-title-layout">
             <h2>ข้อควรระวังในการทำ Advanced Prompt</h2>
             <p>ยิ่งสั่งซับซ้อน ยิ่งต้องตรวจสอบให้แม่นยำ</p>
@@ -627,76 +626,79 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide17">
+    <div class="slide-container" id="slide18">
         <h2 class="slide-title">ปัญหา Context Window (ความจำระยะสั้น)</h2>
         <div class="content-area">
-            <div class="two-column" style="gap: 40px; align-items: stretch;">
-                <!-- Left Column: Problem -->
-                <div style="flex: 0 0 40%; background: rgba(239, 68, 68, 0.05); border-radius: 20px; border: 2px solid rgba(239, 68, 68, 0.2); padding: 40px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-                    <div style="font-size: 80px; color: var(--danger); margin-bottom: 25px;"><i class="fa-solid fa-brain-circuit"></i></div>
-                    <h3 style="color: var(--danger); font-size: 28px; margin-bottom: 20px;">AI เริ่ม "หลงลืม"</h3>
-                    <p style="font-size: 18px; line-height: 1.6; color: var(--text-main);">
-                        เมื่อการสนทนายาวเกินไป (เกินจำนวน Tokens ที่โมเดลจดจำได้) 
-                        AI จะเริ่มลืมคำสั่งแรกๆ หรือหลุดจากบทบาทที่ตั้งไว้
-                    </p>
+            <div class="two-column" style="gap: 30px; align-items: center;">
+                <!-- Left Column: Text Content -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="background: rgba(220, 38, 38, 0.05); border-radius: 16px; border: 2px solid rgba(220, 38, 38, 0.1); padding: 25px;">
+                        <h3 style="color: var(--danger); font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-brain-circuit"></i> AI เริ่ม "หลงลืม"</h3>
+                        <p style="font-size: 18px; color: var(--text-main);">เมื่อบทสนทนายาวเกินไป AI จะเริ่มลืมคำสั่งแรกๆ หรือหลุดจากบทบาทที่ตั้งไว้ (เกินจำนวน Tokens)</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <h3 style="color: var(--success); font-size: 22px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> แนวทางแก้ไข:
+                        </h3>
+                        <div style="background: var(--box-bg); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 15px;">
+                            <i class="fa-solid fa-circle-plus" style="color: var(--success);"></i>
+                            <span style="font-size: 16px; color: var(--text-main);"><strong>1. เริ่มแชทใหม่:</strong> รีเซ็ตความจำเมื่อเปลี่ยนหัวข้อ</span>
+                        </div>
+                        <div style="background: var(--box-bg); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 15px;">
+                            <i class="fa-solid fa-bullhorn" style="color: var(--warning);"></i>
+                            <span style="font-size: 16px; color: var(--text-main);"><strong>2. พิมพ์ย้ำเงื่อนไข:</strong> เตือน Role ทุกๆ 2-3 Prompt</span>
+                        </div>
+                        <div style="background: var(--box-bg); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 15px;">
+                            <i class="fa-solid fa-file-contract" style="color: var(--primary);"></i>
+                            <span style="font-size: 16px; color: var(--text-main);"><strong>3. ป้อนสรุปบริบทซ้ำ:</strong> สรุปใจความเดิมมาป้อนใหม่เป็นระยะ</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Right Column: Solutions -->
-                <div style="flex: 1; display: flex; flex-direction: column; gap: 15px;">
-                    <h3 style="color: var(--success); margin-bottom: 5px; display: flex; align-items: center; gap: 10px;">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> แนวทางแก้ไข:
-                    </h3>
-                    
-                    <div style="background: var(--box-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; gap: 20px; align-items: center;">
-                        <div style="flex: 0 0 50px; height: 50px; background: rgba(16, 185, 129, 0.1); color: var(--success); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--text-main); font-size: 18px;">1. เริ่มแชทใหม่ (New Chat)</strong>
-                            <p style="font-size: 14px; color: var(--text-muted);">รีเซ็ตหน่วยความจำเมื่อเปลี่ยนหัวข้อ เพื่อความแม่นยำสูงสุด</p>
-                        </div>
-                    </div>
-
-                    <div style="background: var(--box-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; gap: 20px; align-items: center;">
-                        <div style="flex: 0 0 50px; height: 50px; background: rgba(245, 158, 11, 0.1); color: var(--warning); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                            <i class="fa-solid fa-bullhorn"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--text-main); font-size: 18px;">2. พิมพ์ย้ำเงื่อนไขสำคัญ</strong>
-                            <p style="font-size: 14px; color: var(--text-muted);">คอยเตือน Role หรือข้อห้ามหลักในทุกๆ 2-3 Prompt</p>
-                        </div>
-                    </div>
-
-                    <div style="background: var(--box-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; gap: 20px; align-items: center;">
-                        <div style="flex: 0 0 50px; height: 50px; background: rgba(14, 165, 233, 0.1); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                            <i class="fa-solid fa-file-contract"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--text-main); font-size: 18px;">3. ป้อนสรุปบริบทซ้ำ</strong>
-                            <p style="font-size: 14px; color: var(--text-muted);">สรุปใจความสำคัญจากแชทก่อนหน้ามาป้อนใหม่เป็นระยะ</p>
-                        </div>
-                    </div>
+                <!-- Right Column: Image Content -->
+                <div class="image-wrapper" style="width: 450px; height: 450px; background: #f1f5f9; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); flex-shrink: 0; margin: 0 auto;">
+                    <img src="image/ai-context-memory.png" alt="Context Window Illustration" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
             </div>
         </div>
+        <div class="slide-counter"></div>
     </div>
 
-    <div class="slide-container" id="slide18">
-        <h2 class="slide-title">การจัดการกับ อาการหลอน (Hallucination) ขั้นสูง</h2>
+    <div class="slide-container" id="slide19">
+        <h2 class="slide-title">การจัดการกับ อาการหลอน (Hallucination) แบบง่าย</h2>
         <div class="content-area">
-            <p style="margin-bottom: 20px;">นอกจากบอกว่า "ห้ามมั่ว" เราสามารถใช้เทคนิคด้านล่างเพื่อบีบให้ AI ตอบตามความจริงมากที่สุด:</p>
+            <p style="margin-bottom: 25px; font-size: 22px;">นอกจากบอกว่า "ห้ามมั่ว" ลองใช้ 3 เทคนิคนี้เพื่อให้ AI ตอบความจริงมากขึ้น:</p>
             <div class="bullet-list">
-                <ul>
-                    <li><strong style="color: var(--primary);">Grounding Prompts:</strong> "ตอบคำถามโดยอ้างอิงจากเอกสารที่ฉันแนบให้เท่านั้น พร้อมใส่เครื่องหมายอ้างอิง [หน้า...] ในทุกย่อหน้า"</li>
-                    <li><strong style="color: var(--secondary);">Temperature Control:</strong> (หากใช้ API/Playground) ตั้งค่า Temperature ต่ำ (เช่น 0.1) เพื่อให้ได้คำตอบที่เป็นแฟค (Fact) และไม่สร้างสรรค์เกินไป</li>
+                <ul style="grid-template-columns: 1fr; gap: 15px;">
+                    <li style="padding: 20px 20px 20px 80px;">
+                        <i class="fa-solid fa-file-shield" style="color: var(--primary);"></i>
+                        <strong>1. ตีกรอบด้วยเอกสาร (Grounding)</strong>
+                        <span>สั่งว่า "ตอบโดยใช้ข้อมูลจาก [ชื่อไฟล์] ที่แนบให้เท่านั้น หากไม่มีในไฟล์ให้ตอบว่าไม่ทราบ"</span>
+                    </li>
+                    <li style="padding: 20px 20px 20px 80px;">
+                        <i class="fa-solid fa-magnifying-glass-plus" style="color: var(--secondary);"></i>
+                        <strong>2. สั่งให้ตรวจสอบตัวเอง (Critical Check)</strong>
+                        <span>หลัง AI ตอบ ให้ถามต่อว่า "คุณมั่นใจในคำตอบนี้แค่ไหน? มีส่วนไหนที่คุณอาจเดาขึ้นมาเองหรือไม่?"</span>
+                    </li>
+                    <li style="padding: 20px 20px 20px 80px;">
+                        <i class="fa-solid fa-layer-group" style="color: var(--success);"></i>
+                        <strong>3. ขอทางเลือก (Giving Options)</strong>
+                        <span>แทนที่จะขอคำตอบเดียว ให้สั่งว่า "ขอคำตอบที่เป็นไปได้ 3 รูปแบบ พร้อมระบุข้อดีข้อเสียของแต่ละข้อ"</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="slide-container" id="slide19">
+    <div class="slide-container" id="slide20">
         <h2 class="slide-title">ความปลอดภัยของข้อมูลในการทำ Prompt Chaining</h2>
         <div class="content-area">
+            <div style="background: rgba(14, 165, 233, 0.05); border: 2px solid var(--primary); padding: 25px; border-radius: 16px; margin-bottom: 30px;">
+                <h3 style="color: var(--primary);"><i class="fa-solid fa-link"></i> Chain คืออะไร?</h3>
+                <p style="font-size: 18px; color: var(--text-main);"><b>Chain (โซ่)</b> คือการนำผลลัพธ์จาก Prompt หนึ่ง มาเป็น "Input" ให้อีก Prompt หนึ่ง ต่อเนื่องกันไปเหมือนห่วงโซ่ เพื่อให้ AI สามารถทำงานที่ซับซ้อนเกินกว่าจะสั่งในครั้งเดียวจบได้</p>
+            </div>
+            
             <div class="alert-box">
                 <h3 style="color: var(--danger); font-size: 30px; margin-bottom: 15px;"><i class="fa-solid fa-shield-halved"></i> ข้อพึงระวังขั้นสูงสุด</h3>
                 <p style="font-size: 20px;">เมื่อนำข้อมูลจาก Chain 1 (เช่น ข้อมูลดิบของลูกค้า) ไปประมวลผลต่อใน Chain 2 <br><b>ต้องแน่ใจว่าได้ทำการ Anonymize (ปกปิดข้อมูลส่วนบุคคล/PDPA) ตั้งแต่ก่อนเข้า Chain 1 แล้ว</b></p>
@@ -712,7 +714,25 @@
             <p>AI in Professional Fields: เจาะลึกรายสายอาชีพ</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide2')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+    </div>
+
+    <div class="slide-container" id="slide22">
+        <h2 class="slide-title">Profession 1: Marketing & Sales (การตลาดและงานขาย)</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>จากนักสื่อสาร สู่นักกลยุทธ์เชิงรุก</h3>
+                    <p>AI ช่วยให้งานการตลาดที่ต้องใช้ความคิดสร้างสรรค์สูง และงานขายที่ต้องใช้จิตวิทยา กลายเป็นเรื่องที่วางแผนได้เป็นระบบ</p>
+                    <ul style="margin-top: 15px;">
+                        <li>สร้าง User Persona และวิเคราะห์กลุ่มเป้าหมาย</li>
+                        <li>ร่าง Script ปิดการขายและรับมือข้อโต้แย้ง</li>
+                        <li>วางแผน Content Calendar และกลยุทธ์ Social Media</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper"><i class="fa-solid fa-chart-pie" style="color: var(--warning);"></i></div>
+            </div>
+        </div>
     </div>
 
     <div class="slide-container" id="slide23">
@@ -929,7 +949,6 @@
         </div>
     </div>
 
-    <!-- Additional slides to ensure reaching the 50 mark -->
     <div class="slide-container" id="slide38">
         <h2 class="slide-title">การปรับปรุง Use Case สู่การทำงานจริง</h2>
         <div class="content-area">
@@ -968,56 +987,18 @@
         </div>
     </div>
 
+    <!-- ==================== PART 3: QA & SECURITY (Slides 39-44) ==================== -->
     <div class="slide-container" id="slide39">
-        <h2 class="slide-title">เคล็ดลับ: การส่งเสริมการใช้ AI ในทีม</h2>
-        <div class="content-area">
-            <p style="margin-bottom: 40px; font-size: 22px; color: var(--text-muted); text-align: center;">
-                เปลี่ยนการต่อต้านให้เป็นการยอมรับ ด้วยการสร้างบรรยากาศที่เหมาะสม
-            </p>
-            
-            <div class="tiled-content" style="gap: 25px;">
-                <!-- Tip 1 -->
-                <div class="tile" style="border-top: 6px solid var(--secondary);">
-                    <div class="icon" style="color: var(--secondary); background: rgba(139, 92, 246, 0.1); width: 80px; height: 80px; font-size: 35px;">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <h3 style="color: var(--secondary);">เริ่มจาก Pain Point</h3>
-                    <p>อย่าเริ่มด้วยการยัดเยียดเครื่องมือ แต่ให้เริ่มจากการถามว่า "งานไหนที่น่าเบื่อและเสียเวลาที่สุด?" แล้วใช้ AI เข้าไปแก้จุดนั้นก่อนเพื่อพิสูจน์ความคุ้มค่า</p>
-                </div>
-
-                <!-- Tip 2 -->
-                <div class="tile" style="border-top: 6px solid var(--success);">
-                    <div class="icon" style="color: var(--success); background: rgba(16, 185, 129, 0.1); width: 80px; height: 80px; font-size: 35px;">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <h3 style="color: var(--success);">กำหนด AI Champions</h3>
-                    <p>แต่งตั้งตัวแทนในแต่ละทีมที่มีความชื่นชอบเทคโนโลยี ให้เป็นผู้นำการทดลอง (Early Adopters) เพื่อคอยช่วยเหลือและให้คำปรึกษาเพื่อนร่วมทีมคนอื่นๆ</p>
-                </div>
-
-                <!-- Tip 3 -->
-                <div class="tile" style="border-top: 6px solid var(--primary);">
-                    <div class="icon" style="color: var(--primary); background: rgba(14, 165, 233, 0.1); width: 80px; height: 80px; font-size: 35px;">
-                        <i class="fa-solid fa-vial-circle-check"></i>
-                    </div>
-                    <h3 style="color: var(--primary);">วัฒนธรรมการทดลอง</h3>
-                    <p>สร้างบรรยากาศที่อนุญาตให้ลองผิดลองถูก เน้น "ชัยชนะเล็กๆ" (Small Wins) และการเรียนรู้จากความล้มเหลว มากกว่าการคาดหวังความสมบูรณ์แบบในทันที</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container" id="slide40">
         <div class="section-title-layout">
             <h2>Part 3</h2>
             <p>Professional Quality Assurance & Enterprise Security</p>
             <p style="font-size: 20px; margin-top: 10px;">ยกระดับมาตรฐานการตรวจงาน และความปลอดภัยระดับองค์กร</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide2')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <!-- ==================== RESPONSIBLE AI & QA (Slides 41-47) ==================== -->
-    <div class="slide-container" id="slide41">
+    <div class="slide-container" id="slide40">
         <h2 class="slide-title">AI Quality Assurance: เช็คลิสต์ 4F</h2>
         <div class="content-area">
             <p style="margin-bottom: 25px; font-size: 22px; text-align: center;">มาตรฐานการตรวจสอบงานระดับมืออาชีพ ก่อนนำไปใช้งานจริง</p>
@@ -1042,24 +1023,24 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide43">
+    <div class="slide-container" id="slide41">
         <h2 class="slide-title">ความปลอดภัยระดับองค์กร: Enterprise vs. Public AI</h2>
         <div class="content-area">
             <div class="two-column" style="gap: 30px;">
-                <div style="background: rgba(239, 68, 68, 0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(239, 68, 68, 0.2);">
+                <div style="background: rgba(220, 38, 38, 0.1); padding: 30px; border-radius: 16px; border: 1px solid rgba(220, 38, 38, 0.2);">
                     <h3 style="color: var(--danger);"><i class="fa-solid fa-earth-americas"></i> Public AI (ใช้ฟรี/ทั่วไป)</h3>
                     <ul style="margin-top: 15px; font-size: 16px; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px; color: #fca5a5;">❌ ข้อมูลถูกนำไปฝึกฝนโมเดลต่อ</li>
-                        <li style="margin-bottom: 10px; color: #fca5a5;">❌ เสี่ยงข้อมูลรั่วไหลสู่สาธารณะ</li>
-                        <li style="margin-bottom: 10px; color: #fca5a5;">❌ ไม่มีสัญญารักษาความลับระดับองค์กร</li>
+                        <li style="margin-bottom: 10px; color: #b91c1c;">❌ ข้อมูลถูกนำไปฝึกฝนโมเดลต่อ</li>
+                        <li style="margin-bottom: 10px; color: #b91c1c;">❌ เสี่ยงข้อมูลรั่วไหลสู่สาธารณะ</li>
+                        <li style="margin-bottom: 10px; color: #b91c1c;">❌ ไม่มีสัญญารักษาความลับระดับองค์กร</li>
                     </ul>
                 </div>
-                <div style="background: rgba(16, 185, 129, 0.05); padding: 30px; border-radius: 16px; border: 2px solid var(--success);">
+                <div style="background: rgba(5, 150, 105, 0.1); padding: 30px; border-radius: 16px; border: 2px solid var(--success);">
                     <h3 style="color: var(--success);"><i class="fa-solid fa-shield-check"></i> Enterprise AI (Copilot)</h3>
                     <ul style="margin-top: 15px; font-size: 16px; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px; color: #86efac;">✅ <strong>Data Boundary:</strong> ข้อมูลอยู่เฉพาะในองค์กร</li>
-                        <li style="margin-bottom: 10px; color: #86efac;">✅ <strong>No Training:</strong> ไม่นำข้อมูลไปเทรนโมเดลนอก</li>
-                        <li style="margin-bottom: 10px; color: #86efac;">✅ <strong>Compliance:</strong> มาตรฐานความปลอดภัยสูงสุด</li>
+                        <li style="margin-bottom: 10px; color: #065f46;">✅ <strong>Data Boundary:</strong> ข้อมูลอยู่เฉพาะในองค์กร</li>
+                        <li style="margin-bottom: 10px; color: #065f46;">✅ <strong>No Training:</strong> ไม่นำข้อมูลไปเทรนโมเดลนอก</li>
+                        <li style="margin-bottom: 10px; color: #065f46;">✅ <strong>Compliance:</strong> มาตรฐานความปลอดภัยสูงสุด</li>
                     </ul>
                 </div>
             </div>
@@ -1069,7 +1050,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide44">
+    <div class="slide-container" id="slide42">
         <h2 class="slide-title">กฎหมายลิขสิทธิ์: อัปเดตล่าสุด</h2>
         <div class="content-area">
             <div class="two-column">
@@ -1087,7 +1068,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide45">
+    <div class="slide-container" id="slide43">
         <h2 class="slide-title">Accountability (ความรับผิดชอบ)</h2>
         <div class="content-area">
             <div style="background: var(--box-bg); border: 2px solid var(--text-main); padding: 40px; border-radius: 16px; text-align: center;">
@@ -1097,7 +1078,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide46">
+    <div class="slide-container" id="slide44">
         <h2 class="slide-title">The Future of AI Worker</h2>
         <div class="content-area">
             <div class="two-column highlight-numbers-layout">
@@ -1118,120 +1099,261 @@
         </div>
     </div>
 
-    <!-- ==================== NEW SECTION: FROM CONCEPT TO SMART BACK OFFICE ==================== -->
-    <div class="slide-container" id="slide_smart_office_intro">
+    <!-- ==================== PART 4: SMART BACK OFFICE (Slides 45-60) ==================== -->
+    <div class="slide-container" id="slide45">
         <div class="section-title-layout">
             <h2>Part 4</h2>
             <p>Smart Back Office Implementation</p>
             <p style="font-size: 20px; margin-top: 10px;">จาก "ไอเดีย" สู่ "การลงมือทำจริง": ระบบอัตโนมัติ และภาพจำลอง (Mockup) นำเสนอ</p>
             <hr>
         </div>
-        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide_agenda')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
+        <button onclick="showSlide(slidesArray.indexOf(document.getElementById('slide2')))" style="position: absolute; bottom: 30px; left: 30px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; z-index: 10; transition: all 0.2s;"><i class="fa-solid fa-list-ul"></i> กลับหน้า Agenda</button>
     </div>
 
-    <div class="slide-container" id="slide_ai_automation">
-        <h2 class="slide-title">AI Automation: ไม่ต้องคีย์งานเองอีกต่อไป</h2>
+    <div class="slide-container" id="slide46">
+        <h2 class="slide-title">AI Opportunity Finder: งานแบบไหนเหมาะกับ AI? (1/2)</h2>
         <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <h3>พลังของการเชื่อมต่อ (AI + Tools)</h3>
-                    <p>Smart Back Office ไม่ใช่แค่การแชท แต่คือการให้ AI เข้าไปฝังตัวในเครื่องมือที่เราใช้ทุกวัน</p>
-                    <ul style="margin-top: 20px;">
-                        <li><strong>AI in Google Sheets:</strong> พิมพ์ Prompt ในช่องเดียวให้ประมวลผลข้อมูลทั้งคอลัมน์</li>
-                        <li><strong>AI in Forms:</strong> เมื่อมีคนกรอกฟอร์ม ให้ AI สรุปและคัดแยกส่งเข้าเมลทันที</li>
-                        <li><strong>Custom GPTs/Gems:</strong> สร้างผู้ช่วยส่วนตัวที่จำ "ระเบียบองค์กร" ของเราได้แม่นยำ</li>
-                    </ul>
-                </div>
-                <div class="image-wrapper"><i class="fa-solid fa-gears" style="color: var(--secondary);"></i></div>
+            <p style="margin-bottom: 20px; font-size: 20px; color: var(--text-main);">เลือกงานที่คุณทำอยู่ที่มีลักษณะ <b>อย่างน้อย 2–3 ข้อ</b> ดังนี้:</p>
+            
+            <table style="margin-bottom: 20px;">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">ลักษณะงาน</th>
+                        <th style="width: 60%;">ตัวอย่างการใช้งาน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ทำซ้ำบ่อย:</strong> งานรูทีนที่มีรูปแบบเดิม</td>
+                        <td>สรุปรายงานประจำสัปดาห์ / รายเดือน</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ใช้เวลามาก:</strong> งานที่ต้องอ่านหรือประมวลผลเยอะ</td>
+                        <td>อ่านอีเมลหรือเอกสารยาว ๆ แล้วย่อยประเด็นสำคัญ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ต้องแปลงข้อมูล:</strong> เปลี่ยนรูปแบบข้อมูล</td>
+                        <td>แปลงเอกสารนโยบายยาวเป็น FAQ หรือ ตารางเปรียบเทียบ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: right; color: var(--primary); font-weight: bold;">(มีต่อหน้าถัดไป...)</p>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide47">
+        <h2 class="slide-title">AI Opportunity Finder: งานแบบไหนเหมาะกับ AI? (2/2)</h2>
+        <div class="content-area">
+            <table style="margin-bottom: 30px;">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">ลักษณะงาน</th>
+                        <th style="width: 60%;">ตัวอย่างการใช้งาน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ต้องร่างข้อความ:</strong> งานเขียนเบื้องต้น</td>
+                        <td>ร่างอีเมลโต้ตอบ, ประกาศองค์กร, หรือโครงร่างรายงาน</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ต้องคิดหลายทางเลือก:</strong> ไอเดียหลากหลาย</td>
+                        <td>คิดแผนโครงการ, แผนการสื่อสาร, หรือชื่อกิจกรรม</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ต้องตรวจคุณภาพ:</strong> ตรวจสอบความเรียบร้อย</td>
+                        <td>ตรวจคำผิด, รูปแบบเอกสาร, และความครบถ้วนของข้อมูล</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="background: rgba(220, 38, 38, 0.05); border: 2px solid var(--danger); padding: 20px; border-radius: 12px;">
+                <h3 style="color: var(--danger); font-size: 20px; margin-bottom: 10px;"><i class="fa-solid fa-triangle-exclamation"></i> ควรหลีกเลี่ยงงานที่:</h3>
+                <ul style="font-size: 16px; color: var(--text-muted); display: grid; grid-template-columns: 1fr 1fr; gap: 10px; list-style: none;">
+                    <li>• ต้องตัดสินใจแทนมนุษย์โดยตรง</li>
+                    <li>• ใช้ข้อมูลลับ/บุคคล โดยไม่มีการปกปิด</li>
+                    <li>• ต้องการความถูกต้อง 100% (กฎหมาย/การเงิน) โดยไม่มีคนตรวจ</li>
+                    <li>• เป็นงานที่เกี่ยวข้องกับจริยธรรมหรืออารมณ์ความรู้สึกสูง</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- New Slide: Microsoft Copilot for Business -->
-    <div class="slide-container" id="slide_copilot_business">
+    <div class="slide-container" id="slide48">
+        <h2 class="slide-title">เครื่องมือช่วยคิด: พรอมป์ระดมสมองหาไอเดีย</h2>
+        <div class="content-area">
+            <p style="margin-bottom: 20px; font-size: 20px;">คัดลอกพรอมป์ด้านล่างนี้ไปถาม AI เพื่อช่วยวิเคราะห์งานของคุณ:</p>
+            
+            <div class="prompt-box" style="font-size: 20px; border-left-color: var(--secondary); background: #f8fafc; border: 2px dashed var(--secondary); color: #1e293b;">
+                "คุณคือที่ปรึกษาด้าน AI Transformation สำหรับองค์กร<br>
+                งานของฉันคือ <b>[อธิบายงานประจำของคุณ]</b><br>
+                ปัญหาที่เจอคือ <b>[อธิบาย pain point ที่อยากแก้]</b><br><br>
+                ช่วยวิเคราะห์ว่า AI สามารถเข้ามาช่วยงานนี้ได้อย่างไร โดยให้ตอบเป็นตาราง 5 คอลัมน์:<br>
+                1. ขั้นตอนงานปัจจุบัน<br>
+                2. ปัญหา/เวลาที่เสีย<br>
+                3. วิธีที่ AI ช่วยได้<br>
+                4. ข้อมูลที่ต้องใช้<br>
+                5. ความเสี่ยงและวิธีควบคุม<br><br>
+                จากนั้นช่วยเลือก 1 ไอเดียที่ทำได้ง่ายที่สุดภายใน 30 วัน"
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 18px; color: var(--text-muted); font-style: italic;">
+                (TIP: ยิ่งคุณอธิบายข้อ 1 และ 2 ละเอียด AI จะยิ่งให้ไอเดียที่คมและนำไปใช้ได้จริง)
+            </p>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide49">
+        <h2 class="slide-title">AI Automation: เปลี่ยนงานมือ เป็นงานระบบ</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>ขยายความ: พลังของ Automation</h3>
+                    <p>AI Automation ไม่ใช่แค่การแชท แต่คือการเชื่อมต่อ (Connect) เพื่อให้งานเดินต่อได้เองโดยไม่ต้องมีคนกด Enter ทุกครั้ง</p>
+                    <ul style="margin-top: 20px;">
+                        <li><strong>Input Automation:</strong> AI อ่านข้อมูลจากฟอร์มหรืออีเมลที่เข้ามาอัตโนมัติ</li>
+                        <li><strong>Processing Automation:</strong> AI ทำการสรุป จัดหมวดหมู่ หรือคำนวณเบื้องต้น</li>
+                        <li><strong>Output Automation:</strong> AI ส่งผลลัพธ์เข้าที่เก็บข้อมูล หรือร่างอีเมลรอการอนุมัติ</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 30px; border-radius: 16px; border: 1px solid var(--secondary);">
+                    <h3 style="color: var(--secondary);"><i class="fa-solid fa-plug"></i> ตัวอย่างเครื่องมือเชื่อมต่อ</h3>
+                    <ul style="margin-top: 15px; font-size: 18px;">
+                        <li><strong>Zapier / Make:</strong> เชื่อม App เข้าด้วยกัน (เช่น Gmail ➔ AI ➔ Google Sheets)</li>
+                        <li><strong>Power Automate:</strong> สำหรับองค์กรที่ใช้ Microsoft Ecosystem</li>
+                        <li><strong>Custom Gems/GPTs:</strong> สร้าง "Bot เฉพาะทาง" ที่เรียกใช้ผ่านแชทได้ทันที</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide50">
+        <h2 class="slide-title">ตัวอย่าง Workflow: ระบบคัดกรองคำร้องอัตโนมัติ</h2>
+        <div class="content-area">
+            <div style="display: flex; justify-content: space-between; align-items: stretch; gap: 15px; width: 100%;">
+                <div class="tile" style="padding: 20px;">
+                    <div style="font-size: 24px; color: var(--text-muted); margin-bottom: 10px;">1. รับข้อมูล</div>
+                    <p style="font-size: 14px;">พนักงานส่งเมลร้องเรียน/ขอความช่วยเหลือเข้ามา</p>
+                </div>
+                <div style="display: flex; align-items: center;"><i class="fa-solid fa-arrow-right" style="color: var(--border-color);"></i></div>
+                <div class="tile" style="padding: 20px; border-color: var(--primary);">
+                    <div style="font-size: 24px; color: var(--primary); margin-bottom: 10px;">2. AI วิเคราะห์</div>
+                    <p style="font-size: 14px;">AI อ่านเมล สรุปประเด็น และจัดลำดับความเร่งด่วน (Priority)</p>
+                </div>
+                <div style="display: flex; align-items: center;"><i class="fa-solid fa-arrow-right" style="color: var(--border-color);"></i></div>
+                <div class="tile" style="padding: 20px; border-color: var(--success);">
+                    <div style="font-size: 24px; color: var(--success); margin-bottom: 10px;">3. ส่งต่องาน</div>
+                    <p style="font-size: 14px;">ระบบส่งข้อมูลเข้ากลุ่ม Teams ของแผนกที่เกี่ยวข้องอัตโนมัติ</p>
+                </div>
+                <div style="display: flex; align-items: center;"><i class="fa-solid fa-arrow-right" style="color: var(--border-color);"></i></div>
+                <div class="tile" style="padding: 20px;">
+                    <div style="font-size: 24px; color: var(--text-muted); margin-bottom: 10px;">4. มนุษย์ปิดงาน</div>
+                    <p style="font-size: 14px;">เจ้าหน้าที่เข้าแก้ปัญหาตามที่ AI สรุปมาให้แล้ว</p>
+                </div>
+            </div>
+            <p style="margin-top: 30px; text-align: center; color: var(--primary); font-weight: bold;">"ประหยัดเวลาอ่านเมลและคัดแยกงานได้มากกว่า 80%"</p>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide51">
         <h2 class="slide-title">ยกระดับ Smart Back Office ด้วย Microsoft Copilot</h2>
         <div class="content-area">
             <p style="margin-bottom: 25px; font-size: 20px; color: var(--text-muted); text-align: center;">
-                <i class="fa-solid fa-crown" style="color: #fbbf24;"></i> ประยุกต์ใช้ License ที่องค์กรมีอยู่ให้เกิดประโยชน์สูงสุดผ่าน Microsoft 365 Ecosystem
+                <i class="fa-solid fa-crown" style="color: #fbbf24;"></i> เชื่อมโยงทุกเครื่องมือด้วย AI เพื่อลดงานที่ซ้ำซ้อนและเพิ่มเวลาให้งานที่สำคัญ
             </p>
-            
+
             <div class="tiled-content" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
                 <div class="tile" style="padding: 15px; border-top: 4px solid #00a4ef;">
                     <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px; color: #00a4ef; background: rgba(0, 164, 239, 0.1);">
                         <i class="fa-solid fa-file-word"></i>
                     </div>
-                    <h3 style="font-size: 16px;">Copilot in Word</h3>
-                    <p style="font-size: 13px;">ร่างบันทึกข้อความ สรุปรายงานการประชุมที่ยาวเหยียด หรือเปลี่ยนโครงร่างให้เป็นเนื้อหาฉบับสมบูรณ์ในไม่กี่วินาที</p>
+                    <h3 style="font-size: 16px;">Word: ลดเวลาการร่างเอกสาร</h3>
+                    <p style="font-size: 13px;"><b>ลดงานซ้ำซ้อน:</b> เปลี่ยน "โครงร่าง" หรือ "บันทึกย่อ" ให้กลายเป็นเนื้อหาที่สมบูรณ์ในทันที ไม่ต้องเริ่มจากหน้ากระดาษว่างเปล่า <br><b>จุดเด่น:</b> ร่างบันทึกข้อความหรือสรุปรายงานการประชุมที่ยาวเหยียดให้จบได้ในไม่กี่วินาที</p>
                 </div>
-
                 <div class="tile" style="padding: 15px; border-top: 4px solid #217346;">
                     <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px; color: #217346; background: rgba(33, 115, 70, 0.1);">
                         <i class="fa-solid fa-file-excel"></i>
                     </div>
-                    <h3 style="font-size: 16px;">Copilot in Excel</h3>
-                    <p style="font-size: 13px;">วิเคราะห์แนวโน้มยอดขาย สั่งให้สร้างสูตรซับซ้อนด้วยภาษาพูด หรือสร้างกราฟวิเคราะห์ข้อมูลดิบได้ทันที</p>
+                    <h3 style="font-size: 16px;">Excel: วิเคราะห์ข้อมูลแบบโปร</h3>
+                    <p style="font-size: 13px;"><b>ลดความซับซ้อน:</b> ไม่ต้องจำสูตรยากๆ แค่บอกความต้องการด้วย "ภาษาพูด" AI จะสร้างสูตรและกราฟให้ทันที <br><b>จุดเด่น:</b> วิเคราะห์แนวโน้ม คาดการณ์อนาคต และทำความสะอาดข้อมูลดิบได้รวดเร็วอย่างไม่น่าเชื่อ</p>
                 </div>
-
                 <div class="tile" style="padding: 15px; border-top: 4px solid #d83b01;">
                     <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px; color: #d83b01; background: rgba(216, 59, 1, 0.1);">
                         <i class="fa-solid fa-file-powerpoint"></i>
                     </div>
-                    <h3 style="font-size: 16px;">Copilot in PPT</h3>
-                    <p style="font-size: 13px;">เปลี่ยนไฟล์ Word หรือเอกสารนโยบายให้เป็นสไลด์นำเสนอที่สวยงาม พร้อมจัดหน้าและใส่รูปภาพประกอบให้อัตโนมัติ</p>
+                    <h3 style="font-size: 16px;">PPT: สรุปและจัดหน้าอัตโนมัติ</h3>
+                    <p style="font-size: 13px;"><b>ลดเวลาการออกแบบ:</b> เปลี่ยนไฟล์เนื้อหา (Word) ให้กลายเป็นสไลด์นำเสนอที่สวยงาม พร้อมเลือกธีมและใส่รูปภาพให้เหมาะสม <br><b>จุดเด่น:</b> สั่งให้ AI เพิ่มหน้าสไลด์ หรือสรุปเนื้อหาให้กระชับพอดีกับหน้าจอนำเสนอ</p>
                 </div>
-
                 <div class="tile" style="padding: 15px; border-top: 4px solid #0078d4;">
                     <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px; color: #0078d4; background: rgba(0, 120, 212, 0.1);">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
-                    <h3 style="font-size: 16px;">Copilot in Outlook</h3>
-                    <p style="font-size: 13px;">สรุป Email Thread ที่ตอบโต้กันยาวๆ ร่างการตอบกลับที่สุภาพ และช่วยจัดลำดับความสำคัญของกล่องจดหมาย</p>
+                    <h3 style="font-size: 16px;">Outlook: จัดการกองเมลให้ง่ายขึ้น</h3>
+                    <p style="font-size: 13px;"><b>ลดงานจุกจิก:</b> สรุป Email Thread ที่ตอบโต้กันยาวเหยียดให้เหลือเพียงใจความสำคัญ และร่างการตอบกลับที่รวดเร็ว <br><b>จุดเด่น:</b> ช่วยจัดลำดับความสำคัญของอีเมล และร่างนัดหมายลงปฏิทินได้ทันทีจากเนื้อหาในเมล</p>
                 </div>
-
                 <div class="tile" style="padding: 15px; border-top: 4px solid #6264a7;">
                     <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px; color: #6264a7; background: rgba(98, 100, 167, 0.1);">
                         <i class="fa-solid fa-users-rectangle"></i>
                     </div>
-                    <h3 style="font-size: 16px;">Copilot in Teams</h3>
-                    <p style="font-size: 13px;">สรุปประเด็นสำคัญจากการประชุมออนไลน์ที่เพิ่งจบไป บันทึก Action Items และคำถามที่ยังไม่มีคำตอบให้ทันที</p>
+                    <h3 style="font-size: 16px;">Teams: ประชุมอย่างมีประสิทธิภาพ</h3>
+                    <p style="font-size: 13px;"><b>ลดงานจดบันทึก:</b> AI จะสรุปประเด็นสำคัญจากการประชุมออนไลน์ที่เพิ่งจบไป บันทึกสิ่งที่ต้องทำ (Action Items) ให้โดยอัตโนมัติ <br><b>จุดเด่น:</b> ค้นหาคำตอบที่เพื่อนร่วมทีมเคยคุยกันไว้ในห้องแชทได้ในพริบตา</p>
                 </div>
-
                 <div class="tile" style="padding: 15px; border-top: 4px solid #000;">
                     <div class="icon" style="width: 50px; height: 50px; font-size: 24px; margin-bottom: 10px; color: #000; background: rgba(0, 0, 0, 0.05);">
                         <i class="fa-solid fa-comment-dots"></i>
                     </div>
-                    <h3 style="font-size: 16px;">Business Chat</h3>
-                    <p style="font-size: 13px;">เชื่อมโยงข้อมูลข้ามแอปพลิเคชัน เช่น "สรุปข้อมูลโครงการ A จากทั้งในเมล ไฟล์ Word และแชทใน Teams มาให้หน่อย"</p>
+                    <h3 style="font-size: 16px;">Business Chat: เชื่อมโยงข้ามแอป</h3>
+                    <p style="font-size: 13px;"><b>ลดการสลับหน้าจอ:</b> สั่งให้ AI รวบรวมข้อมูลจากทั้ง Outlook, Word และ Teams มาตอบคำถามเดียว <br><b>จุดเด่น:</b> "สรุปโครงการ X ให้หน่อย" AI จะดึงข้อมูลจากทุกแอปมาประมวลผลเป็นคำตอบเดียวที่สมบูรณ์</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="slide-container" id="slide_mockup_gen">
+    <div class="slide-container" id="slide52">
         <h2 class="slide-title">ใช้ AI วาดฝัน: การทำ Mockup นำเสนอโปรเจกต์</h2>
         <div class="content-area">
             <div class="two-column">
                 <div>
-                    <h3>ไม่เก่งกราฟิก ก็ทำหน้าจอแอปได้</h3>
-                    <p>ใช้ AI ช่วยออกแบบหน้าตาหน้าจอ (UI) หรือ Dashboard เพื่อให้หัวหน้า "เห็นภาพ" ระบบในอนาคต</p>
+                    <h3>ขยายความ: ทำไมต้องมี Mockup?</h3>
+                    <p>การอธิบายด้วยปากเปล่ามักจะนึกภาพไม่ออก การมี <b>ภาพจำลอง (Mockup)</b> จะช่วยให้การ "ขายไอเดีย" มีโอกาสผ่านสูงขึ้น</p>
                     <ul style="margin-top: 20px;">
-                        <li><strong>Prompt for UI:</strong> "ช่วยออกแบบหน้าจอ Mobile App สำหรับพนักงานใช้เบิกเงินสวัสดิการ โดยมีปุ่มถ่ายรูปใบเสร็จและแสดงสถานะการอนุมัติ"</li>
-                        <li><strong>Dashboard Design:</strong> "ช่วยสรุปว่า Dashboard สำหรับฝ่ายบุคคลควรมีกราฟอะไรบ้าง และวาดภาพประกอบให้เห็นตำแหน่งการจัดวาง"</li>
+                        <li><strong>Dashboard Mockup:</strong> จำลองหน้าจอรวมข้อมูลสรุปงาน</li>
+                        <li><strong>User Interface (UI):</strong> จำลองหน้าตาแอปหรือหน้าเว็บ</li>
+                        <li><strong>Report Sample:</strong> จำลองหน้าตารายงานฉบับสมบูรณ์ที่ AI ช่วยจัดทำ</li>
                     </ul>
                 </div>
                 <div style="background: #f1f5f9; padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-                    <h3 style="color: var(--secondary);">เครื่องมือแนะนำ</h3>
-                    <ul style="margin-top: 15px;">
-                        <li><strong>v0.dev / Screenshot to Code:</strong> เปลี่ยนภาพสเก็ตช์เป็นหน้าเว็บ</li>
-                        <li><strong>Canva Magic Media:</strong> สร้างภาพประกอบสไลด์ที่หาในเน็ตไม่ได้</li>
-                        <li><strong>Gemini Image Gen:</strong> สร้างภาพบรรยากาศการใช้งานในออฟฟิศ</li>
+                    <h3 style="color: var(--secondary);"><i class="fa-solid fa-screwdriver-wrench"></i> เทคนิคและเครื่องมือ</h3>
+                    <ul style="margin-top: 15px; font-size: 18px;">
+                        <li><strong>v0.dev:</strong> พิมพ์บอกว่าอยากได้เว็บแบบไหน AI จะเขียนโค้ดให้เห็นหน้าตาทันที</li>
+                        <li><strong>Screenshot to Code:</strong> วาดรูปลงกระดาษแล้วถ่ายรูปให้ AI แปลงเป็นหน้าจอจริง</li>
+                        <li><strong>Canva Magic:</strong> ใช้ฟีเจอร์ AI สร้างรูปภาพ Mockup สินค้าหรือแอปใส่ในเครื่องมือถือจริง</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="slide-container" id="slide_pitching">
+    <div class="slide-container" id="slide53">
+        <h2 class="slide-title">ตัวอย่างการสร้าง Mockup ด้วย AI</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div style="border-top: 4px solid var(--primary);">
+                    <h3 style="color: var(--primary);">Step 1: ร่างโครงสร้าง (Wireframe)</h3>
+                    <p style="font-size: 16px;">ใช้ ChatGPT/Claude ช่วยระบุว่าในหน้าจอควรมีปุ่มหรือกราฟอะไรบ้าง</p>
+                    <div class="prompt-box" style="font-size: 14px;">"ช่วยออกแบบโครงร่างหน้าจอ Dashboard สำหรับฝ่ายขาย โดยต้องมีกราฟแท่งแสดงยอดขาย และตารางแสดงชื่อพนักงานที่ทำยอดถึงเป้า"</div>
+                </div>
+                <div style="border-top: 4px solid var(--success);">
+                    <h3 style="color: var(--success);">Step 2: สร้างภาพจริง (Visual)</h3>
+                    <p style="font-size: 16px;">นำโครงร่างไปให้ Image AI หรือ v0.dev สร้างภาพจำลองที่สวยงาม</p>
+                    <div class="prompt-box" style="font-size: 14px; border-left-color: var(--success);">"สร้างภาพ UI Dashboard สไตล์ Modern, สีหลักเป็นสีน้ำเงิน NCSA, แสดงข้อมูลความปลอดภัยทางไซเบอร์"</div>
+                </div>
+            </div>
+            <p style="margin-top: 30px; font-style: italic; text-align: center; color: var(--text-muted);">"ภาพหนึ่งภาพ แทนคำพูดได้นับพันคำ โดยเฉพาะเมื่อพูดกับผู้บริหาร"</p>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide54">
         <h2 class="slide-title">Pitching: นำเสนออย่างไรให้ "ผ่าน"</h2>
         <div class="content-area">
             <p style="text-align: center; margin-bottom: 40px; font-size: 22px;">โครงสร้างการนำเสนอโครงการ Smart Back Office โดยใช้ AI ช่วยร่าง</p>
@@ -1246,7 +1368,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide_workshop_final">
+    <div class="slide-container" id="slide55">
         <h2 class="slide-title">Final Workshop: Smart Back Office Concept</h2>
         <div class="content-area">
             <div style="background: rgba(14, 165, 233, 0.05); border: 2px dashed var(--primary); padding: 40px; border-radius: 16px;">
@@ -1267,8 +1389,61 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide49">
-        <h2 class="slide-title">Key Takeaways (สรุปเนื้อหาสำคัญ DAY 3)</h2>
+    <!-- AI Idea Canvas Slide Part 1 -->
+    <div class="slide-container" id="slide56">
+        <h2 class="slide-title">AI Idea Canvas: ส่วนวิเคราะห์ปัญหา (1/2)</h2>
+        <div class="content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 25px; border-radius: 16px;">
+                    <strong style="color: var(--primary); font-size: 24px; display: block; margin-bottom: 15px;">1. ชื่อไอเดีย</strong>
+                    <p style="font-size: 20px; color: #64748b; border-bottom: 1px dashed #cbd5e1; padding-bottom: 10px;">ระบุชื่อโปรเจกต์สั้นๆ ให้จำง่าย</p>
+                    
+                    <strong style="color: var(--primary); font-size: 24px; display: block; margin-top: 25px; margin-bottom: 15px;">3. ผู้ใช้งานหลัก</strong>
+                    <p style="font-size: 20px; color: #64748b; border-bottom: 1px dashed #cbd5e1; padding-bottom: 10px;">ใครคือกลุ่มเป้าหมายที่จะใช้ระบบนี้</p>
+                </div>
+                <div style="background: #fff5f5; border: 1px solid #feb2b2; padding: 25px; border-radius: 16px;">
+                    <strong style="color: var(--danger); font-size: 24px; display: block; margin-bottom: 15px;">2. ปัญหาปัจจุบัน (Pain Point)</strong>
+                    <p style="font-size: 20px; color: #c53030; min-height: 150px;">อธิบายความยากลำบากที่เกิดขึ้นจริงในปัจจุบัน (เช่น เสียเวลาทำซ้ำ, ข้อมูลผิดบ่อย)</p>
+                </div>
+            </div>
+            <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 25px; border-radius: 16px; margin-top: 20px;">
+                <strong style="color: var(--primary); font-size: 24px; display: block; margin-bottom: 15px;">4. AI จะช่วยทำอะไร (The Solution)</strong>
+                <p style="font-size: 20px; color: #64748b;">อธิบายบทบาทของ AI ในการเข้ามาแก้ปัญหาข้อ 2</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Idea Canvas Slide Part 2 -->
+    <div class="slide-container" id="slide57">
+        <h2 class="slide-title">AI Idea Canvas: ส่วนการทำงานและผลลัพธ์ (2/2)</h2>
+        <div class="content-area">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px;">
+                <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--secondary); font-size: 20px; display: block; margin-bottom: 10px;">6. ตัวอย่าง Prompt (RTCF)</strong>
+                    <div style="background: #fff; border: 1px dashed #cbd5e1; padding: 15px; font-size: 16px; font-family: monospace; min-height: 120px;">
+                        "คุณคือ [Role] ช่วย [Task] เกี่ยวกับ [Context] โดยขอ [Format]..."
+                    </div>
+                    
+                    <strong style="color: var(--primary); font-size: 20px; display: block; margin-top: 20px; margin-bottom: 10px;">7. Workflow ใหม่</strong>
+                    <p style="font-size: 18px; color: #64748b;">เดิมกี่ขั้นตอน ➔ ใหม่เหลือกี่ขั้นตอน</p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="background: #f0fff4; border: 1px solid #9ae6b4; padding: 20px; border-radius: 12px;">
+                        <strong style="color: var(--success); font-size: 20px;">10. ประโยชน์ที่คาดหวัง</strong>
+                        <p style="font-size: 18px; color: #276749;">ประหยัดเวลา/งบประมาณเท่าไหร่</p>
+                    </div>
+                    <div style="background: #fdf2f2; border: 1px solid #fecaca; padding: 20px; border-radius: 12px;">
+                        <strong style="color: var(--danger); font-size: 20px;">9. ความเสี่ยง & วิธีป้องกัน</strong>
+                        <p style="font-size: 18px; color: #991b1b;">AI มั่วข้อมูล ➔ มีคนตรวจซ้ำ</p>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 25px; font-size: 20px; color: var(--secondary); font-weight: bold;">(ถ่ายรูปเพื่อใช้เป็นแนวทางในการกรอกข้อมูลส่งผลงาน)</p>
+        </div>
+    </div>
+
+    <div class="slide-container" id="slide58">
+        <h2 class="slide-title">Key Takeaways (สรุปเนื้อหาสำคัญ)</h2>
         <div class="content-area">
             <div class="bullet-list single-col">
                 <ul style="gap: 12px;">
@@ -1286,16 +1461,18 @@
                         <i class="fa-solid fa-clipboard-check" style="top: 20px; font-size: 28px; color: var(--warning);"></i>
                         <strong style="color: var(--warning); font-size: 20px; margin-bottom: 4px;">4 F's of QA:</strong>
                         <span style="font-size: 18px;">Facts (ความจริง), Format (รูปแบบ), Flow (ความลื่นไหล), Fit (ความเหมาะสม)</span>
-                    </li>                    <li style="padding: 15px 20px 15px 70px;">
+                    </li>
+                    <li style="padding: 15px 20px 15px 70px;">
                         <i class="fa-solid fa-user-check" style="top: 20px; font-size: 28px; color: var(--danger);"></i>
                         <strong style="color: var(--danger); font-size: 20px; margin-bottom: 4px;">Human Accountability:</strong>
                         <span style="font-size: 18px;">คุณคือบรรณาธิการ และคุณคือผู้รับผิดชอบผลงานชิ้นสุดท้ายเสมอ</span>
-                    </li>                </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div class="slide-container" id="slide50">
+    <div class="slide-container" id="slide59">
         <div class="content-area">
             <div class="section-title-layout">
                 <h2 style="font-size: 120px; color: var(--primary);"><i class="fa-solid fa-circle-question"></i> Q&A</h2>
@@ -1304,7 +1481,7 @@
         </div>
     </div>
 
-    <div class="slide-container" id="slide51">
+    <div class="slide-container" id="slide60">
         <div class="content-area">
             <div class="section-title-layout">
                 <h2 style="font-size: 72px; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ขอขอบคุณทุกท่านครับ</h2>
